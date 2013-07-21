@@ -1,0 +1,90 @@
+# Hardware and software for single-molecule fluorescence analysis
+
+We present a suite of tools for the collection and analysis of
+fluorescence spectroscopy data.  While fluorescence techniques have in
+recent years enabled a variety of biologically relevant measurements
+[@iqbal2008orientation; @Vafabakhsh2012; @Andrec2003], the lack of a common
+high-quality analysis toolkit has hindered reproducibility and
+substantially raised the barrier to entry for these tools.
+
+Our package includes hardware and software for experimental data
+collection, as well as a diverse set of tools for manipulating the
+resulting dataset. Finally, we include a set of tools for robust
+analysis of a data from a few common fluorescence experiments.
+
+## Fluorescence spectroscopy
+
+TODO: fluorescence
+
+Fluorescence spectroscopic methods are a class of experimental
+techniques examining the photon emissions from fluorescent
+molecules. Thanks to convenient chemical tools for attaching
+fluorescent dyes to typical biological polymers (e.g. proteins, DNA,
+and RNA), these techniques enjoy wide applicability.
+
+Improvements in optics and detector technology have opened the door to
+use of fluorescence spectroscopic methods to conduct true
+single-molecule experiments. The ability to detect single photon
+arrival events.
+
+### FRET
+Förster Resonance Energy Transfer (FRET) is a fluorescence technique
+used heavily in biology and biophysics as a probe of
+enzyme dynamics, static polymer properties, and ?.
+In recent years, FRET has enabled high-resolution studies of
+macromolecular geometry [@Iqbal2005], studies of mechanical
+flexibility [@Vafabakhsh2012], as well enzyme kinetics [@seidel2010].
+
+The experiment revolves around the Förster process,
+whereby proximate fluorophores with overlapping spectra can undergo
+energy transfer. The efficiency $E$ of this transfer process is modulated
+by a variety of geometric and environmental parameters,
+
+$E = \frac{1}{1 + (\frac{R}{R₀})⁶}$
+
+where $R$ is the distance between the fluorophores and $R₀$ is a
+lengthscale set by the orientation of the dyes and other material
+properties.
+
+### FCS
+
+Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
+experimental tool widely used to characterize reaction
+kinetics[@allen2006] and molecular size.  By examining temporal
+correlations in fluorescence intensity fluctuations within a
+small observation volume, one can infer characteristics of a
+molecular species' diffusion.
+
+In conjunction with FRET, one can gain deep insights into dynamics on
+molecular scales [@Nettels2008].
+
+## Hardware for experimental data collection
+
+The heart? of a single-molecule fluorescence experiment is the photon
+timestamping device. This device takes the output signals from each of
+the detector modules and records a timestamp for each photon detection
+event. Despite the relatively simple requirements for this device, we
+found a remarkable gap in the capabilities of the commerically
+available hardware.
+
+While Time Correlated Single Photon Counting (TCSPC) modules offer
+extremely high resolution timestamps (~10 picosecond), they
+cost tens of thousands of dollars, far more than our comparatively
+relaxed timing requirements justify.  This leaves many labs to use
+inexpensive hardware correlators which produce a coarsely binned
+intensity signal. Furthermore, neither of these devices are flexible
+enough to accommodate recent variations of these experients
+[@lee2005; @seidel2008].
+
+We developed a set of firmware for simple, extensible timetagging
+functionality on a readily available FPGA [development
+board](http://www.knjn.com/FPGA-FX2.html). The 
+
+## Tools for fluorescence data analysis
+
+
+
+
+# Notes
+
+ * PT2 support

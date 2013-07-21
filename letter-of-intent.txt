@@ -1,0 +1,98 @@
+# Final text
+
+The static conformations and structural dynamics of biological
+macromolecules are of great interest to biological researchers.
+Förster Resonance Energy Transfer (FRET) is a technique for probing
+intramolecular distances within a single molecule over time by
+examining photon emissions resulting from a distance-dependent energy
+transfer process.
+
+While FRET has enabled a variety of biologically relevant measurements
+[@Lilley2005, @Vefabakhsh2012, @Andrec2003], the lack of a common
+high-quality analysis toolkit for analyzing data from FRET experiments
+and its many variants has hindered reproducibility and substantially
+raised the barrier to realizing a fluorescence spectroscopic
+experiment.  The product of a FRET experiment is typically a set of
+>10⁶ time-stamped photons. The task of filtering background from
+foreground, correcting for experimental artifacts, and inferring the
+observed signal can often pose a formidable challenge.
+
+I have been working to release our analysis pipeline, `hphoton`[1],
+(as with all of my code) under a BSD license. In addition to these
+analysis tools, we also have developed a suite of open-source hardware
+and software for photon counting experiments. Our timetagger hardware
+provides a extensible platform for acquiring photon timestamp data
+along with a user-friendly interface. Meanwhile, the `photon-tools`[3]
+package provides an extensive toolchain for working with photon
+timestamp data.
+
+  [1] http://github.com/bgamari/hphoton
+
+
+# References
+
+@Lilley2005:
+    Iqbal, A., Arslan, S., Okumus, B., Wilson, T. J., Giraud, G.,
+    Norman, D. G., Ha, T., et al. (2008). Orientation dependence in
+    fluorescent energy transfer between Cy3 and Cy5 terminally
+    attached to double-stranded nucleic acids. Proceedings of the
+    National Academy of Sciences, 105(32),
+    11176. doi:10.1073/pnas.0801707105
+
+@Vafabakhsh2012
+    Vafabakhsh, R., & Ha, T. (2012). Extreme bendability of DNA less
+    than 100 base pairs long revealed by single-molecule
+    cyclization. Science (New York, N.Y.), 337(6098),
+    1097–101. doi:10.1126/science.1224139
+
+@Andrec2003
+    Andrec, M., Levy, R. M., & Talaga, D. S. (2003). Direct
+    Determination of Kinetic Rates from Single-Molecule Photon
+    Arrival Trajectories Using Hidden Markov Models. The journal of
+    physical chemistry. A, 107(38), 7454–7464. doi:10.1021/jp035514+
+
+@Kapanidis2005
+    Lee, N. K., Kapanidis, A. N., Wang, Y., Michalet, X.,
+    Mukhopadhyay, J., Ebright, R. H., & Weiss, S. (2005). Accurate
+    FRET Measurements within Single Diffusing Biomolecules Using
+    Alternating-Laser Excitation. Biophysical journal, 88(4),
+    2939–53. doi:10.1529/biophysj.104.054114
+
+
+      
+
+# Scribblings
+
+In recent years, FRET has enabled high-resolution studies of
+macromolecular geometry [@Lilley2005], studies of mechanical
+flexibility [@Vekabesh2012], as well enzyme kinetics [@]. While the
+techniques
+
+
+Förster Resonance Energy Transfer (FRET) is a common spectroscopic
+technique for examining conformation and structural dynamics of small
+macromolecules. FRET is unique in its ability to probe intramolecular
+distances within a single molecule over time by looking at photon
+emissions resulting from a distance-dependent energy transfer process.
+
+
+ * need for open toolkit for collection and analysis of experimental data:
+   * open
+   * implement sound, statistical inferences
+ * bayes-stack
+   * general purpose Bayesian modelling package
+   * supports Gibbs sampling as primarymeans
+ * hphoton
+   * a suite of analysis tools for examining timestamped fluorescence data
+ * hardware
+   * 
+ 
+
+Perhaps doesn't fit,
+
+ * data acquisition hardware
+   * flexiblity to enable new experimental techniques (e.g. ALEX)
+   * open up fluorescence experiments
+
+ * photon-tools
+   * FCS
