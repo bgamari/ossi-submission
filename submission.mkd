@@ -27,7 +27,7 @@ use of fluorescence spectroscopic methods to conduct true
 single-molecule experiments. The ability to detect single photon
 arrival events.
 
-### FRET
+### Förster Resonance Energy Transfer
 Förster Resonance Energy Transfer (FRET) is a fluorescence technique
 used heavily in biology and biophysics as a probe of
 enzyme dynamics, static polymer properties, and ?.
@@ -46,7 +46,7 @@ where $R$ is the distance between the fluorophores and $R₀$ is a
 lengthscale set by the orientation of the dyes and other material
 properties.
 
-### FCS
+### Fluorescence Correlation Spectroscopy
 
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
@@ -67,7 +67,7 @@ event. Despite the relatively simple requirements for this device, we
 found a remarkable gap in the capabilities of the commerically
 available hardware.
 
-While Time Correlated Single Photon Counting (TCSPC) modules offer
+While Time-Correlated Single Photon Counting (TCSPC) modules offer
 extremely high resolution timestamps (~10 picosecond), they
 cost tens of thousands of dollars, far more than our comparatively
 relaxed timing requirements justify.  This leaves many labs to use
@@ -77,14 +77,72 @@ enough to accommodate recent variations of these experients
 [@lee2005; @seidel2008].
 
 We developed a set of firmware for simple, extensible timetagging
-functionality on a readily available FPGA [development
-board](http://www.knjn.com/FPGA-FX2.html). The 
+functionality on a readily available FPGA
+[development board](http://www.knjn.com/FPGA-FX2.html). The instrument
+is easy to build with complete
+[build instructions](http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf). Furthermore,
+the instrument includes an event sequencer which can be used for FRET
+variants requiring excitation laser switching [@Kapanidis2005]. The
+Verilog [sources](http://github.com/bgamari/timetag-fpga) are
+well-[documented](http://github.com/bgamari/timetag-fpga/tree/master/docs)
+and structured to allow for easy adaptation for new experimental
+techniques.
 
-## Tools for fluorescence data analysis
+## Tools for data acquisition
+
+The hardware described above is complemented with a set of low-level
+tools in the `timetag-tools`
+[package](http://github.com/bgamari/timetag-tools). In addition to
+low-level utilities for manipulating data collected by the instrument,
+the package provides a user-friendly graphical interface for
+interacting with the hardware. The `timetag_ui` interface provides
+control over the basic functionality of the hardware, as well several
+monitors showing facets of the incoming data. These include real-time
+monitors of an approximate FRET efficiency histogram, the correlation
+function, as well as the photon counting histogram, and bin counts.
+
+![The `timetag_ui` interface during data acquisition](timetag-ui.png)
+
+This interface makes it straightforward to setup and acquire
+fluorescence data. While the tools should run in any POSIX-compliant
+environment, the installation [instructions][timetag-tutorial] provide step-by-step
+instructions for installation on Ubuntu Linux.
+
+The package also provides a set of low-level command-line utilities
+for slicing, filtering, converting, and other basic manipulations of
+timetag data.
 
 
+## Tools for data analysis
 
+The `photon-tools` package provides a set of Python utilities and
+libraries for manipulating and analyzing photon data. The utilities
+support a variety of file formats including our hardware's `.timetag`
+format and the Picoharp `.pt2` format. These utilities include
+an extensive [tutorial][photon-tools docs] as well as comprehensive
+Python docstrings.
+
+The `fcs-corr` utility provides a convenient way to compute and plot correlations
+
+The `hphoton` package provides the `fret-analysis` and `alex-analysis`
+tools for analysis of FRET and FRET with Alternating Laser Excitation
+(ALEX) data. These programs support for the major corrections
+necessary for inferring quantitatively accurate FRET
+efficiencies. Moreover, the programs emit both human-readable HTML
+providing a suscint summary of each dataset, as well as machine
+readable results.
+
+The programs use approximate inference (Gibbs sampling) to infer a
+Beta mixture model over the resulting FRET efficiency histogram,
+allowing accurate separation of multiple species within a dataset.
 
 # Notes
 
  * PT2 support
+ * vbFRET export
+ * emFRET export
+ * burst detection?
+
+
+[timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
+[photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
