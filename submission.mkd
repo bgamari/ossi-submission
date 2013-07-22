@@ -14,7 +14,8 @@ analysis of a data from a few common fluorescence experiments.
 
 ## Fluorescence spectroscopy
 
-TODO: fluorescence
+TODO: explain fluorescence
+
 ![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from dyes passing through this volume.](fret-setup.pdf)
 
 Fluorescence spectroscopic methods are a class of experimental
@@ -54,7 +55,9 @@ experimental tool widely used to characterize reaction
 kinetics[@allen2006] and molecular size.  By examining temporal
 correlations in fluorescence intensity fluctuations within a
 small observation volume, one can infer characteristics of a
-molecular species' diffusion.
+molecular species' diffusion. Depending upon the nature of the system,
+one might find one-, two-, or three-dimension diffusion, normal or
+anomalous, each exhibiting a distinct functional form.
 
 In conjunction with FRET, one can gain deep insights into dynamics on
 molecular scales [@Nettels2008].
@@ -77,7 +80,7 @@ intensity signal. Furthermore, neither of these devices are flexible
 enough to accommodate recent variations of these experients
 [@lee2005; @seidel2008].
 
-We developed a set of firmware for simple, extensible timetagging
+We developed [@gamari2012] a set of firmware for simple, extensible timetagging
 functionality on a readily available FPGA
 [development board](http://www.knjn.com/FPGA-FX2.html). The instrument
 is easy to build with complete
@@ -91,8 +94,8 @@ techniques.
 
 ## Tools for data acquisition
 
-The hardware described above is complemented with a set of low-level
-tools in the `timetag-tools`
+The hardware described above is complemented with a set of tools in
+the `timetag-tools`
 [package](http://github.com/bgamari/timetag-tools). In addition to
 low-level utilities for manipulating data collected by the instrument,
 the package provides a user-friendly graphical interface for
@@ -112,7 +115,6 @@ instructions for installation on Ubuntu Linux.
 The package also provides a set of low-level command-line utilities
 for slicing, filtering, converting, and other basic manipulations of
 timetag data.
-
 
 ## Tools for data analysis
 
@@ -146,7 +148,22 @@ Beta mixture model over the resulting FRET efficiency histogram,
 allowing accurate separation of multiple species within a dataset.
 
 Furthermore, we provide a novel Bayesian burst detection scheme for
-extracting fluorescence bursts from solution FRET experiments.
+extracting fluorescence bursts from solution FRET experiments. In
+contrast to existing inference methods which rely on a binned
+reduction of the photon arrivals, our approach exploits the
+exponential distribution of Poissonian interarrival times in
+conjunction with an assumption of time continuity. This allows bursts
+of small than one bin width (a common occurrence in solution FRET
+experiments) to be examined while minimizing the effect of background.
+
+# An example exercise
+
+In the submission package we have provided a dataset for a
+single-molecule fluorescence experiment taken with our timetagger
+hardware. The dataset\footnote{experimental data due to Peker Milas of the Goldner
+group} examines an RNA 16-mer labelled terminally with Cy3 and C5
+dyes. 
+
 
 # Notes
 
@@ -154,6 +171,8 @@ extracting fluorescence bursts from solution FRET experiments.
  * vbFRET export/implementation
  * emFRET export
  * burst detection?
+ * particle tracking?
+ * verify repositories have properly licensed
 
 
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
