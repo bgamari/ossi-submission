@@ -15,6 +15,7 @@ analysis of a data from a few common fluorescence experiments.
 ## Fluorescence spectroscopy
 
 TODO: fluorescence
+![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from dyes passing through this volume.](fret-setup.pdf)
 
 Fluorescence spectroscopic methods are a class of experimental
 techniques examining the photon emissions from fluorescent
@@ -40,7 +41,7 @@ whereby proximate fluorophores with overlapping spectra can undergo
 energy transfer. The efficiency $E$ of this transfer process is modulated
 by a variety of geometric and environmental parameters,
 
-$E = \frac{1}{1 + (\frac{R}{R₀})⁶}$
+$$E = \frac{1}{1 + (\frac{R}{R₀})^6}$$
 
 where $R$ is the distance between the fluorophores and $R₀$ is a
 lengthscale set by the orientation of the dyes and other material
@@ -122,7 +123,13 @@ format and the Picoharp `.pt2` format. These utilities include
 an extensive [tutorial][photon-tools docs] as well as comprehensive
 Python docstrings.
 
-The `fcs-corr` utility provides a convenient way to compute and plot correlations
+The `fcs-corr` utility provides a convenient way to compute and plot
+correlation functions of timestamp data. The `fcs-fit` utility takes
+one or more correlation functions produced by `fcs-corr` and allows
+the user to fit the data collectively to any of a number of physical
+models. The tool supports parameter-tying over multiple datasets and
+produces a variety of diagnostic statistics and goodness-of-fit
+metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
 tools for analysis of FRET and FRET with Alternating Laser Excitation
@@ -132,14 +139,19 @@ efficiencies. Moreover, the programs emit both human-readable HTML
 providing a suscint summary of each dataset, as well as machine
 readable results.
 
+![The output of the `fret-analysis` tool showing a FRET dataset with two populations](fret-analysis.png)
+
 The programs use approximate inference (Gibbs sampling) to infer a
 Beta mixture model over the resulting FRET efficiency histogram,
 allowing accurate separation of multiple species within a dataset.
 
+Furthermore, we provide a novel Bayesian burst detection scheme for
+extracting fluorescence bursts from solution FRET experiments.
+
 # Notes
 
  * PT2 support
- * vbFRET export
+ * vbFRET export/implementation
  * emFRET export
  * burst detection?
 
