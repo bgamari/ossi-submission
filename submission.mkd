@@ -66,7 +66,7 @@ one might find one-, two-, or three-dimension diffusion, normal or
 anomalous, each exhibiting a distinct functional form.
 
 In conjunction with FRET, one can gain deep insights into dynamics on
-molecular scales [@Nettels2008].
+the molecular scale [@Nettels2008].
 
 ## Hardware for experimental data collection
 
