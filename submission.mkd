@@ -29,6 +29,12 @@ use of fluorescence spectroscopic methods to conduct true
 single-molecule experiments. The ability to detect single photon
 arrival events.
 
+A typical fluorescence spectroscopy experiment will collect tens of
+millions of photons, each contributing a small parcel of information
+about the system. Analyzing this data in an information-optimal manner
+requires sophisticated statistical modelling tools along with physical
+insight.
+
 ### Förster Resonance Energy Transfer
 Förster Resonance Energy Transfer (FRET) is a fluorescence technique
 used heavily in biology and biophysics as a probe of
@@ -156,14 +162,21 @@ conjunction with an assumption of time continuity. This allows bursts
 of small than one bin width (a common occurrence in solution FRET
 experiments) to be examined while minimizing the effect of background.
 
-# An example exercise
+### An example exercise
 
 In the submission package we have provided a dataset for a
 single-molecule fluorescence experiment taken with our timetagger
-hardware. The dataset\footnote{experimental data due to Peker Milas of the Goldner
-group} examines an RNA 16-mer labelled terminally with Cy3 and C5
-dyes. 
+hardware. The dataset \footnote{experimental data due to Peker Milas of
+the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
+and C5 dyes.
 
+
+## A framework for approximate Bayesian inference
+
+Along with the hardware and various software tools described above, we
+provide `bayes-stack`, a general-purpose framework for
+high-performance approximate inference on probabilistic models. This
+framework
 
 # Notes
 
