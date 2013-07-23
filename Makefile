@@ -1,4 +1,4 @@
-PANDOC_OPTS=--bibliography=library.bib
+PANDOC_OPTS=--bibliography=library.bib -V links-as-notes
 
 all : submission.pdf
 

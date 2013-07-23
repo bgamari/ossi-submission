@@ -13,15 +13,17 @@ What is wrong with existing tools?
  * hardware is inflexible too support recent experimental variants
  * common software is closed or non-existent hindering reproducibility
    and raising barrier-to-entry
+ * How can I talk about the limitations of existing solutions without
+   discussion what existing solutions do?
 
-We present a suite of tools for the collection and analysis of
-fluorescence spectroscopy data. Our package includes hardware and
+We present a suite of end-to-end tools for the collection and analysis
+of fluorescence spectroscopy data. Our package includes hardware and
 software for experimental data collection, as well as a diverse set of
 tools for manipulating the resulting dataset. Finally, we include a
 set of tools for robust analysis of a data from a few common
 fluorescence experiments.
 
-## Fluorescence spectroscopy
+## Background: Fluorescence spectroscopy
 
 ![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from fluorophores passing through this volume.](fret-setup.pdf)
 
@@ -43,16 +45,15 @@ enabled high-resolution studies of macromolecular geometry
 well enzyme kinetics [@seidel2010], revealing structure and dynamics
 largely inaccessible by other means.
 
-The method revolves around the Förster process, whereby proximate
-fluorophores with overlapping fluorescence spectra can undergo energy
-transfer. The efficiency $E$ of this transfer process is modulated by
-a variety of geometric and environmental parameters,
-
-$$E = \frac{1}{1 + (\frac{R}{R₀})^6}$$
-
-where $R$ is the distance between the fluorophores and $R₀$ is a
-lengthscale set by the orientation of the dyes and other material
-properties.
+The method revolves around the Förster process whereby two
+fluorophores in close proximity to one another can undergo energy
+transfer. The efficiency of this transfer process is modulated by
+the distance and relative orientation of the dyes, as well as
+a variety of environmental parameters. By examining the relative
+fluorescence intensity of the two dyes, one can observe structural
+changes in the molecule under study. With careful characterization and
+modelling, quantitative FRET measurements are also possible, allowing
+measurement of molecular conformation.
 
 FRET poses a variety of experimental challenges,
 
@@ -98,49 +99,46 @@ enough to accommodate recent variations of fluoroscence experiments,
 for instance, measurements involving multiple excitation
 sources[@lee2005; @seidel2008].
 
-We developed [@gamari2012] a set of firmware for simple, extensible timetagging
-functionality on a readily available FPGA
+We developed [@gamari2012] a photon timestamping instrument based around
+a readily available FPGA
 [development board](http://www.knjn.com/FPGA-FX2.html). The instrument
 is easy to build with complete
-[build instructions](http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf). Furthermore,
+[build instructions](http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf). Along with timestamping functionality,
 the instrument includes an event sequencer which can be used for FRET
 variants requiring excitation laser switching [@Kapanidis2005]. The
-Verilog [sources](http://github.com/bgamari/timetag-fpga) are
-well-[documented](http://github.com/bgamari/timetag-fpga/tree/master/docs)
-and structured to allow for easy adaptation for new experimental
-techniques.
+[sources](http://github.com/bgamari/timetag-fpga) include comprehensive
+[documentation](http://github.com/bgamari/timetag-fpga/tree/master/docs)
+to allow for easy adaptation for new experimental settings.
 
 ### Software
-The hardware described above is complemented with a set of tools in
-the `timetag-tools`
-[package](http://github.com/bgamari/timetag-tools). In addition to
+The instrument is complemented with a set of software
+[tools](http://github.com/bgamari/timetag-tools). In addition to
 low-level utilities for manipulating data collected by the instrument,
-the package provides a user-friendly graphical interface for
-interacting with the hardware. The `timetag_ui` interface provides
+the package provides a user-friendly graphical interface for setting up and monitoring an experiment. The `timetag_ui` interface provides
 control over the basic functionality of the hardware, as well several
 monitors showing facets of the incoming data. These include real-time
 monitors of an approximate FRET efficiency histogram, the correlation
 function, as well as the photon counting histogram, and bin counts.
 
 ![The `timetag_ui` interface during data acquisition](timetag-ui.png)
-
+    
 This interface makes it straightforward to setup and acquire
 fluorescence data. While the tools should run in any POSIX-compliant
-environment, the installation [instructions][timetag-tutorial] provide step-by-step
-instructions for installation on Ubuntu Linux.
+environment, the usage [tutorial][timetag-tutorial] provide
+step-by-step instructions for installation and operation on Ubuntu Linux.
 
 The package also provides a set of low-level command-line utilities
 for slicing, filtering, converting, and other basic manipulations of
-timetag data.
+data produced by the instrument.
 
 ## Tools for data analysis
 
 The `photon-tools` package provides a set of Python utilities and
 libraries for manipulating and analyzing photon data. The utilities
-support a variety of file formats including our hardware's `.timetag`
-format and the Picoharp `.pt2` format. These utilities include
-an extensive [tutorial][photon-tools docs] as well as comprehensive
-Python docstrings.
+support a variety of file formats including formats of several
+commericial instruments. These utilities include an extensive
+[tutorial][photon-tools docs] as well as comprehensive Python
+docstrings.
 
 The `fcs-corr` utility provides a convenient way to compute and plot
 correlation functions of timestamp data. The `fcs-fit` utility takes
@@ -177,7 +175,7 @@ experiments) to be examined while minimizing the effect of background.
 
 In the submission package we have provided a dataset for a
 single-molecule fluorescence experiment taken with our timetagger
-hardware. The dataset \footnote{experimental data due to Peker Milas of
+hardware. The dataset\footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
 and Cy5 fluorophores.
 
@@ -198,6 +196,7 @@ framework
  * particle tracking?
  * verify repositories have properly licensed
  * new hardware
+ * deblinking/denoising?
 
 
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
