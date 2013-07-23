@@ -19,21 +19,23 @@ TODO: explain fluorescence
 ![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from dyes passing through this volume.](fret-setup.pdf)
 
 Fluorescence spectroscopic methods are a class of experimental
-techniques examining the photon emissions from fluorescent
-molecules. Thanks to convenient chemical tools for attaching
-fluorescent dyes to typical biological polymers (e.g. proteins, DNA,
-and RNA), these techniques enjoy wide applicability.
-
-Improvements in optics and detector technology have opened the door to
+techniques examining photon emissions from fluorescent
+molecules. Thanks to the advent of convenient linker chemistries for
+attaching fluorescent dyes to typical biological polymers
+(e.g. proteins, DNA, and RNA), these techniques enjoy applicability to
+a wide variety of biologically relevant systems.  Meanwhile,
+improvements in optics and detector technology have opened the door to
 use of fluorescence spectroscopic methods to conduct true
-single-molecule experiments. The ability to detect single photon
-arrival events.
+single-molecule experiments.
 
 A typical fluorescence spectroscopy experiment will collect tens of
 millions of photons, each contributing a small parcel of information
-about the system. Analyzing this data in an information-optimal manner
-requires sophisticated statistical modelling tools along with physical
-insight.
+about the system. While naive analysis methods have varried the field
+with some success thusfar, the need to prove systems with more
+intricate and faster dynamics presents the need for more sophisticated
+analytic tools. Analyzing fluorescence data in an information-optimal
+manner requires sophisticated statistical modelling along with
+physical insight.
 
 ### Förster Resonance Energy Transfer
 Förster Resonance Energy Transfer (FRET) is a fluorescence technique
@@ -186,6 +188,7 @@ framework
  * burst detection?
  * particle tracking?
  * verify repositories have properly licensed
+ * new hardware
 
 
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
