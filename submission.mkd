@@ -1,54 +1,52 @@
 # Hardware and software for single-molecule fluorescence analysis
 
-We present a suite of tools for the collection and analysis of
-fluorescence spectroscopy data.  While fluorescence techniques have in
-recent years enabled a variety of biologically relevant measurements
-[@iqbal2008orientation; @Vafabakhsh2012; @Andrec2003], the lack of a common
-high-quality analysis toolkit has hindered reproducibility and
-substantially raised the barrier to entry for these tools.
+Fluorescence spectroscopy techniques have in recent years enabled a
+variety of measurements on biologically relevant systems ranging from
+characterization of polymer mechanics
+[@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
+to enzyme kinetics [@Wu2006; @Heyduk2002; @Allen2006] to protein
+conformation [@Wozniak2005] to *in vivo* measurement of macromolecular
+aggregation [@Pitschke1998].
 
-Our package includes hardware and software for experimental data
-collection, as well as a diverse set of tools for manipulating the
-resulting dataset. Finally, we include a set of tools for robust
-analysis of a data from a few common fluorescence experiments.
+What is wrong with existing tools?
+ * hardware is either expensive or collects coarse-grained data
+ * hardware is inflexible too support recent experimental variants
+ * common software is closed or non-existent hindering reproducibility
+   and raising barrier-to-entry
+
+We present a suite of tools for the collection and analysis of
+fluorescence spectroscopy data. Our package includes hardware and
+software for experimental data collection, as well as a diverse set of
+tools for manipulating the resulting dataset. Finally, we include a
+set of tools for robust analysis of a data from a few common
+fluorescence experiments.
 
 ## Fluorescence spectroscopy
 
-TODO: explain fluorescence
-
-![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from dyes passing through this volume.](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment. Here we see a laser illuminating a observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence produced from fluorophores passing through this volume.](fret-setup.pdf)
 
 Fluorescence spectroscopic methods are a class of experimental
-techniques examining photon emissions from fluorescent
-molecules. Thanks to the advent of convenient linker chemistries for
+techniques examining photon emissions from fluorescent molecules. Of
+the wide array of fluorescence techniques, we focus on single-molecule
+methods. Since the advent of convenient linker chemistries for
 attaching fluorescent dyes to typical biological polymers
-(e.g. proteins, DNA, and RNA), these techniques enjoy applicability to
-a wide variety of biologically relevant systems.  Meanwhile,
-improvements in optics and detector technology have opened the door to
-use of fluorescence spectroscopic methods to conduct true
-single-molecule experiments.
-
-A typical fluorescence spectroscopy experiment will collect tens of
-millions of photons, each contributing a small parcel of information
-about the system. While naive analysis methods have varried the field
-with some success thusfar, the need to prove systems with more
-intricate and faster dynamics presents the need for more sophisticated
-analytic tools. Analyzing fluorescence data in an information-optimal
-manner requires sophisticated statistical modelling along with
-physical insight.
+(e.g. proteins, DNA, and RNA), these techniques have enjoyed
+applicability to a wide variety of biologically relevant systems.
+We will focus on two methods in particular.
 
 ### Förster Resonance Energy Transfer
-Förster Resonance Energy Transfer (FRET) is a fluorescence technique
-used heavily in biology and biophysics as a probe of
-enzyme dynamics, static polymer properties, and ?.
-In recent years, FRET has enabled high-resolution studies of
-macromolecular geometry [@Iqbal2005], studies of mechanical
-flexibility [@Vafabakhsh2012], as well enzyme kinetics [@seidel2010].
 
-The experiment revolves around the Förster process,
-whereby proximate fluorophores with overlapping spectra can undergo
-energy transfer. The efficiency $E$ of this transfer process is modulated
-by a variety of geometric and environmental parameters,
+Förster Resonance Energy Transfer (FRET) is a fluorescence technique
+used heavily in biology and biophysics. In recent years, FRET has
+enabled high-resolution studies of macromolecular geometry
+[@Iqbal2005], studies of mechanical flexibility [@Vafabakhsh2012], as
+well enzyme kinetics [@seidel2010], revealing structure and dynamics
+largely inaccessible by other means.
+
+The method revolves around the Förster process, whereby proximate
+fluorophores with overlapping fluorescence spectra can undergo energy
+transfer. The efficiency $E$ of this transfer process is modulated by
+a variety of geometric and environmental parameters,
 
 $$E = \frac{1}{1 + (\frac{R}{R₀})^6}$$
 
@@ -56,22 +54,33 @@ where $R$ is the distance between the fluorophores and $R₀$ is a
 lengthscale set by the orientation of the dyes and other material
 properties.
 
+FRET poses a variety of experimental challenges,
+
+ * measurement artifacts for detector background and non-ideal optics
+   require characterization and correction
+ * photophysical effects such as triplet blinking and non-radiative
+   decay pathways require careful consideration
+ * eventual bleaching of fluorophores set an upper bound on experiment length
+ * artifacts due to dynamics of the fluorophores themselves require
+   modelling and correction
+
 ### Fluorescence Correlation Spectroscopy
 
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
 kinetics[@allen2006] and molecular size.  By examining temporal
 correlations in fluorescence intensity fluctuations within a
-small observation volume, one can infer characteristics of a
+observation volume, one can infer characteristics of a
 molecular species' diffusion. Depending upon the nature of the system,
 one might find one-, two-, or three-dimension diffusion, normal or
 anomalous, each exhibiting a distinct functional form.
 
-In conjunction with FRET, one can gain deep insights into dynamics on
-the molecular scale [@Nettels2008].
+Using FCS in conjunction with FRET can provide deep insights into
+dynamics on molecular length-scales [@Nettels2008].
 
-## Hardware for experimental data collection
+## Tools for experimental data collection
 
+### Hardware
 The heart? of a single-molecule fluorescence experiment is the photon
 timestamping device. This device takes the output signals from each of
 the detector modules and records a timestamp for each photon detection
@@ -85,8 +94,9 @@ cost tens of thousands of dollars, far more than our comparatively
 relaxed timing requirements justify.  This leaves many labs to use
 inexpensive hardware correlators which produce a coarsely binned
 intensity signal. Furthermore, neither of these devices are flexible
-enough to accommodate recent variations of these experients
-[@lee2005; @seidel2008].
+enough to accommodate recent variations of fluoroscence experiments,
+for instance, measurements involving multiple excitation
+sources[@lee2005; @seidel2008].
 
 We developed [@gamari2012] a set of firmware for simple, extensible timetagging
 functionality on a readily available FPGA
@@ -100,8 +110,7 @@ well-[documented](http://github.com/bgamari/timetag-fpga/tree/master/docs)
 and structured to allow for easy adaptation for new experimental
 techniques.
 
-## Tools for data acquisition
-
+### Software
 The hardware described above is complemented with a set of tools in
 the `timetag-tools`
 [package](http://github.com/bgamari/timetag-tools). In addition to
@@ -170,7 +179,7 @@ In the submission package we have provided a dataset for a
 single-molecule fluorescence experiment taken with our timetagger
 hardware. The dataset \footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
-and C5 dyes.
+and Cy5 fluorophores.
 
 
 ## A framework for approximate Bayesian inference
@@ -193,3 +202,12 @@ framework
 
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
 [photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
+
+A typical fluorescence spectroscopy experiment will collect tens of
+millions of photons, each contributing a small parcel of information
+about the system. While naive analysis methods have varried the field
+with some success thusfar, the need to prove systems with more
+intricate and faster dynamics presents the need for more sophisticated
+analytic tools. Analyzing fluorescence data in an information-optimal
+manner requires sophisticated statistical modelling along with
+physical insight.
