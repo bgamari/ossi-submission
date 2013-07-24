@@ -4,36 +4,69 @@ Over the last three decades, fluorescence spectroscopy has developed
 into a unique tool for probing biologically relevant systems. In
 particular, fluorescence correlation spectroscopy (FCS) is now a
 routine measurement enabling biologists access to reaction
-kinetics[@Wu2006; @Heyduk2002; @Allen2006]
-and sizes of biomolecular assemblies[@Pitschke1998]. 
-Likewise, single molecule Förster resonance energy transfer (smFRET) has
-proved to be useful for a variety of biologically relevant
-measurements ranging from DNA/RNA mechanics 
+kinetics[@Wu2006; @Heyduk2002; @Allen2006] and sizes of biomolecular
+assemblies[@Pitschke1998].  Likewise, single molecule Förster
+resonance energy transfer (smFRET) has proved to be useful for a
+variety of biologically relevant measurements ranging from DNA/RNA
+mechanics
 [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
-to protein conformation [@Wozniak2005] and function[@todo]
-In when used in tandem these two techniques can provide unique perspective
-into dynamics on molecular length-scales [@Nettels2008].
+to protein conformation [@Wozniak2005] and function[@todo].  When used
+in tandem these two techniques can provide unique perspective into
+dynamics on molecular length-scales and over a wide range of
+time-scales [@Nettels2008].
 
-These measurements share a need for a photon timing system and
-associated analysis tools. While commerical time-correlated single
-photon counting (TCSPC) modules are readily available, they are not
-optimal for FRET experiments as they generally cost tens of thousands
-of dollars due to the picosecond timing resolution demanded by TCSPC
-experiments. In contrast, this resolution brings little to a FRET or
-FCS experiment where the shortest timescale is generally of order
-microseconds.
+These measurements share a need for a photon timing system, correction
+for systematic errors, and associated analysis tools. Commercial
+hardware for photon time-tagging is available, but very expensive. For
+instance time-correlated single photon counting modules are available
+for 50,000 USD, or hardware correlator devices for 10,000 USB. These
+devices generally provide no analysis toolchain, have few avenues for
+extension and are not flexible enough for use with recent experimental
+extensions, such as alternating laser excitation [@lee2005; @seidel2008].
 
-To avoid the need for a TCSPC module, some labs instead use a hardware
-correlator device. While these devices are less expensive and readily
-available, they often lack the ability to timestamp individual photon
-arrivals and suffer from poor time resolution.
+In contrast, we provide a customizable set of tools using
+off-the-shelf hardware for less than 500 USD. The toolchain provides
+all layers, from hardware and low-level acquisition utilities,
+including data aggregation and correction, up to high level
+probabilistic inference methods. The entire toolchain is open-source
+and well-documented, enabling customization and extension. Particular
+care has been taken to interoperate with pre-existing tool chains in
+Matlab, Python, and OpenBUGS.
 
-Furthermore, both of these instruments lack the flexibility needed for
-alternating laser excitation [@lee2005; @seidel2008] and similar
-techniques which can substantially enhance the information yield of
-the experiment.
+## Background: Fluorescence spectroscopy
 
-TODO need for analysis tools
+![A schematic representation of a typical fluorescence spectroscopy experiment. A laser illuminates an observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence light produced by molecules passing through this volume.](fret-setup.pdf)
+
+Fluorescence spectroscopic methods are a class of experimental
+techniques examining photon emissions from fluorescent molecules. Of
+the wide array of fluorescence techniques, we focus on single-molecule
+methods. Since the advent of convenient linker chemistries for
+attaching fluorescent dyes to typical biological polymers
+(e.g. proteins, DNA, and RNA), these techniques have enjoyed
+applicability to a wide variety of biologically relevant systems.
+We will focus on two methods in particular.
+
+## Förster Resonance Energy Transfer
+
+Single-molecule Förster Resonance Energy Transfer (smFRET)
+spectroscopy is a fluorescence technique used heavily in biology and
+biophysics. In recent years, FRET has enabled high-resolution studies
+of macromolecular geometry [@Iqbal2005], studies of mechanical
+flexibility [@Vafabakhsh2012], as well enzyme kinetics [@seidel2010],
+revealing structure and dynamics largely inaccessible by other means.
+
+The method exploits around the Förster process whereby two
+fluorophores in close proximity to one another can undergo energy
+transfer. The efficiency of this transfer process is modulated by
+the distance and relative orientation of the dyes, as well as
+a variety of environmental parameters. By examining the relative
+fluorescence intensity of the two dyes, one can observe structural
+changes in the molecule under study. With careful characterization and
+modelling, quantitative FRET measurements are also possible, allowing
+measurement of molecular conformation.
+
+Numerous confounding factors must be accounted for for a
+quantitatively correct FRET measurement. 
 
 ## Contribution
 
