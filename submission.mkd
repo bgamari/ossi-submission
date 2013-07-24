@@ -22,7 +22,9 @@ instance time-correlated single photon counting modules are available
 for 50,000 USD, or hardware correlator devices for 10,000 USB. These
 devices generally provide no analysis toolchain, have few avenues for
 extension and are not flexible enough for use with recent experimental
-extensions, such as alternating laser excitation [@lee2005; @seidel2008].
+extensions, such as alternating laser excitation [@lee2005; @Seidel2008].
+
+![](ecosystem.pdf)
 
 In contrast, we provide a customizable set of tools using
 off-the-shelf hardware for less than 500 USD. The toolchain provides
@@ -51,7 +53,7 @@ We will focus on two methods in particular.
 Single-molecule Förster Resonance Energy Transfer (smFRET)
 spectroscopy is a fluorescence technique used heavily in biology and
 biophysics. In recent years, FRET has enabled high-resolution studies
-of macromolecular geometry [@Iqbal2005], studies of mechanical
+of macromolecular conformation [@iqbal2008orientation], studies of mechanical
 flexibility [@Vafabakhsh2012], as well enzyme kinetics [@seidel2010],
 revealing structure and dynamics largely inaccessible by other means.
 
@@ -66,7 +68,7 @@ modelling, quantitative FRET measurements are also possible, allowing
 measurement of molecular conformation.
 
 Numerous confounding factors must be accounted for for a
-quantitatively correct FRET measurement. 
+quantitatively correct FRET measurement. Detector background and 
 
 ## Contribution
 
@@ -133,11 +135,11 @@ produces a variety of diagnostic statistics and goodness-of-fit
 metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
-tools for analysis of FRET and FRET with Alternating Laser Excitation
+tools for analysis of FRET and FRET with alternating laser excitation
 (ALEX) data. These programs support for the major corrections
 necessary for inferring quantitatively accurate FRET
 efficiencies. Moreover, the programs emit both human-readable HTML
-providing a suscint summary of each dataset, as well as machine
+providing a suscint summary of each data set, as well as machine
 readable results.
 
 ![The output of the `fret-analysis` tool showing a FRET dataset with two populations](fret-analysis.png)
