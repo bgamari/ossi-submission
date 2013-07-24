@@ -40,32 +40,35 @@ Matlab, Python, and OpenBUGS.
 ![A schematic representation of a typical fluorescence spectroscopy experiment. A laser illuminates an observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence light produced by molecules passing through this volume.](fret-setup.pdf)
 
 Fluorescence spectroscopic methods are a class of experimental
-techniques examining photon emissions from fluorescent molecules. Of
-the wide array of fluorescence techniques, we focus on single-molecule
-methods. Since the advent of convenient linker chemistries for
-attaching fluorescent dyes to typical biological polymers
-(e.g. proteins, DNA, and RNA), these techniques have enjoyed
-applicability to a wide variety of biologically relevant systems.
-We will focus on two methods in particular.
+techniques examining photon emissions from fluorescent molecules; that
+is, molecules which will emit a light after having been excited by
+photon absorption or other excitation. Of the wide array of
+fluorescence techniques, we focus on single-molecule methods. Since
+the advent of convenient linker chemistries for attaching fluorescent
+dyes to typical biological polymers (e.g. proteins, DNA, and RNA),
+these techniques have enjoyed applicability to a wide variety of
+biologically relevant systems.  We will focus on two methods in
+particular.
 
 ## Förster Resonance Energy Transfer
 
-Single-molecule Förster Resonance Energy Transfer (smFRET)
-spectroscopy is a fluorescence technique used heavily in biology and
-biophysics. In recent years, FRET has enabled high-resolution studies
-of macromolecular conformation [@iqbal2008orientation], studies of mechanical
-flexibility [@Vafabakhsh2012], as well enzyme kinetics [@seidel2010],
-revealing structure and dynamics largely inaccessible by other means.
+Förster resonance energy transfer (smFRET) spectroscopy is a
+fluorescence technique used heavily in biology and biophysics. In
+recent years, FRET has enabled high-resolution studies of
+macromolecular conformation [@iqbal2008orientation], studies of
+mechanical flexibility [@Vafabakhsh2012], as well enzyme kinetics
+[@seidel2010], revealing structure and dynamics largely inaccessible
+by other means.
 
-The method exploits around the Förster process whereby two
-fluorophores in close proximity to one another can undergo energy
-transfer. The efficiency of this transfer process is modulated by
-the distance and relative orientation of the dyes, as well as
-a variety of environmental parameters. By examining the relative
-fluorescence intensity of the two dyes, one can observe structural
-changes in the molecule under study. With careful characterization and
-modelling, quantitative FRET measurements are also possible, allowing
-measurement of molecular conformation.
+The method exploits the Förster process whereby two fluorophores in
+close proximity to one another can undergo energy transfer. The
+efficiency of this transfer process is modulated by the distance and
+relative orientation of the dyes, as well as a variety of
+environmental parameters. By examining the relative fluorescence
+intensity of the two dyes, one can observe structural changes in the
+molecule under study. With careful characterization and modelling,
+quantitative FRET measurements are also possible, allowing measurement
+of molecular conformation.
 
 Numerous confounding factors must be accounted for for a
 quantitatively correct FRET measurement. Detector background and 
@@ -100,8 +103,8 @@ The instrument is complemented with a set of software
 [tools](http://github.com/bgamari/timetag-tools) for low-level
 manipulation of collected data along with a user-friendly graphical
 interface for setting up and monitoring an experiment. These include
-real-time monitors of useful experimental quantities including an
-approximate FRET efficiency histogram, the correlation function,
+real-time monitors of useful experimental quantities including a
+running FRET efficiency histogram, the correlation function,
 the photon counting histogram, and bin counts. This is in sharp
 contrast to existing commericial software which provides little if any
 support to the experimentalist during data collection.
