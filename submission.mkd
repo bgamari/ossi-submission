@@ -19,10 +19,10 @@ These measurements share a need for a photon timing system, correction
 for systematic errors, and associated analysis tools. Commercial
 hardware for photon time-tagging is available, but very expensive. For
 instance time-correlated single photon counting modules are available
-for 40,000 USD, or hardware correlator devices for 10,000 USB. These
-devices generally provide no analysis toolchain, have few avenues for
+for 40,000 USD, or hardware correlator devices for 10,000 USD. These
+devices generally provide no analysis toolchain, have little potential for
 extension and are not flexible enough for use with recent experimental
-extensions, such as alternating laser excitation [@lee2005; @Seidel2008].
+extensions such as alternating laser excitation [@lee2005; @Seidel2008].
 
 ![](ecosystem.pdf)
 
@@ -45,12 +45,12 @@ is, molecules which will emit a light after having been excited by
 photon absorption or other excitation. Of the wide array of
 fluorescence techniques, we focus on single-molecule methods. Since
 the advent of convenient linker chemistries for attaching fluorescent
-dyes to typical biological polymers (e.g. proteins, DNA, and RNA),
+dyes to common biological polymers (e.g. proteins, DNA, and RNA),
 these techniques have enjoyed applicability to a wide variety of
 biologically relevant systems.  We will focus on two methods in
 particular.
 
-## Förster Resonance Energy Transfer
+### Förster Resonance Energy Transfer
 
 Förster resonance energy transfer (smFRET) spectroscopy is a
 fluorescence technique used heavily in biology and biophysics. In
@@ -70,8 +70,27 @@ molecule under study. With careful characterization and modelling,
 quantitative FRET measurements are also possible, allowing measurement
 of molecular conformation.
 
-Numerous confounding factors must be accounted for for a
-quantitatively correct FRET measurement. Detector background and 
+While FRET offers a unique perspective on molecular systems,
+accurately interpreting experimental data requires consideration of a
+number of confounding factors. Detector background, imperfect spectral
+separation, and differences in dye fluorescence efficiency all require
+characterization and correction for accurate quantitative
+interpretation.
+
+### FCS
+
+Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
+experimental tool widely used to characterize reaction
+kinetics[@allen2006] and molecular size.  By examining temporal
+correlations in fluorescence intensity fluctuations within a
+observation volume, one can infer characteristics of a
+molecular species' diffusion. Depending upon the nature of the system,
+one might find one-, two-, or three-dimension diffusion, normal or
+anomalous, each exhibiting a distinct functional form.
+
+Using FCS in conjunction with FRET can provide deep insights into
+dynamics on molecular length-scales [@Nettels2008].
+
 
 ## Contribution
 
@@ -80,8 +99,6 @@ of fluorescence spectroscopy data. Our package includes hardware and
 software for experimental data collection, as well as a diverse set of
 tools for manipulating the resulting dataset. Finally, we introduce a
 set of tools for robust analysis of FCS and FRET data.
-
-## Tools for experimental data collection
 
 ### Hardware
 
@@ -117,10 +134,10 @@ environment, the usage [tutorial][timetag-tutorial] provide
 step-by-step instructions for installation and operation on Ubuntu Linux.
 
 The package also provides a set of low-level command-line utilities
-for slicing, filtering, converting, and other basic manipulations of
-data produced by the instrument.
+for slicing, filtering, and converting data produced by the
+instrument.
 
-## Tools for data analysis
+### Tools for data analysis
 
 The `photon-tools` package provides a set of Python utilities and
 libraries for manipulating and analyzing photon data. The utilities
@@ -160,7 +177,15 @@ conjunction with an assumption of time continuity. This allows bursts
 of small than one bin width (a common occurrence in solution FRET
 experiments) to be examined while minimizing the effect of background.
 
-### An example exercise
+### A framework for approximate Bayesian inference
+
+Along with the hardware and various software tools described above, we
+provide `bayes-stack`, a general-purpose framework for
+high-performance approximate inference on probabilistic models. This
+framework
+
+
+## An example exercise
 
 In the submission package we have provided a dataset for a
 single-molecule fluorescence experiment taken with our timetagger
@@ -168,10 +193,5 @@ hardware. The dataset\footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
 and Cy5 fluorophores.
 
+## References
 
-## A framework for approximate Bayesian inference
-
-Along with the hardware and various software tools described above, we
-provide `bayes-stack`, a general-purpose framework for
-high-performance approximate inference on probabilistic models. This
-framework
