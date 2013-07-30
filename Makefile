@@ -1,4 +1,4 @@
-PANDOC_OPTS=--bibliography=library.bib -V links-as-notes
+PANDOC_OPTS=--bibliography=library.bib -V links-as-notes -V geometry:margin=1in
 
 all : submission.pdf
 
