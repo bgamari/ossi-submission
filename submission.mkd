@@ -29,7 +29,7 @@ nature of molecular interactions, flexibility, and conformation
 through intensity and temporal correlations.
 
 Commercial hardware for recording photon arrivals is available but 
-expensive. For instance time-correlated single photon counting modules
+expensive. For instance, time-correlated single photon counting modules
 are available for \$40,000 or less capable hardware correlator devices for
 \$10,000, not including the cost of software. These devices generally
 provide few analysis tools, have little potential for extension, and
@@ -54,7 +54,7 @@ pre-existing tools in Matlab, Python, and OpenBUGS.
 
 ## Background: Fluorescence spectroscopy
 
-![A schematic representation of a typical fluorescence spectroscopy experiment. A laser illuminates an observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence light produced by molecules passing through this volume.](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment.](fret-setup.pdf)
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
@@ -66,17 +66,24 @@ These techniques have been used to watch single-molecule protein
 folding within cells [@Choi2008; @Chung2009], enzyme
 interactions [@Liu2002], and TODO.
 
-We will focus on two fluorescence methods in particular:
-single-molecule Förster resonance energy transfer and fluorescence
-correlation spectroscopy.
+Figure 1 shows a typical fluorescence spectroscopy apparatus.  A laser
+illuminates an observation volume confocal with a collection volume.
+As molecules pass through the observation volume, their dyes are
+excited and emissions collected by two photon-counting detectors. The
+timestamps encoding the photon arrival events are then recorded by the
+timing hardware and sent to a computer for storage and later analysis.
+
+We will focus on two fluorescence methods in particular: Förster
+resonance energy transfer and fluorescence correlation spectroscopy.
 
 ### Förster Resonance Energy Transfer
 
-Single-molecule Förster resonance energy transfer (smFRET)
-spectroscopy is a fluorescence technique that exploits the fact that
-two dyes in close proximity to one another can undergo energy
-transfer. That is, after exciting one of the dyes, there is a finite
-chance that an emission would be observed from the other dye.
+Förster resonance energy transfer (FRET) spectroscopy is a
+fluorescence technique that exploits the fact that two dyes in close
+proximity to one another can undergo energy transfer. That is, after
+exciting one of the dyes, there is a non-zero probability that an
+emission would be observed from the other dye and shifted in
+wavelength.
 
 In recent years, FRET has enabled high-resolution studies of
 macromolecular conformation [@iqbal2008orientation], studies of
@@ -104,7 +111,7 @@ interpretation.
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
 kinetics [@Allen2006] and molecular size.  By examining temporal
-correlations in fluorescence intensity fluctuations within a
+correlations in fluorescence intensity fluctuations within an
 observation volume, one can infer characteristics of a
 molecular species' diffusion. Depending upon the nature of the system,
 one might find one-, two-, or three-dimension diffusion, normal or

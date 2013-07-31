@@ -1135,7 +1135,7 @@
              sodipodi:role="line"
              id="tspan96716"
              x="-1431.5413"
-             y="-3.0363634">Excitation laser</tspan></text>
+             y="-3.0363634">excitation laser</tspan></text>
       </g>
     </g>
     <text
@@ -1278,17 +1278,17 @@
          id="text2884"
          sodipodi:linespacing="100%">
         <tspan
+           id="tspan4305"
            y="139.98616"
-           id="tspan2886"
            sodipodi:role="line"
            x="-1535.5652"
-           style="font-size:19.56548882px;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial;-inkscape-font-specification:ArialMT">Time</tspan>
+           style="font-size:19.56548882px;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial;-inkscape-font-specification:ArialMT">timing</tspan>
         <tspan
-           id="tspan4305"
            y="159.55165"
            sodipodi:role="line"
            x="-1535.5652"
-           style="font-size:19.56548882px;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial;-inkscape-font-specification:ArialMT">Tagger</tspan>
+           style="font-size:19.56548882px;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Arial;-inkscape-font-specification:ArialMT"
+           id="tspan7020">hardware</tspan>
       </text>
     </g>
     <g
