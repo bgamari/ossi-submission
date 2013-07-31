@@ -36,22 +36,19 @@ provide few analysis tools, have little potential for extension, and
 are not flexible enough for use with recent experimental extensions
 such as alternating laser excitation [@lee2005; @Seidel2008].
 
-With open tools and high resolution timing information we enable use
-of novel statistical methods for analysis, re
-
-![](ecosystem.pdf)
-
-In contrast, we provide an open set of tools 
-built on existing open-source software platforms.
-The toolchain provides all layers, from hardware and low-level
+With open tools and high-resolution timing hardware we enable use
+of novel statistical methods for single-molecule fluorescence analysis.
+Our toolchain provides tools ranging from hardware and low-level
 acquisition utilities, including data aggregation and correction, up
-to high level probabilistic inference methods.  The off-the-shelf
+to high-level probabilistic inference methods.  The off-the-shelf
 board around which the hardware is built is available for less than
-\$500 and can be assembled into a working instrument with little
+\$200 and can be assembled into a working instrument with little
 knowledge of hardware or software.  The entire toolchain is
 open-source and well-documented, enabling customization and
 extension. Particular care has been taken to interoperate with
 pre-existing tool chains in Matlab, Python, and OpenBUGS.
+
+![](ecosystem.pdf)
 
 ## Background: Fluorescence spectroscopy
 
