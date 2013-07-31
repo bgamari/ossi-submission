@@ -98,7 +98,7 @@ interpretation.
 
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
-kinetics[@allen2006] and molecular size.  By examining temporal
+kinetics[@Allen2006] and molecular size.  By examining temporal
 correlations in fluorescence intensity fluctuations within a
 observation volume, one can infer characteristics of a
 molecular species' diffusion. Depending upon the nature of the system,
@@ -132,7 +132,7 @@ set of tools for robust analysis of FCS and FRET data.
 The hardware is capable of recording event timing in up to eight channels.
 8ns accuracy, recording both photon arrivals and output state changes
 
-We developed [@gamari2012] a photon arrival timing instrument based
+We developed [@Gamari2013] a photon arrival timing instrument based
 around a readily available FPGA
 [development board](http://www.knjn.com/FPGA-FX2.html). The instrument
 is easy to build with complete
