@@ -45,8 +45,10 @@ board around which the hardware is built is available for less than
 \$200 and can be assembled into a working instrument with little
 knowledge of hardware or software.  The entire toolchain is
 open-source and well-documented, enabling customization and
-extension. Particular care has been taken to interoperate with
-pre-existing tool chains in Matlab, Python, and OpenBUGS.
+extension.
+
+TODO: Particular care has been taken to interoperate with
+pre-existing tools in Matlab, Python, and OpenBUGS.
 
 ![](ecosystem.pdf)
 
@@ -54,27 +56,25 @@ pre-existing tool chains in Matlab, Python, and OpenBUGS.
 
 ![A schematic representation of a typical fluorescence spectroscopy experiment. A laser illuminates an observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence light produced by molecules passing through this volume.](fret-setup.pdf)
 
-A fluorescent molecule is one which will emit a photon after having
-been excited by photon absorption or other excitation.  Fluorescent
-molecules or "dyes" have been long used to probe chemical
-systems [@Fernandez1976]. In the last twenty years, steady improvement
-in dye brightness and detector electronics have enabled the use of
-fluorescence spectroscopy in probing a wide variety of biological
-systems.
-
-Fluorescence spectroscopic methods are a class of experimental
-techniques examining photon emissions from fluorescent molecules.
+A dye is a fluorescent molecule; that is, one which will emit a photon
+after having been excited by photon absorption or other excitation.
+While dyes have a long history of use to probe chemical systems
+[@Fernandez1976], steady improvement in dye brightness and detector
+electronics over the last decades have enabled the use of fluorescence
+spectroscopy in probing a wide variety of biological systems.
 These techniques have been used to watch single-molecule protein
 folding within cells [@Choi2008; @Chung2009], enzyme
-interactions [@Liu2002], and *.
+interactions [@Liu2002], and TODO.
 
-We will focus on two methods in particular: smFRET and FCS.
+We will focus on two fluorescence methods in particular:
+single-molecule Förster resonance energy transfer and fluorescence
+correlation spectroscopy.
 
 ### Förster Resonance Energy Transfer
 
 Single-molecule Förster resonance energy transfer (smFRET)
 spectroscopy is a fluorescence technique that exploits the fact that
-two fluorophores in close proximity to one another can undergo energy
+two dyes in close proximity to one another can undergo energy
 transfer. That is, after exciting one of the dyes, there is a finite
 chance that an emission would be observed from the other dye.
 
@@ -236,7 +236,7 @@ In the submission package we have provided a dataset for a
 single-molecule fluorescence experiment taken with our time-stamping
 hardware. The dataset\footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
-and Cy5 fluorophores.
+and Cy5 dyes.
 
 ## Acknowledgements
 
