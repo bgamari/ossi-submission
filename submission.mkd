@@ -5,7 +5,7 @@ into a unique tool for probing biologically relevant systems. In
 particular, fluorescence correlation spectroscopy (FCS) is now a
 routine measurement enabling biologists access to reaction
 kinetics[@Wu2006; @Heyduk2002; @Allen2006] and sizes of biomolecular
-assemblies[@Pitschke1998].  Likewise, single molecule Förster
+assemblies[@Pitschke1998]. Likewise, single molecule Förster
 resonance energy transfer (smFRET) has proved to be useful for a
 variety of biologically relevant measurements ranging from DNA/RNA
 mechanics
@@ -15,54 +15,71 @@ in tandem these two techniques can provide unique perspective into
 dynamics on molecular length-scales and over a wide range of
 time-scales [@Nettels2008].
 
-These measurements share a need for a photon timing system, correction
-for systematic errors, and associated analysis tools. Commercial
-hardware for photon time-tagging is available, but very expensive. For
-instance time-correlated single photon counting modules are available
-for 40,000 USD, or hardware correlator devices for 10,000 USD. These
-devices generally provide no analysis toolchain, have little potential for
-extension and are not flexible enough for use with recent experimental
-extensions such as alternating laser excitation [@lee2005; @Seidel2008].
+These techniques share a need for hardware and software for photon
+timing and associated analysis tools. A typical experiment may require
+timestamping of anywhere from two to four detection channels, with a
+few nanosecond accuracy. The resulting data can reveal details of the
+nature of molecular interactions, flexibility, and conformation
+through intensity and temporal correlations.
+
+Commercial hardware for recording photon arrivals is available but very
+expensive. For instance time-correlated single photon counting modules
+are available for \$40,000, or hardware correlator devices for
+\$10,000, not including the cost of software. These devices generally
+provide few analysis tools, have little potential for extension, and
+are not flexible enough for use with recent experimental extensions
+such as alternating laser excitation [@lee2005; @Seidel2008].
+
+With open tools and high resolution timing information we enable use
+of novel statistical methods for analysis, re
 
 ![](ecosystem.pdf)
 
-In contrast, we provide a customizable set of tools using
-off-the-shelf hardware for less than 500 USD. The toolchain provides
-all layers, from hardware and low-level acquisition utilities,
-including data aggregation and correction, up to high level
-probabilistic inference methods. The entire toolchain is open-source
-and well-documented, enabling customization and extension. Particular
-care has been taken to interoperate with pre-existing tool chains in
-Matlab, Python, and OpenBUGS.
+In contrast, we provide an open set of tools 
+built on existing open-source software platforms.
+The toolchain provides all layers, from hardware and low-level
+acquisition utilities, including data aggregation and correction, up
+to high level probabilistic inference methods.  The off-the-shelf
+board around which the hardware is built is available for less than
+\$500 and can be assembled into a working instrument with little
+knowledge of hardware or software.  The entire toolchain is
+open-source and well-documented, enabling customization and
+extension. Particular care has been taken to interoperate with
+pre-existing tool chains in Matlab, Python, and OpenBUGS.
 
 ## Background: Fluorescence spectroscopy
 
 ![A schematic representation of a typical fluorescence spectroscopy experiment. A laser illuminates an observation volume confocal with a collection volume. Two photon-counting detectors collect fluorescence light produced by molecules passing through this volume.](fret-setup.pdf)
 
+A fluorescent molecule is one which will emit a photon after having
+been excited by photon absorption or other excitation.  Fluorescent
+molecules or "dyes" have been long used to probe chemical
+systems[@Fernandez1976]. In the last twenty years, steady improvement
+in dye brightness and detector electronics have enabled the use of
+fluorescence spectroscopy in probing a wide variety of biological
+systems.
+
 Fluorescence spectroscopic methods are a class of experimental
-techniques examining photon emissions from fluorescent molecules; that
-is, molecules which will emit a light after having been excited by
-photon absorption or other excitation. Of the wide array of
-fluorescence techniques, we focus on single-molecule methods. Since
-the advent of convenient linker chemistries for attaching fluorescent
-dyes to common biological polymers (e.g. proteins, DNA, and RNA),
-these techniques have enjoyed applicability to a wide variety of
-biologically relevant systems.  We will focus on two methods in
-particular.
+techniques examining photon emissions from fluorescent molecules.
+These techniques have been used to watch single-molecule protein
+folding within cells [@Choi2008; @Chung2009], enzyme
+interactions[@Liu2002], and *.
+
+We will focus on two methods in particular: smFRET and FCS.
 
 ### Förster Resonance Energy Transfer
 
 Förster resonance energy transfer (smFRET) spectroscopy is a
-fluorescence technique used heavily in biology and biophysics. In
-recent years, FRET has enabled high-resolution studies of
+fluorescence technique that exploits the fact that two fluorophores in
+close proximity to one another can undergo energy transfer.
+
+In recent years, FRET has enabled high-resolution studies of
 macromolecular conformation [@iqbal2008orientation], studies of
 mechanical flexibility [@Vafabakhsh2012], as well enzyme kinetics
 [@seidel2010], revealing structure and dynamics largely inaccessible
 by other means.
 
-The method exploits the Förster process whereby two fluorophores in
-close proximity to one another can undergo energy transfer. The
-efficiency of this transfer process is modulated by the distance and
+The efficiency of this transfer process is modulated by the distance and
 relative orientation of the dyes, as well as a variety of
 environmental parameters. By examining the relative fluorescence
 intensity of the two dyes, one can observe structural changes in the
@@ -100,22 +117,38 @@ software for experimental data collection, as well as a diverse set of
 tools for manipulating the resulting dataset. Finally, we introduce a
 set of tools for robust analysis of FCS and FRET data.
 
+ * FCS correlation computation
+ * FCS modelling
+ * FRET
+ * ALEX with large numbers of colors
+ * co-localization
+ * can be integrated into a scanning system for FRET or co-localization imaging
+ * burst detection
+
 ### Hardware
 
-We developed [@gamari2012] a photon timestamping instrument based
+[TODO explicitly mention AJP paper]
+
+The hardware is capable of recording event timing in up to eight channels.
+8ns accuracy, recording both photon arrivals and output state changes
+
+We developed [@gamari2012] a photon arrival timing instrument based
 around a readily available FPGA
 [development board](http://www.knjn.com/FPGA-FX2.html). The instrument
 is easy to build with complete
 [build instructions](http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf). Along
-with timestamping functionality, the instrument includes an event
-sequencer which can be used for FRET variants requiring excitation
-laser switching [@Kapanidis2005]. The
-[sources](http://github.com/bgamari/timetag-fpga) include
+with timestamping functionality, the instrument has output channels
+which can be used to change experimental parameters.
+
+FRET variants requiring excitation laser switching [@Kapanidis2005].
+
+The [sources](http://github.com/bgamari/timetag-fpga) include
 comprehensive
 [documentation](http://github.com/bgamari/timetag-fpga/tree/master/docs)
 to allow for easy adaptation for new experimental settings.
 
 ### Software
+
 The instrument is complemented with a set of software
 [tools](http://github.com/bgamari/timetag-tools) for low-level
 manipulation of collected data along with a user-friendly graphical
@@ -177,6 +210,9 @@ conjunction with an assumption of time continuity. This allows bursts
 of small than one bin width (a common occurrence in solution FRET
 experiments) to be examined while minimizing the effect of background.
 
+### Interoperability
+
+
 ### A framework for approximate Bayesian inference
 
 Along with the hardware and various software tools described above, we
@@ -188,7 +224,7 @@ framework
 ## An example exercise
 
 In the submission package we have provided a dataset for a
-single-molecule fluorescence experiment taken with our timetagger
+single-molecule fluorescence experiment taken with our time-stamping
 hardware. The dataset\footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
 and Cy5 fluorophores.
