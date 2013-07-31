@@ -85,26 +85,26 @@ exciting one of the dyes, there is a non-zero probability that an
 emission would be observed from the other dye and shifted in
 wavelength.
 
-In recent years, FRET has enabled high-resolution studies of
-macromolecular conformation [@iqbal2008orientation], studies of
-mechanical flexibility [@Vafabakhsh2012], as well enzyme
-kinetics [@seidel2010], revealing structure and dynamics largely
-inaccessible by other means.
-
 The efficiency of this transfer process is modulated by the distance and
-relative orientation of the dyes, as well as a variety of
-environmental parameters. By examining the relative fluorescence
-intensity of the two dyes, one can observe structural changes in the
-molecule under study. With careful characterization and modelling,
+relative orientation of the dyes. Therefore, it is possible to infer
+intra-molecular distances given the FRET efficiency which in turn can
+be estimated from relative dye intensities.
+This is often used to observe gross structural changes in enzymes and other biological molecules.
+Furthermore, with careful characterization and modelling,
 quantitative FRET measurements are also possible, allowing measurement
-of molecular conformation.
+of intra-molecular distances and conformational details.
+
+In recent years, FRET has enabled studies of macromolecular
+conformation [@iqbal2008orientation], mechanical flexibility
+[@Vafabakhsh2012], and enzyme kinetics [@seidel2010], revealing
+structure and dynamics inaccessible by other means.
 
 While FRET offers a unique perspective on molecular systems,
-accurately interpreting experimental data requires consideration of a
-number of confounding factors. Detector background, imperfect spectral
-separation, and differences in dye fluorescence efficiency all require
-characterization and correction for accurate quantitative
-interpretation.
+accurately interpreting the resulting experimental data requires
+consideration of a number of confounding factors. Detector background,
+imperfect spectral separation, and differences in dye fluorescence
+efficiency all require characterization and correction for accurate
+quantitative interpretation.
 
 ### Fluorescence Correlation Spectroscopy
 
