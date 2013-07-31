@@ -178,20 +178,21 @@ along with a user-friendly graphical interface for setting up and
 monitoring an experiment. These include real-time monitors of useful
 experimental quantities including a running FRET efficiency histogram,
 the correlation function, the photon counting histogram, and bin
-counts. This is in sharp contrast to existing commericial software
-which provides little if any support to the experimentalist during
+counts. This is in stark contrast to existing commericial software
+which provides little---if any---support to the experimentalist during
 data collection.
 
 ![The `timetag_ui` interface during data acquisition](timetag-ui.png)
     
 This interface makes it straightforward to setup and acquire
 fluorescence data. While the tools should run in any POSIX-compliant
-environment, the usage [tutorial][timetag-tutorial] provide
+environment, the usage [tutorial][timetag-tutorial] provides
 step-by-step instructions for installation and operation on Ubuntu Linux.
 
 The package also provides a set of low-level command-line utilities
 for slicing, filtering, and converting data produced by the
-instrument.
+instrument to a variety of common formats (including plain text,
+binary, and Matlab `.mat` format).
 
 [timetag-tools]: http://github.com/bgamari/timetag-tools
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
