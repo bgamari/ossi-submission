@@ -4,6 +4,9 @@ all : library.bib submission.pdf
 
 submission.pdf : fret-setup.pdf fret_processes.pdf ecosystem.pdf
 
+%.tex : %.mkd
+	pandoc -o $@ $< --standalone $(PANDOC_OPTS)
+
 %.pdf : %.mkd
 	pandoc -o $@ $< --latex-engine=lualatex $(PANDOC_OPTS)
 
