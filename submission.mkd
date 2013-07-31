@@ -54,7 +54,7 @@ pre-existing tools in Matlab, Python, and OpenBUGS.
 
 ## Background: Fluorescence spectroscopy
 
-![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.\label{fig:fret-setup}](fret-setup.pdf)
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
@@ -68,15 +68,15 @@ interactions [@Liu2002], and TODO. By using multiple dye varieties
 with different emission colors, two or more probes can be placed on
 the same molecule, enabling access to rich conformational details.
 
-Figure 1 shows a typical fluorescence spectroscopy apparatus built
-around a confocal microscope.  A laser illuminates an observation
-volume confocal with a collection volume.  As a molecule passes
-through the observation volume, its dyes are excited and emissions
-collected by two or more photon-counting detectors. These detectors
-may collect different colors or polarizations of light, depending upon
-the experiment. Timestamps encoding the photon arrival events are then
-recorded by the timing hardware and sent to a computer for storage and
-later analysis.
+Figure \ref{fig:fret-setup} shows a typical fluorescence spectroscopy
+apparatus built around a confocal microscope.  A laser illuminates an
+observation volume confocal with a collection volume.  As a molecule
+passes through the observation volume, its dyes are excited and
+emissions collected by two or more photon-counting detectors. These
+detectors may collect different colors or polarizations of light,
+depending upon the experiment. Timestamps encoding the photon arrival
+events are then recorded by the timing hardware and sent to a computer
+for storage and later analysis.
 
 A variety of experimental artifacts are present in a typical
 fluorescence spectroscopy experiment. Even high-quality photon
@@ -274,12 +274,30 @@ framework
 
 ## An example exercise
 
-In the submission package we have provided a dataset for a
-single-molecule fluorescence experiment taken with our time-stamping
-hardware. The dataset\footnote{experimental data due to Peker Milas of
-the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
-and Cy5 dyes.
+![A small RNA system.\label{fig:rna}](rna.svg)
 
+In the submission package we have provided two datasets from a
+single-molecule fluorescence experiment taken with our time-stamping
+hardware. The datasets\footnote{experimental data due to Peker Milas of
+the Goldner group}, taken for our recent publication[@Milas2013],
+examines FRET in an RNA 16-mer (Figure \ref{fig:rna}) labelled
+terminally with Cy3 and Cy5 dyes for comparison against predictions
+derived from molecular dynamics simulations. We will pass over the
+data acquisition process, which is treated in the
+[usage manual][timetag-tutorial].
+
+We will begin by examining the first dataset, `donor-only.timetag`,
+which is a measurement of the 16-mer labelled with only the donor dye
+for calibration purposes.
+
+
+* donor-only, donor acceptor data
+* compute correlation function
+* fit correlation function, compare against physics
+* examine donor-only sample for crosstalk
+* examine donor-acceptor sample without corrections
+* examine donor-acceptor sample correcting for background, crosstalk, and gamma
+  
 ## Acknowledgements
 
 This work was supported by NSF-MCB grant \#0920139.
