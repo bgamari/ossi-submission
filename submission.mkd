@@ -282,13 +282,70 @@ hardware. The datasets\footnote{experimental data due to Peker Milas of
 the Goldner group}, taken for our recent publication[@Milas2013],
 examines FRET in an RNA 16-mer (Figure \ref{fig:rna}) labelled
 terminally with Cy3 and Cy5 dyes for comparison against predictions
-derived from molecular dynamics simulations. We will pass over the
-data acquisition process, which is treated in the
-[usage manual][timetag-tutorial].
+derived from molecular dynamics simulations. In the interest of space,
+we will pass over the data acquisition process, which is treated in
+the [usage manual][timetag-tutorial].
 
+### First steps
 We will begin by examining the first dataset, `donor-only.timetag`,
 which is a measurement of the 16-mer labelled with only the donor dye
-for calibration purposes.
+for calibration purposes. To get a feel for the data, we'll begin by
+examining the binned intensity timeseries of this dataset using the
+`plot-bins` utility provided by `photon-tools`,
+
+    \$ plot-bins donor.timetag
+    donor.timetag
+    Average rates:
+                  acceptor:    125.666360 / second
+                     donor:    222.855797 / second
+
+This will display a plot similar to that shown in Figure
+\ref{fig:plot-bins}. Each row shows roughly 10 seconds of the
+experiments where we see a number intensity bursts from labelled RNA
+passing through the observation volume. As this is a donor-only
+sample, we see that nearly all of the fluorescence is in the donor
+(green) channel. In contrast, we can examine the doubly-labelled sample,
+
+    \$ plot-bins fret.timetag
+
+Here we see more sparse bursts (due to lower sample concentration) but
+find that a substantial amount of fluorescence is being detected in
+the acceptor (red) channel.
+
+As expected, passing the `-­help` option to `plot-bins` gives a
+help message describing the various flags supported by the tool.
+
+![Bin timeseries showing roughly 640 seconds of the donor-only experiment\label{fig:plot-bins}.](example/plot-bins.pdf)
+
+### Correlation analysis
+
+Next we can compute a correlation function to characterize the
+diffusive characteristics of the samples, using
+`fcs-corr`, also provided by `photon-tools`. We will ignore lags
+beneath 5 µs to avoid seeing photophysical effects,
+
+    \$ fcs-corr --plot -­min-lag=5e-5 donor.timetag
+
+This will produce six files in the current directory: three
+correlation functions (donor and acceptor autocorrelation, and the
+donor-acceptor cross-correlation, in tab-separated format) along with
+a plot of each. We then can fit a three-dimensional diffusion model
+to, for instance, the donor (channel 0) auto-correlation function to
+extract a characteristic diffusion time from which we can infer the
+molecule's hydrodynamic radius,
+
+    \$ fcs-fit ­­plot donor.timetag.acorr-0
+
+This shows a plot of the correlation function along with a fit, its
+parameters, and a variety of goodness-of-fit metrics. Most
+importantly, we see that the diffusion time, `tau_d` has a value of
+292 μs. As a sanity check, we can compare this fit against that of
+`fret.timetag`, where we see that the diffusion times are within $1σ$
+of one another.  Looking at the $α$ parameter, we can validate that
+the alignment of the instrument's optics has not changed as the day
+progressed.
+
+### FRET analysis
 
 
 * donor-only, donor acceptor data
