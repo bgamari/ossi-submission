@@ -274,8 +274,6 @@ framework
 
 ## An example exercise
 
-![A small RNA system.\label{fig:rna}](rna.svg)
-
 In the submission package we have provided two datasets from a
 single-molecule fluorescence experiment taken with our time-stamping
 hardware. The datasets\footnote{experimental data due to Peker Milas of
@@ -293,7 +291,7 @@ for calibration purposes. To get a feel for the data, we'll begin by
 examining the binned intensity timeseries of this dataset using the
 `plot-bins` utility provided by `photon-tools`,
 
-    \$ plot-bins donor.timetag
+    $ plot-bins donor.timetag
     donor.timetag
     Average rates:
                   acceptor:    125.666360 / second
@@ -306,11 +304,13 @@ passing through the observation volume. As this is a donor-only
 sample, we see that nearly all of the fluorescence is in the donor
 (green) channel. In contrast, we can examine the doubly-labelled sample,
 
-    \$ plot-bins fret.timetag
+    $ plot-bins fret.timetag
 
 Here we see more sparse bursts (due to lower sample concentration) but
 find that a substantial amount of fluorescence is being detected in
-the acceptor (red) channel.
+the acceptor (red) channel. Conveniently, neither of the samples show
+any indication of long, intense bursts, a common sign of
+contamination.
 
 As expected, passing the `-­help` option to `plot-bins` gives a
 help message describing the various flags supported by the tool.
@@ -324,7 +324,7 @@ diffusive characteristics of the samples, using
 `fcs-corr`, also provided by `photon-tools`. We will ignore lags
 beneath 5 µs to avoid seeing photophysical effects,
 
-    \$ fcs-corr --plot -­min-lag=5e-5 donor.timetag
+    $ fcs-corr --plot -­min-lag=5e-5 donor.timetag
 
 This will produce six files in the current directory: three
 correlation functions (donor and acceptor autocorrelation, and the
@@ -334,20 +334,25 @@ to, for instance, the donor (channel 0) auto-correlation function to
 extract a characteristic diffusion time from which we can infer the
 molecule's hydrodynamic radius,
 
-    \$ fcs-fit ­­plot donor.timetag.acorr-0
+    $ fcs-fit ­­plot donor.timetag.acorr-0
 
 This shows a plot of the correlation function along with a fit, its
 parameters, and a variety of goodness-of-fit metrics. Most
 importantly, we see that the diffusion time, `tau_d` has a value of
 292 μs. As a sanity check, we can compare this fit against that of
-`fret.timetag`, where we see that the diffusion times are within $1σ$
-of one another.  Looking at the $α$ parameter, we can validate that
-the alignment of the instrument's optics has not changed as the day
-progressed.
+`fret.timetag`, where we see that the diffusion times are within the
+parameter uncertainty of one another. Furthermore, looking at the $α$
+parameter, we can validate that the alignment of the instrument's
+optics has not changed as the day progressed.
 
 ### FRET analysis
 
+Have verified that the sample is clear and contains the expected
+sample, we can now extract a FRET efficiency. We begin by examining
+the donor-only sample,
 
+    $ fret-analysis --fit-comps=1 donor.timetag
+    
 * donor-only, donor acceptor data
 * compute correlation function
 * fit correlation function, compare against physics
