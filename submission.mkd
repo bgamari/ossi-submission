@@ -127,37 +127,38 @@ set of tools for robust analysis of FCS and FRET data.
 
 ### Hardware
 
-[TODO explicitly mention AJP paper]
-
 The hardware is capable of recording event timing in up to eight channels.
 8ns accuracy, recording both photon arrivals and output state changes
 
 We developed [@Gamari2013] a photon arrival timing instrument based
-around a readily available FPGA
-[development board](http://www.knjn.com/FPGA-FX2.html). The instrument
-is easy to build with complete
-[build instructions](http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf). Along
-with timestamping functionality, the instrument has output channels
-which can be used to change experimental parameters.
+around a readily available FPGA [development board][xylo-board]. The
+instrument is easy to build with complete
+[build instructions][timetag-tutorial]. Along with timestamping
+functionality, the instrument has output channels which can be used to
+change experimental parameters.
 
 FRET variants requiring excitation laser switching [@Kapanidis2005].
 
-The [sources](http://github.com/bgamari/timetag-fpga) include
-comprehensive
-[documentation](http://github.com/bgamari/timetag-fpga/tree/master/docs)
-to allow for easy adaptation for new experimental settings.
+The [sources][timetag-fpga] include comprehensive
+[documentation][timetag-docs] to allow for easy adaptation for new
+experimental settings. Further, several introductory experiments are
+described in our 2013 paper [@Gamari2013].
+
+[xylo-board]: http://www.knjn.com/FPGA-FX2.html
+[timetag-fpga]: http://github.com/bgamari/timetag-fpga
+[timetag-docs]: http://github.com/bgamari/timetag-fpga/tree/master/docs
 
 ### Software
 
 The instrument is complemented with a set of software
-[tools](http://github.com/bgamari/timetag-tools) for low-level
-manipulation of collected data along with a user-friendly graphical
-interface for setting up and monitoring an experiment. These include
-real-time monitors of useful experimental quantities including a
-running FRET efficiency histogram, the correlation function,
-the photon counting histogram, and bin counts. This is in sharp
-contrast to existing commericial software which provides little if any
-support to the experimentalist during data collection.
+[tools][timetag-tools] for low-level manipulation of collected data
+along with a user-friendly graphical interface for setting up and
+monitoring an experiment. These include real-time monitors of useful
+experimental quantities including a running FRET efficiency histogram,
+the correlation function, the photon counting histogram, and bin
+counts. This is in sharp contrast to existing commericial software
+which provides little if any support to the experimentalist during
+data collection.
 
 ![The `timetag_ui` interface during data acquisition](timetag-ui.png)
     
@@ -169,6 +170,9 @@ step-by-step instructions for installation and operation on Ubuntu Linux.
 The package also provides a set of low-level command-line utilities
 for slicing, filtering, and converting data produced by the
 instrument.
+
+[timetag-tools]: http://github.com/bgamari/timetag-tools
+[timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
 
 ### Tools for data analysis
 
