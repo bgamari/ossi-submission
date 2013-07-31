@@ -54,24 +54,31 @@ pre-existing tools in Matlab, Python, and OpenBUGS.
 
 ## Background: Fluorescence spectroscopy
 
-![A schematic representation of a typical fluorescence spectroscopy experiment.](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left side shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.](fret-setup.pdf)
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
 While dyes have a long history of use to probe chemical systems
 [@Fernandez1976], steady improvement in dye brightness and detector
 electronics over the last decades have enabled the use of fluorescence
-spectroscopy in probing a wide variety of biological systems.
+spectroscopy for probing a wide variety of biological systems.
 These techniques have been used to watch single-molecule protein
 folding within cells [@Choi2008; @Chung2009], enzyme
-interactions [@Liu2002], and TODO.
+interactions [@Liu2002], and TODO. By using multiple dye varieties
+with different emission colors, two or more probes can be placed on
+the same molecule, enabling access to rich conformational details.
 
-Figure 1 shows a typical fluorescence spectroscopy apparatus.  A laser
-illuminates an observation volume confocal with a collection volume.
-As molecules pass through the observation volume, their dyes are
-excited and emissions collected by two photon-counting detectors. The
-timestamps encoding the photon arrival events are then recorded by the
-timing hardware and sent to a computer for storage and later analysis.
+Figure 1 shows a typical fluorescence spectroscopy apparatus built
+around a confocal microscope.  A laser illuminates an observation
+volume confocal with a collection volume.  As a molecule passes
+through the observation volume, its dyes are excited and emissions
+collected by two or more photon-counting detectors. These detectors
+may collect different colors or polarizations of light, depending upon
+the experiment. Timestamps encoding the photon arrival events are then
+recorded by the timing hardware and sent to a computer for storage and
+later analysis.
+
+Several noise sources of common 
 
 We will focus on two fluorescence methods in particular: Förster
 resonance energy transfer and fluorescence correlation spectroscopy.
@@ -88,9 +95,9 @@ wavelength.
 The efficiency of this transfer process is modulated by the distance and
 relative orientation of the dyes. Therefore, it is possible to infer
 intra-molecular distances given the FRET efficiency which in turn can
-be estimated from relative dye intensities.
-This is often used to observe gross structural changes in enzymes and other biological molecules.
-Furthermore, with careful characterization and modelling,
+be estimated from relative dye intensities.  This is often used to
+observe gross structural changes in enzymes and other biological
+molecules.  Furthermore, with careful characterization and modelling,
 quantitative FRET measurements are also possible, allowing measurement
 of intra-molecular distances and conformational details.
 
@@ -101,7 +108,7 @@ structure and dynamics inaccessible by other means.
 
 While FRET offers a unique perspective on molecular systems,
 accurately interpreting the resulting experimental data requires
-consideration of a number of confounding factors. Detector background,
+consideration of a number of confounding factors: detector background,
 imperfect spectral separation, and differences in dye fluorescence
 efficiency all require characterization and correction for accurate
 quantitative interpretation.
@@ -113,9 +120,7 @@ experimental tool widely used to characterize reaction
 kinetics [@Allen2006] and molecular size.  By examining temporal
 correlations in fluorescence intensity fluctuations within an
 observation volume, one can infer characteristics of a
-molecular species' diffusion. Depending upon the nature of the system,
-one might find one-, two-, or three-dimension diffusion, normal or
-anomalous, each exhibiting a distinct functional form.
+molecular species' diffusion.
 
 Using FCS in conjunction with FRET can provide deep insights into
 dynamics on molecular length-scales [@Nettels2008].
