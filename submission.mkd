@@ -54,7 +54,7 @@ pre-existing tools in Matlab, Python, and OpenBUGS.
 
 ## Background: Fluorescence spectroscopy
 
-![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left side shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.](fret-setup.pdf)
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
@@ -78,7 +78,15 @@ the experiment. Timestamps encoding the photon arrival events are then
 recorded by the timing hardware and sent to a computer for storage and
 later analysis.
 
-Several noise sources of common 
+A variety of experimental artifacts are present in a typical
+fluorescence spectroscopy experiment. Even high-quality photon
+counting detectors sporatically report photons even with no
+signal. These photons constitute a background which adds noise on top
+of the fluorescence signal. Furthermore, optical filters are imperfect
+at separating wavelengths, giving rise to an artifact known as spectral
+crosstalk. Finally, despite improvements in dye brightness and
+stability, typical photon count rates often lower-bound the timescales
+accessible to fluorescence experiments.
 
 We will focus on two fluorescence methods in particular: Förster
 resonance energy transfer and fluorescence correlation spectroscopy.
@@ -207,17 +215,20 @@ metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
 tools for analysis of FRET and FRET with alternating laser excitation
-(ALEX) data. These programs support for the major corrections
+(ALEX) data. These programs support both automatic and manual
+correction for detector background, cross-talk, and the detection
+efficiency factor.
 necessary for inferring quantitatively accurate FRET
-efficiencies. Moreover, the programs emit both human-readable HTML
-providing a suscint summary of each data set, as well as machine
-readable results.
+efficiencies. Moreover, the tools produce both human-readable HTML
+providing a suscint summary of each data set, as well as
+machine-readable results.
 
 ![The output of the `fret-analysis` tool showing a FRET dataset with two populations](fret-analysis.png)
 
-The programs use approximate inference (Gibbs sampling) to infer a
-Beta mixture model over the resulting FRET efficiency histogram,
-allowing accurate separation of multiple species within a dataset.
+The programs use approximate inference (Markov chain Monte Carlo
+sampling) to infer a Beta mixture model over the resulting FRET
+efficiency histogram, allowing accurate separation of multiple species
+within a dataset.
 
 Furthermore, we provide a novel Bayesian burst detection scheme for
 extracting fluorescence bursts from solution FRET experiments. In
@@ -227,6 +238,8 @@ exponential distribution of Poissonian interarrival times in
 conjunction with an assumption of time continuity. This allows bursts
 of small than one bin width (a common occurrence in solution FRET
 experiments) to be examined while minimizing the effect of background.
+
+[photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
 
 ### Interoperability
 
