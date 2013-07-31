@@ -7,12 +7,11 @@ Over the last three decades, fluorescence spectroscopy has developed
 into a unique tool for probing biologically relevant systems. In
 particular, fluorescence correlation spectroscopy (FCS) is now a
 routine measurement enabling biologists access to reaction
-kinetics[@Wu2006; @Heyduk2002; @Allen2006] and sizes of biomolecular
-assemblies[@Pitschke1998]. Likewise, single molecule Förster
+kinetics [@Wu2006; @Heyduk2002; @Allen2006] and sizes of biomolecular
+assemblies [@Pitschke1998]. Likewise, single molecule Förster
 resonance energy transfer (smFRET) has proved to be useful for a
 variety of biologically relevant measurements ranging from DNA/RNA
-mechanics
-[@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
+mechanics [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
 to protein conformation [@Wozniak2005] and function[@todo].  When used
 in tandem these two techniques can provide unique perspective into
 dynamics on molecular length-scales and over a wide range of
@@ -57,7 +56,7 @@ pre-existing tool chains in Matlab, Python, and OpenBUGS.
 A fluorescent molecule is one which will emit a photon after having
 been excited by photon absorption or other excitation.  Fluorescent
 molecules or "dyes" have been long used to probe chemical
-systems[@Fernandez1976]. In the last twenty years, steady improvement
+systems [@Fernandez1976]. In the last twenty years, steady improvement
 in dye brightness and detector electronics have enabled the use of
 fluorescence spectroscopy in probing a wide variety of biological
 systems.
@@ -66,7 +65,7 @@ Fluorescence spectroscopic methods are a class of experimental
 techniques examining photon emissions from fluorescent molecules.
 These techniques have been used to watch single-molecule protein
 folding within cells [@Choi2008; @Chung2009], enzyme
-interactions[@Liu2002], and *.
+interactions [@Liu2002], and *.
 
 We will focus on two methods in particular: smFRET and FCS.
 
@@ -80,9 +79,9 @@ chance that an emission would be observed from the other dye.
 
 In recent years, FRET has enabled high-resolution studies of
 macromolecular conformation [@iqbal2008orientation], studies of
-mechanical flexibility [@Vafabakhsh2012], as well enzyme kinetics
-[@seidel2010], revealing structure and dynamics largely inaccessible
-by other means.
+mechanical flexibility [@Vafabakhsh2012], as well enzyme
+kinetics [@seidel2010], revealing structure and dynamics largely
+inaccessible by other means.
 
 The efficiency of this transfer process is modulated by the distance and
 relative orientation of the dyes, as well as a variety of
@@ -103,7 +102,7 @@ interpretation.
 
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
-kinetics[@Allen2006] and molecular size.  By examining temporal
+kinetics [@Allen2006] and molecular size.  By examining temporal
 correlations in fluorescence intensity fluctuations within a
 observation volume, one can infer characteristics of a
 molecular species' diffusion. Depending upon the nature of the system,
