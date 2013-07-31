@@ -1,5 +1,9 @@
 \title{Hardware and software for single-molecule fluorescence analysis}
-\author{Ben Gamari <bgamari@gmail.com> \and Laura Dietz <dietz@cs.umass.edu> \and Lori Goldner <lori.goldner@gmail.com>}
+\author[1]{Ben Gamari <bgamari@physics.umass.edu>}
+\author[2]{Laura Dietz <dietz@cs.umass.edu>}
+\author[1]{Lori Goldner <lgoldner@physics.umass.edu>}
+\affil[1]{Department of Physics, University of Massachussetts, Amherst}
+\affil[2]{Department of Computer Science, University of Massachussetts, Amherst}
 
 \maketitle
 
