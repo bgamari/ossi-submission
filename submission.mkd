@@ -16,7 +16,7 @@ assemblies [@Pitschke1998]. Likewise, single molecule Förster
 resonance energy transfer (smFRET) has proved to be useful for a
 variety of biologically relevant measurements ranging from DNA/RNA
 mechanics [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
-to protein conformation [@Wozniak2005] and function[@todo].  When used
+to protein conformation [@Wozniak2005] and protein function[@todo].  When used
 in tandem these two techniques can provide unique perspective into
 dynamics on molecular length-scales and over a wide range of
 time-scales [@Nettels2008].
