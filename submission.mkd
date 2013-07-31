@@ -85,8 +85,12 @@ signal. These photons constitute a background which adds noise on top
 of the fluorescence signal. Furthermore, optical filters are imperfect
 at separating wavelengths, giving rise to an artifact known as spectral
 crosstalk. Finally, despite improvements in dye brightness and
-stability, typical photon count rates often lower-bound the timescales
-accessible to fluorescence experiments.
+stability, typical photon count rates often bound the timescales
+accessible to fluorescence experiments. This is especially true in
+experiments where the molecule under study is freely diffusing in
+solution where residence times are often sub-millisecond
+timescales. In this case it is common to collect less than 50 photons
+per molecule.
 
 We will focus on two fluorescence methods in particular: Förster
 resonance energy transfer and fluorescence correlation spectroscopy.
@@ -231,14 +235,29 @@ sampling) to infer a Beta mixture model over the resulting FRET
 efficiency histogram, allowing accurate separation of multiple species
 within a dataset.
 
-Furthermore, we provide a novel Bayesian burst detection scheme for
+One common class of FRET experiment is the solution experiment. In
+this experiment, one examines a dilute solution of the molecule under
+study. Occassionally, a molecule will diffuse through the observation
+volume, giving rise to a burst of emissions, often only lasting for
+tens of microseconds and consisting of tens of photons. The challenge
+posed by these experiments is that of distinguishing burst events from
+background noise.
+
+One often used technique for accomplishing this is the bin-threshold
+method where the photon arrivals are partitioned into homogenous
+temporal bins. One can then choose an acceptance threshold appreciably
+higher than the expected photon count due to background. While
+sometimes effective, this technique imposes an arbitrary timescale on
+the data and is unable to effectively isolate very short bursts from
+the surrounding background counts.
+
+We provide a novel Bayesian burst detection scheme for
 extracting fluorescence bursts from solution FRET experiments. In
-contrast to existing inference methods which rely on a binned
-reduction of the photon arrivals, our approach exploits the
+contrast to the bin-threshold method, our approach exploits the
 exponential distribution of Poissonian interarrival times in
 conjunction with an assumption of time continuity. This allows bursts
-of small than one bin width (a common occurrence in solution FRET
-experiments) to be examined while minimizing the effect of background.
+with duration less than one bin width (typically measured in milliseconds) 
+to be isolated and examined.
 
 [photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
 
