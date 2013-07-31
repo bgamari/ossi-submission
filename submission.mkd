@@ -139,22 +139,19 @@ set of tools for robust analysis of FCS and FRET data.
 
 ### Hardware
 
-The hardware is capable of recording event times for up to eight
-channels with 8ns accuracy, recording both photon arrivals and output
-state changes.
-
-We developed [@Gamari2013] a photon arrival timing instrument based
-around a readily available FPGA [development board][xylo-board]. The
-instrument is easy to build with complete
-[build instructions][timetag-tutorial]. Along with timing
-functionality, the instrument has output channels which can be used to
-change experimental parameters as required by some recent FRET
-variants [@Kapanidis2005].
-
-The [sources][timetag-fpga] include comprehensive
-[documentation][timetag-docs] to allow for easy adaptation for new
-experimental settings. Further, several introductory experiments are
+We developed a photon arrival timing instrument [@Gamari2013] based
+around a readily available FPGA [development board][xylo-board].
+[Assembly instructions][timetag-tutorial], pre-compiled
+[firmware][timetag-firmware] and extensively
+[documented][timetag-docs] [sources][timetag-fpga] are provided.
+Further, several introductory experiments using the hardware are
 described in our 2013 paper [@Gamari2013].
+
+The hardware is capable of recording event times for up to eight
+input channels with 8ns accuracy. Furthermore, the hardware includes
+support for driving output channels with programmable binary waveforms, 
+for use in experimental techniques [@Kapanidis2005] which require fast
+modulation of experimental parameters.
 
 [xylo-board]: http://www.knjn.com/FPGA-FX2.html
 [timetag-fpga]: http://github.com/bgamari/timetag-fpga
