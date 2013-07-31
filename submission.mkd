@@ -1,4 +1,7 @@
-# Hardware and software for single-molecule fluorescence analysis
+\title{Hardware and software for single-molecule fluorescence analysis}
+\author{Ben Gamari <bgamari@gmail.com> \and Laura Dietz <dietz@cs.umass.edu> \and Lori Goldner <lori.goldner@gmail.com>}
+
+\maketitle
 
 Over the last three decades, fluorescence spectroscopy has developed
 into a unique tool for probing biologically relevant systems. In
@@ -22,9 +25,9 @@ few nanosecond accuracy. The resulting data can reveal details of the
 nature of molecular interactions, flexibility, and conformation
 through intensity and temporal correlations.
 
-Commercial hardware for recording photon arrivals is available but very
+Commercial hardware for recording photon arrivals is available but 
 expensive. For instance time-correlated single photon counting modules
-are available for \$40,000, or hardware correlator devices for
+are available for \$40,000 or less capable hardware correlator devices for
 \$10,000, not including the cost of software. These devices generally
 provide few analysis tools, have little potential for extension, and
 are not flexible enough for use with recent experimental extensions
@@ -69,9 +72,11 @@ We will focus on two methods in particular: smFRET and FCS.
 
 ### Förster Resonance Energy Transfer
 
-Förster resonance energy transfer (smFRET) spectroscopy is a
-fluorescence technique that exploits the fact that two fluorophores in
-close proximity to one another can undergo energy transfer.
+Single-molecule Förster resonance energy transfer (smFRET)
+spectroscopy is a fluorescence technique that exploits the fact that
+two fluorophores in close proximity to one another can undergo energy
+transfer. That is, after exciting one of the dyes, there is a finite
+chance that an emission would be observed from the other dye.
 
 In recent years, FRET has enabled high-resolution studies of
 macromolecular conformation [@iqbal2008orientation], studies of
@@ -94,7 +99,7 @@ separation, and differences in dye fluorescence efficiency all require
 characterization and correction for accurate quantitative
 interpretation.
 
-### FCS
+### Fluorescence Correlation Spectroscopy
 
 Fluorescence Correlation Spectroscopy (FCS) [@haustein2007] is an
 experimental tool widely used to characterize reaction
@@ -118,26 +123,26 @@ tools for manipulating the resulting dataset. Finally, we introduce a
 set of tools for robust analysis of FCS and FRET data.
 
  * FCS correlation computation
- * FCS modelling
- * FRET
- * ALEX with large numbers of colors
+ * FCS fitting and modelling
+ * FRET analysis
+ * ALEX analysis with large numbers of colors
  * co-localization
  * can be integrated into a scanning system for FRET or co-localization imaging
  * burst detection
 
 ### Hardware
 
-The hardware is capable of recording event timing in up to eight channels.
-8ns accuracy, recording both photon arrivals and output state changes
+The hardware is capable of recording event times for up to eight
+channels with 8ns accuracy, recording both photon arrivals and output
+state changes.
 
 We developed [@Gamari2013] a photon arrival timing instrument based
 around a readily available FPGA [development board][xylo-board]. The
 instrument is easy to build with complete
-[build instructions][timetag-tutorial]. Along with timestamping
+[build instructions][timetag-tutorial]. Along with timing
 functionality, the instrument has output channels which can be used to
-change experimental parameters.
-
-FRET variants requiring excitation laser switching [@Kapanidis2005].
+change experimental parameters as required by some recent FRET
+variants [@Kapanidis2005].
 
 The [sources][timetag-fpga] include comprehensive
 [documentation][timetag-docs] to allow for easy adaptation for new
@@ -232,6 +237,11 @@ single-molecule fluorescence experiment taken with our time-stamping
 hardware. The dataset\footnote{experimental data due to Peker Milas of
 the Goldner group} examines an RNA 16-mer labelled terminally with Cy3
 and Cy5 fluorophores.
+
+## Acknowledgements
+
+This work was supported by NSF-MCB grant \#0920139.
+
 
 ## References
 
