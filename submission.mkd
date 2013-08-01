@@ -174,7 +174,7 @@ along with a user-friendly graphical interface for setting up and
 monitoring an experiment. These include real-time monitors of useful
 experimental quantities including a running FRET efficiency histogram,
 the correlation function, the photon counting histogram, and bin
-counts. This is in stark contrast to existing commericial software
+counts. This is in stark contrast to existing commercial software
 which provides little---if any---support to the experimentalist during
 data collection.
 
@@ -214,11 +214,10 @@ The `hphoton` package provides the `fret-analysis` and `alex-analysis`
 tools for analysis of FRET and FRET with alternating laser excitation
 (ALEX) data. These programs support both automatic and manual
 correction for detector background, cross-talk, and the detection
-efficiency factor.
-necessary for inferring quantitatively accurate FRET
-efficiencies. Moreover, the tools produce both human-readable HTML
-providing a suscint summary of each data set, as well as
-machine-readable results.
+efficiency factor which is necessary for inferring quantitatively
+accurate FRET efficiencies. Moreover, the tools produce both
+human-readable HTML providing a succinct summary of each data set, as
+well as machine-readable results.
 
 [photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
 
@@ -232,7 +231,7 @@ In the submission package we have provided two
 datasets\footnote{experimental data taken by Peker Milas of the
 Goldner group} from a single-molecule fluorescence experiment taken
 with our time-stamping hardware, taken for our recent
-publication~[@Milas2013].
+publication [@Milas2013].
 
 The "RNA 16-mer" dataset was taken from an RNA system labelled
 terminally with Cy3 and Cy5 dyes (Figure \ref{fig:rna}). The goal of
@@ -248,7 +247,7 @@ the detection of false positives by the detectors, one challenge of
 FRET in solution is distinguishing the short bursts from background
 noise.
 
-One often used technique for accomplishing this is the bin-threshold
+Typically, background is distinguished from signal by a bin-threshold
 method wherein photon arrivals are partitioned into homogenous
 temporal bins. One can then choose a threshold appreciably
 higher than the expected photon count due to background. We consider
@@ -317,7 +316,9 @@ to be isolated and examined.
 
 We present an end-to-end solution for fluorescence spectroscopy data
 acquisition, processing, and analysis. Built on off-the-shelf hardware
-and open-source software, the tools provide a unique TODO.
+and open-source software, the tools provide a uniquely flexible platform
+for experimental data acquisition. By combining high-resolution photon
+time-stamping with active experimental control, our solution TODO.
 
 ## Acknowledgements
 
