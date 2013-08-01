@@ -286,9 +286,9 @@ to reliably isolate the donor-only population allows one to use this
 information for correction of spectral crosstalk and differences in
 dye quantum yields.
 
-To accomplish this, the present tools use approximate inference
-(Markov chain Monte Carlo sampling) to infer a mixture model of Beta
-distributions over the empirical FRET efficiency distribution,
+To accomplish this, the present tools use approximate probabilistic
+inference (Markov chain Monte Carlo sampling) to infer a mixture model
+of Beta distributions over the empirical FRET efficiency distribution,
 allowing accurate separation of multiple species within a dataset. In
 this two-stage inference, a component assignment is first sampled for
 each bin. After assignments have been drawn for each bin, the
@@ -313,26 +313,20 @@ that would be expected in the case of a Poisson-limited FRET process
 
 ![The FRET efficiency histogram inferred from the given RNA 16-mer dataset.\label{fig:rna-fret}](rna-fret-hist.pdf)
 
-For further details on applications of the analysis tools provided in
-this submission see the accompanying Walkthough document and
-references therein.
+FRET in solution is only one scenario which shows how our tools
+integrate with each other and benefit from probabilistic inference.
+Further applications can be found in the Walkthough document
+accompanying this submission.
 
 ## Conclusion
 
-We present an end-to-end solution for fluorescence spectroscopy data
+We present a package for fluorescence spectroscopy data
 acquisition, processing, and analysis. Built on off-the-shelf hardware
 and open-source software, the tools provide a uniquely flexible platform
 for experimental data acquisition. By combining high-resolution photon
 time-stamping with active experimental control, our solution enables
 many-channel fluorescence experiments with active excitation
-modulation. Furthermore, by providing a set of building-block
-libraries and then tools built on those libraries, we greatly lower
-the barrier to entry for quantitative FRET measurements.
-
-To highlight the ease of use of the tools, we take as a representative
-example the task of analyzing a typical solution FRET
-experiment. After describing some of the corrections done by the
-analysis, we demonstrate usage of the tool.
+modulation.
 
 ## Acknowledgements
 
