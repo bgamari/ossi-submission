@@ -17,14 +17,14 @@ resonance energy transfer (smFRET) has proved to be useful for a
 variety of biologically relevant measurements ranging from DNA/RNA
 mechanics [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
 to protein conformation [@Wozniak2005] and protein
-function[@Gopich2009; @Sevenich1998].  When used in tandem these two
+function [@Gopich2009; @Sevenich1998].  When used in tandem these two
 techniques can provide unique perspective onto dynamics on molecular
 length-scales and over a wide range of time-scales [@Nettels2008].
 
 These techniques share a need for hardware and software for photon
 timing and associated analysis tools. A typical experiment may require
-timestamping of anywhere from two to four detection channels, with a
-few nanosecond accuracy. The resulting data can reveal details of the
+timestamping on two to four detection channels, with 
+nanosecond resolution. The resulting data can reveal details of the
 nature of molecular interactions, flexibility, and conformation
 through intensity and temporal correlations.
 
@@ -32,12 +32,12 @@ Commercial hardware for recording photon arrivals is available but
 expensive. For instance, time-correlated single photon counting modules
 are available for \$40,000 or less capable hardware correlator devices for
 \$10,000, not including the cost of software. These devices generally
-provide few analysis tools, have little potential for extension, and
+provide only few analysis tools, have little potential for extension, and
 are not flexible enough for use with recent experimental extensions
-such as alternating laser excitation [@lee2005; @Seidel2008].
+such as alternating laser excitation [@Lee2005; @Seidel2008].
 
-With open tools and high-resolution timing hardware we enable use
-of novel statistical methods for single-molecule fluorescence analysis.
+With open tools and high-resolution timing hardware we support
+novel statistical methods for single-molecule fluorescence analysis.
 Our toolchain provides tools ranging from hardware and low-level
 acquisition utilities, including data aggregation and filtering, up
 to high-level probabilistic inference methods.  The off-the-shelf
@@ -55,11 +55,11 @@ studies.
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
-While dyes have a long history of use to probe chemical systems
+While dyes have a long history of use in probing chemical systems
 [@Fernandez1976], steady improvement in dye brightness and detector
 electronics over the last decades have enabled the use of fluorescence
 spectroscopy for probing a wide variety of biological systems.
-These techniques have been used to watch single-molecule protein
+These techniques have been used to observe single-molecule protein
 folding within cells [@Choi2008; @Chung2009], characterize enzyme interactions
 [@Liu2002], and measure *in vivo* protein expression
 [@Goedhart2011]. By using dyes with distinct emission spectra multiple

@@ -13,7 +13,7 @@ submission.  In the submission package we have provided two datasets
 from a single-molecule fluorescence experiment taken with our
 time-stamping hardware. The datasets\footnote{experimental data due to
 Peker Milas of the Goldner group}, taken for our recent
-publication[@Milas2013], examines FRET in an RNA 16-mer (Figure
+publication [@Milas2013], examines FRET in an RNA 16-mer (Figure
 \ref{fig:rna}) labelled terminally with Cy3 and Cy5 dyes for
 comparison against predictions derived from molecular dynamics
 simulations.
