@@ -1,0 +1,119 @@
+\title{Walkthrough:\\Hardware and software for single-molecule fluorescence analysis}
+\author[1]{Ben Gamari <bgamari@physics.umass.edu>}
+\author[2]{Laura Dietz <dietz@cs.umass.edu>}
+\author[1]{Lori Goldner <lgoldner@physics.umass.edu>}
+\affil[1]{Department of Physics, University of Massachussetts, Amherst}
+\affil[2]{Department of Computer Science, University of Massachussetts, Amherst}
+
+\maketitle
+
+In this document we will briefly describe how one would carry out a
+small experimental data analysis task using the tools provided in our
+submission.  In the submission package we have provided two datasets
+from a single-molecule fluorescence experiment taken with our
+time-stamping hardware. The datasets\footnote{experimental data due to
+Peker Milas of the Goldner group}, taken for our recent
+publication[@Milas2013], examines FRET in an RNA 16-mer (Figure
+\ref{fig:rna}) labelled terminally with Cy3 and Cy5 dyes for
+comparison against predictions derived from molecular dynamics
+simulations.
+
+In the interest of space, we will pass over the data acquisition
+process, which is treated in the [usage manual][timetag-tutorial].
+
+## First steps
+
+We will begin by examining the first dataset, `donor-only.timetag`,
+which is a measurement of the 16-mer labelled with only the donor dye
+for calibration purposes. We will begin by examining the binned
+intensity timeseries of this dataset using the `plot-bins` utility
+provided by `photon-tools`,
+
+    $ plot-bins donor.timetag
+    donor.timetag
+    Average rates:
+                  acceptor:    125.666360 / second
+                     donor:    222.855797 / second
+
+This will display a plot similar to that shown in Figure
+\ref{fig:plot-bins}. Each row shows roughly 10 seconds of the
+experiments where we see a number intensity bursts from labelled RNA
+passing through the observation volume. As this is a donor-only
+sample, we see that nearly all of the fluorescence is in the donor
+(green) channel. In contrast, we can examine the doubly-labelled sample,
+
+    $ plot-bins fret.timetag
+
+Here we see more sparse bursts (due to lower sample concentration) but
+find that a substantial amount of fluorescence is being detected in
+the acceptor (red) channel. Conveniently, neither of the samples show
+any indication of long, intense bursts, a common sign of
+contamination.
+
+As expected, passing the `-­help` option to `plot-bins` gives a
+help message describing the various flags supported by the tool.
+
+![Bin timeseries showing roughly two minutes of the donor-only dataset\label{fig:plot-bins}.](example/plot-bins.pdf)
+
+## Correlation analysis
+
+Next we can compute a correlation function to characterize the
+diffusive characteristics of the samples, using
+`fcs-corr`, also provided by `photon-tools`. We will ignore lags
+beneath 5 µs to avoid seeing photophysical effects,
+
+    $ fcs-corr --plot -­min-lag=5e-5 donor.timetag
+
+This will produce six files in the current directory: three
+correlation functions (donor and acceptor autocorrelation, and the
+donor-acceptor cross-correlation, in tab-separated format) along with
+a plot of each. We then can fit a three-dimensional diffusion model
+to, for instance, the donor (channel 0) auto-correlation function to
+extract a characteristic diffusion time from which we can infer the
+molecule's hydrodynamic radius,
+
+    $ fcs-fit ­­plot donor.timetag.acorr-0
+
+This shows a plot of the correlation function along with a fit, its
+parameters, and a variety of goodness-of-fit metrics. Most
+importantly, we see that the diffusion time, `tau_d` has a value of
+292 μs. As a sanity check, we can compare this fit against that of
+`fret.timetag`, where we see that the diffusion times are within the
+parameter uncertainty of one another. Furthermore, looking at the $α$
+parameter, we can validate that the alignment of the instrument's
+optics has not changed as the day progressed.
+
+## FRET analysis
+
+Have verified that the sample is clear and contains the expected
+sample, we can now extract a FRET efficiency. We begin by examining
+the donor-only sample, fitting the resulting FRET distribution to a
+single Beta distribution with 5 ms bin width, and a burst acceptance
+threshold of 10 photons,
+
+    $ fret-analysis --fit-comps=1 --bin-width=5e-3 --burst-size=10 --nbins=10 donor.timetag
+
+This produces a few tab-separated files describing the
+above-threshold bins, a variety of plots, as well as an HTML file
+summarizing the analysis. We see in the summary that the donor-only
+sample contains a single population exhibiting low FRET
+efficiency. Despite there being nominally no acceptor emissions (as
+there is no acceptor dye), the peak is shifted away from $E=0$ due to
+spectral crosstalk. The magnitude of this shift can be later used to
+correct the histogram FRET dataset.
+
+Next we can examine the doubly-labelled FRET sample. Here we will use
+two fit components (one for the donor-only population and another for
+the doubly-labelled population) and a higher threshold due to the
+second dye. Further, we can indicate that the software should correct
+for crosstalk and gamma, inferring the correction parameters from the
+donor-only dataset,
+
+    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20 --donly-file=donor.timetag --crosstalk=auto --gamma=auto --bin-width=5e-3 fret.timetag
+
+We see in the FRET histogram that not only has the tool inferred a fit
+for the FRET distribution, it has also plotted a variant of the fit
+showing the distribution that would be expected in the case of a
+shot-noise limited FRET population exhibiting no slow dynamics.
+
+
