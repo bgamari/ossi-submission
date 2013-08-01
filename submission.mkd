@@ -174,7 +174,7 @@ modulation of experimental parameters.
 [timetag-fpga]: http://github.com/bgamari/timetag-fpga
 [timetag-docs]: http://github.com/bgamari/timetag-fpga/tree/master/docs
 
-### Software
+### Software for data acquisition
 
 The instrument is complemented with a set of software
 [tools][timetag-tools] for low-level manipulation of collected data
