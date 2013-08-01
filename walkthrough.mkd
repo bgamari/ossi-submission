@@ -18,8 +18,12 @@ publication[@Milas2013], examines FRET in an RNA 16-mer (Figure
 comparison against predictions derived from molecular dynamics
 simulations.
 
+![The RNA 16-mer under study](rna.png)
+
 In the interest of space, we will pass over the data acquisition
 process, which is treated in the [usage manual][timetag-tutorial].
+
+[timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
 
 ## First steps
 
