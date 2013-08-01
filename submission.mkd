@@ -224,6 +224,8 @@ machine-readable results.
 
 ### Interoperability
 
+TODO.
+
 ## Example application: FRET in solution
 
 In the submission package we have provided two
@@ -292,6 +294,10 @@ shows a Beta fit to this component while the purple line shows the fit
 that would be expected in the case of a Poisson-limited FRET process.
 
 ![The FRET efficiency histogram inferred from the given RNA 16-mer dataset.\label{fig:rna-fret}](rna-fret-hist.pdf)
+
+For further details on applications of the analysis tools provided in
+this submission see the accompanying Walkthough document and
+references therein.
 
 # Bayesian burst detection
 
