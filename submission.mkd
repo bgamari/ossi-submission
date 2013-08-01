@@ -50,8 +50,6 @@ extension.
 TODO: Particular care has been taken to interoperate with
 pre-existing tools in Matlab, Python, and OpenBUGS.
 
-![](ecosystem.pdf)
-
 ## Background: Fluorescence spectroscopy
 
 ![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.\label{fig:fret-setup}](fret-setup.pdf)
