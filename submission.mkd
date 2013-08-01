@@ -226,21 +226,25 @@ machine-readable results.
 
 ## Example application: FRET in solution
 
-In the submission package we have provided two datasets from a
-single-molecule fluorescence experiment taken with our time-stamping
-hardware. The datasets\footnote{experimental data due to Peker Milas of
-the Goldner group}, taken for our recent publication[@Milas2013],
-examines FRET in an RNA 16-mer (Figure \ref{fig:rna}) labelled
-terminally with Cy3 and Cy5 dyes for comparison against predictions
-derived from molecular dynamics simulations. 
+In the submission package we have provided two
+datasets\footnote{experimental data taken by Peker Milas of the
+Goldner group} from a single-molecule fluorescence experiment taken
+with our time-stamping hardware, taken for our recent
+publication~[@Milas2013].
 
-This experiment uses a technique known as solution FRET wherein the
-species of interest is studied while freely diffusing in dilute
-solution. Occassionally, a molecule will diffuse through the
-observation volume, giving rise to a burst of emissions often only
-lasting for tens of microseconds and consisting of tens to hundreds of
-photons. A major challenge posed by these experiments is that of
-distinguishing burst events from background noise.
+The "RNA 16-mer" dataset was taken from an RNA system labelled
+terminally with Cy3 and Cy5 dyes (Figure \ref{fig:rna}). The goal of
+this experiment was an experimental validation of findings from a
+molecular dynamics simulation.
+
+RNA is a difficult species to measure, as it requires an aqueous
+environment in which it freely diffuses.  Occassionally, a molecule
+will diffuse through the observation volume, giving rise to a short
+burst of emissions for the duration of tens of microseconds during
+which between ten and several hundred photons are observed.  Due to
+the detection of false positives by the detectors, one challenge of
+FRET in solution is distinguishing the short bursts from background
+noise.
 
 One often used technique for accomplishing this is the bin-threshold
 method wherein photon arrivals are partitioned into homogenous
@@ -254,13 +258,14 @@ detectors. These rates can then be used to correct for the background
 contribution to those bins containing signal.
 
 Another complication is the presence of unwanted donor-only
-signal. Due to imperfect chemistry (in our case, the process used to
-anneal the double-stranded RNA), many FRET experiments will have a
-measurable population of molecules lacking an acceptor dye. Moreover,
-the ability to reliably isolate the donor-only population allows one
-to use this information for further correction. Namely, knowledge of
-donor-only count statistics enables better correction for spectral
-crosstalk and differences in dye quantum yields.
+signal. Due to imperfection in sample preparation and the fragility of
+the dyes, many FRET experiments will have a measurable population of
+molecules lacking a functional acceptor dye. Being able to distinguish
+this donor-only population from the molecule of interest is crucial
+for quantitatively accurate FRET measurements. Moreover, the ability
+to reliably isolate the donor-only population allows one to use this
+information for correction of spectral crosstalk and differences in
+dye quantum yields.
 
 To accomplish this, the present tools use approximate inference
 (Markov chain Monte Carlo sampling) to infer a mixture model of Beta
@@ -273,19 +278,18 @@ assigned samples in a maximum likelihood manner.
 
 The FRET analysis tool provided by the `hphoton` package can carry out
 these corrections in an automated manner. For instance, to estimate a
-FRET efficiency distribution from the supplied `fret.timetag` dataset,
-one might run,
+corrected FRET efficiency distribution from the supplied
+`fret.timetag` dataset, one might run,
 
-    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20 --crosstalk=auto
-         --gamma=auto --bin-width=5e-3 fret.timetag
+    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20
+    --crosstalk=auto --gamma=auto --bin-width=5e-3 fret.timetag
 
-Figure \ref{fig:rna-fret} shows the FRET histogram and fits resulting
-from this tool. On the left of the histogram we see the remnants of
-the donor-only peak, most of which has been shifted past
-$E=0$. Centered around $E=0.6$ we see the FRET peak from the
-16-mer. The blue line shows a Beta fit to this component while the
-purple line shows the fit that would be expected in the case of a
-Poisson-limited FRET process.
+Figure \ref{fig:rna-fret} shows the FRET histogram and fits estimated
+by this tool. On the left of the histogram we see the remnants of the
+donor-only peak, most of which has been shifted past $E=0$. Centered
+around $E=0.6$ we see the FRET peak from the 16-mer. The blue line
+shows a Beta fit to this component while the purple line shows the fit
+that would be expected in the case of a Poisson-limited FRET process.
 
 ![The FRET efficiency histogram inferred from the given RNA 16-mer dataset.\label{fig:rna-fret}](rna-fret-hist.pdf)
 
