@@ -337,7 +337,16 @@ We present an end-to-end solution for fluorescence spectroscopy data
 acquisition, processing, and analysis. Built on off-the-shelf hardware
 and open-source software, the tools provide a uniquely flexible platform
 for experimental data acquisition. By combining high-resolution photon
-time-stamping with active experimental control, our solution TODO.
+time-stamping with active experimental control, our solution enables
+many-channel fluorescence experiments with active excitation
+modulation. Furthermore, by providing a set of building-block
+libraries and then tools built on those libraries, we greatly lower
+the barrier to entry for quantitative FRET measurements.
+
+To highlight the ease of use of the tools, we take as a representative
+example the task of analyzing a typical solution FRET
+experiment. After describing some of the corrections done by the
+analysis, we demonstrate usage of the tool.
 
 ## Acknowledgements
 
