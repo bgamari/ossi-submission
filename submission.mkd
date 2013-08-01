@@ -18,7 +18,7 @@ variety of biologically relevant measurements ranging from DNA/RNA
 mechanics [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
 to protein conformation [@Wozniak2005] and protein
 function[@Gopich2009; @Sevenich1998].  When used in tandem these two
-techniques can provide unique perspective into dynamics on molecular
+techniques can provide unique perspective onto dynamics on molecular
 length-scales and over a wide range of time-scales [@Nettels2008].
 
 These techniques share a need for hardware and software for photon
@@ -39,19 +39,19 @@ such as alternating laser excitation [@lee2005; @Seidel2008].
 With open tools and high-resolution timing hardware we enable use
 of novel statistical methods for single-molecule fluorescence analysis.
 Our toolchain provides tools ranging from hardware and low-level
-acquisition utilities, including data aggregation and correction, up
+acquisition utilities, including data aggregation and filtering, up
 to high-level probabilistic inference methods.  The off-the-shelf
 board around which the hardware is built is available for less than
 \$200 and can be assembled into a working instrument with little
 knowledge of hardware or software. The entire toolchain is
 open-source and well-documented, enabling customization and
 extension. This extensibility allows the instrument to be integrated
-in applications ranging from fluorescence imaging to fixed confocal
+into applications ranging from fluorescence imaging to fixed confocal
 studies.
 
 ## Background: Fluorescence spectroscopy
 
-![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.\label{fig:fret-setup}](fret-setup.pdf)
+![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be seen in a FRET study.\label{fig:fret-setup}](fret-setup.pdf)
 
 A dye is a fluorescent molecule; that is, one which will emit a photon
 after having been excited by photon absorption or other excitation.
@@ -60,16 +60,16 @@ While dyes have a long history of use to probe chemical systems
 electronics over the last decades have enabled the use of fluorescence
 spectroscopy for probing a wide variety of biological systems.
 These techniques have been used to watch single-molecule protein
-folding within cells [@Choi2008; @Chung2009], enzyme
-interactions [@Liu2002], and TODO. By using multiple dye varieties
-with different emission colors, two or more probes can be placed on
-the same molecule, enabling access to rich conformational details.
+folding within cells [@Choi2008; @Chung2009], enzyme interactions
+[@Liu2002], and TODO. By using dyes with distinct emission spectra
+multiple probes can be placed on the a single molecule or assembly,
+enabling access to rich conformational details.
 
 Figure \ref{fig:fret-setup} shows a typical fluorescence spectroscopy
 apparatus built around a confocal microscope.  A laser illuminates an
 observation volume confocal with a collection volume.  As a molecule
 passes through the observation volume, its dyes are excited and
-emissions collected by two or more photon-counting detectors. These
+emissions collected by photon-counting detectors. These
 detectors may collect different colors or polarizations of light,
 depending upon the experiment. Timestamps encoding the photon arrival
 events are then recorded by the timing hardware and sent to a computer
@@ -77,10 +77,10 @@ for storage and later analysis.
 
 A variety of experimental artifacts are present in a typical
 fluorescence spectroscopy experiment. Even high-quality photon
-counting detectors sporatically report photons even with no
-signal. These photons constitute a background which adds noise on top
-of the fluorescence signal. Furthermore, optical filters are imperfect
-at separating wavelengths, giving rise to an artifact known as spectral
+counting detectors sporatically report events even with no
+fluorescence signal. These background events add noise on top of the
+fluorescence signal. Furthermore, optical filters are imperfect at
+separating wavelengths, giving rise to an artifact known as spectral
 crosstalk. Finally, despite improvements in dye brightness and
 stability, typical photon count rates often bound the timescales
 accessible to fluorescence experiments. This is especially true in
