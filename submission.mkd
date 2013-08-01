@@ -143,7 +143,7 @@ dynamics on molecular length-scales [@Nettels2008].
 We present a suite of end-to-end tools for the collection and analysis
 of fluorescence spectroscopy data. Our package includes hardware and
 software for experimental data collection, as well as a diverse set of
-tools for manipulating the resulting dataset. Finally, we introduce a
+tools for manipulating the resulting data. Finally, we introduce a
 set of tools for robust analysis of FCS and FRET data.
 
 ### Hardware
@@ -164,6 +164,7 @@ modulation of experimental parameters.
 
 [xylo-board]: http://www.knjn.com/FPGA-FX2.html
 [timetag-fpga]: http://github.com/bgamari/timetag-fpga
+[timetag-firmware]: http://goldnerlab.physics.umass.edu/~bgamari/timetag/
 [timetag-docs]: http://github.com/bgamari/timetag-fpga/tree/master/docs
 
 ### Software for data acquisition
