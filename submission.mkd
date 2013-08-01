@@ -224,7 +224,22 @@ well as machine-readable results.
 
 ### Interoperability
 
-TODO.
+Due to the modular nature of the packages, the provided tools are
+highly interoperable with external packages. All output is provided as
+either tab-delimited text or a well-documented binary format. This
+makes it trivial to import data and analysis results into tools such
+as R, OpenBUGS, Matlab, and others for further processing.
+
+The data manipulation tools provided in the `timetag-tools` package
+hold to the UNIX philosophy, making it easy to chain together
+individual utilities into more sophisticated pipelines.
+
+Furthermore, the libraries on which the tools are built are well
+documented and can easily be used on their own. The modules provided
+by `photon-tools` expose user-friendly interfaces which are amenable
+to use in an interactive environment such as [ipython notebook][].
+
+[ipython notebook]: http://ipython.org/notebook.html
 
 ## Example application: FRET in solution
 
@@ -235,9 +250,9 @@ with our time-stamping hardware, for our recent publication
 [@Milas2013].
 
 The "RNA 16-mer" dataset was taken on an RNA system labelled
-terminally with Cy3 and Cy5 dyes (Figure \ref{fig:rna}). The goal of
-this experiment was an experimental validation of findings from a
-molecular dynamics simulation.
+terminally with Cy3 and Cy5 dyes. The goal of this experiment was an
+experimental validation of findings from a molecular dynamics
+simulation.
 
 A common difficulty in fluorescence spectroscopy is measuring the
 species of interest for sufficiently long durations. While chemical
