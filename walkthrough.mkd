@@ -18,7 +18,7 @@ publication [@Milas2013], examine FRET in an RNA 16-mer (Figure
 comparison against predictions derived from molecular dynamics
 simulations.
 
-![The RNA 16-mer under study\label{fig:rna}](rna.png)
+![The RNA 16-mer under study. Here we see the RNA backbone along with the two terminal Cyanine dyes.\label{fig:rna}](rna.png)
 
 ## Installation
 
