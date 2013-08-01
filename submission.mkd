@@ -68,7 +68,7 @@ access to rich conformational details.
 
 Figure \ref{fig:fret-setup} shows a typical fluorescence spectroscopy
 apparatus built around a confocal microscope.  A laser illuminates an
-observation volume confocal with a collection volume.  As a molecule
+observation volume.  As a molecule
 passes through the observation volume, its dyes are excited and
 emissions collected by photon-counting detectors. These
 detectors may collect different colors or polarizations of light,
@@ -79,16 +79,15 @@ for storage and later analysis.
 A variety of experimental artifacts are present in a typical
 fluorescence spectroscopy experiment. Even high-quality photon
 counting detectors sporatically report events even with no
-fluorescence signal. These background events add noise on top of the
-fluorescence signal. Furthermore, optical filters are imperfect at
-separating wavelengths, giving rise to an artifact known as spectral
+fluorescence signal. These background events add noise to the
+fluorescence signal. Furthermore, optical filters do not perfectly 
+separate wavelengths, giving rise to an artifact known as spectral
 crosstalk. Finally, despite improvements in dye brightness and
-stability, typical photon count rates often bound the timescales
+stability, photon emission rates often limit the timescales
 accessible to fluorescence experiments. This is especially true in
 experiments where the molecule under study is freely diffusing in
-solution where residence times are often sub-millisecond
-timescales. In this case it is common to collect less than 50 photons
-per molecule.
+solution yielding residence times below one millisecond. In this
+case it is common to collect less than 50 photons per residency.
 
 We will focus on two fluorescence methods in particular: Förster
 resonance energy transfer and fluorescence correlation spectroscopy.
