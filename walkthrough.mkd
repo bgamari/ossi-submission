@@ -146,4 +146,19 @@ for the FRET distribution, it has also plotted a variant of the fit
 showing the distribution that would be expected in the case of a
 shot-noise limited FRET population exhibiting no slow dynamics.
 
+## Bayesian burst detection
 
+While sometimes effective, the bin-threshold technique imposes an
+arbitrary timescale on the data and there struggles to isolate bursts
+shorter than the significantly shorter than the bin width, as is
+common in solution FRET experiments like the one described above.
+
+To overcome this, we provide a novel Bayesian inference for burst
+identification. In contrast to the bin-threshold method, our approach
+exploits the exponential distribution of Poissonian interarrival times
+in conjunction with an assumption of the smoothness on the
+fluorescence intensity as a function of time. This allows bursts with
+duration shorter than one bin width to be isolated and examined. We
+include an implementation of this technique in the `hphoton` package
+which can be easily used to support a simple FRET analysis as seen in
+\ref{fig:burstfind}.

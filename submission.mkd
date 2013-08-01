@@ -317,20 +317,6 @@ For further details on applications of the analysis tools provided in
 this submission see the accompanying Walkthough document and
 references therein.
 
-# Bayesian burst detection
-
-While sometimes effective, this technique imposes an arbitrary
-timescale on the data and is unable to effectively isolate short
-bursts from the surrounding background counts.
-
-We provide a novel Bayesian burst detection scheme for
-extracting fluorescence bursts from solution FRET experiments. In
-contrast to the bin-threshold method, our approach exploits the
-exponential distribution of Poissonian interarrival times in
-conjunction with an assumption of time continuity. This allows bursts
-with duration less than one bin width (typically measured in milliseconds) 
-to be isolated and examined.
-
 ## Conclusion
 
 We present an end-to-end solution for fluorescence spectroscopy data
