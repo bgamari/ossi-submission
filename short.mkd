@@ -12,12 +12,12 @@ The lack of a common high-quality data acquisition and analysis
 toolkit for fluorescence techniques has hindered reproducibility and
 substantially raised the barrier to realizing a fluorescence
 spectroscopic experiment. This is especially in the analysis of
-fluorescence results, which can required sophisticated statistical
+fluorescence results, which can require sophisticated statistical
 inference to account for a variety of experimental artifacts and
 corrections.
 
 We present an end-to-end open-source toolkit for fluorescence
 spectroscopy experimental data acquisition, processing, and
-analysis. This includes acquisition hardware, tools for manipulating
+analysis. This includes acquisition hardware, utilities for manipulating
 collected data, and tools for statistical data analysis for a variety
 of common fluorescence experiments.
