@@ -108,7 +108,7 @@ be estimated from relative dye intensities.  This is often used to
 observe gross structural changes in enzymes and other biological
 molecules.  Furthermore, with careful characterization and modelling,
 quantitative FRET measurements are also possible, allowing measurement
-of intra-molecular distances and conformational details.
+of intra-molecular distances and conformation.
 
 In recent years, FRET has enabled studies of macromolecular
 conformation [@iqbal2008orientation], mechanical flexibility
@@ -120,7 +120,9 @@ accurately interpreting the resulting experimental data requires
 consideration of a number of confounding factors: detector background,
 imperfect spectral separation, and differences in dye fluorescence
 efficiency all require characterization and correction for accurate
-quantitative interpretation.
+quantitative interpretation. Additionally, studies of molecules in
+free solution---a very commmon class of experiment---poses even
+greater challenges as we'll see in the example below.
 
 ### Fluorescence Correlation Spectroscopy
 
@@ -131,12 +133,14 @@ correlations in fluorescence intensity fluctuations within an
 observation volume, one can infer characteristics of a
 molecular species' diffusion.
 
-Using FCS in conjunction with FRET can provide deep insights into
+Using FCS in conjunction with FRET can provide further insights into
 dynamics on molecular length-scales [@Nettels2008].
 
 
 ## Contribution
 
+While fluorescence techniques provide useful insight, they pose both
+experimental and theoretical challenges that must be addressed.
 We present a suite of end-to-end tools for the collection and analysis
 of fluorescence spectroscopy data. Our package includes hardware and
 software for experimental data collection, as well as a diverse set of
@@ -151,7 +155,7 @@ around a readily available FPGA [development board][xylo-board].
 [firmware][timetag-firmware] and extensively
 [documented][timetag-docs] [sources][timetag-fpga] are provided.
 Further, several introductory experiments using the hardware and tools
-are described in our 2013 paper [@Gamari2013].
+are described in our paper [@Gamari2013].
 
 The hardware is capable of recording event times for up to eight
 input channels with 8ns accuracy. Furthermore, the hardware includes
@@ -196,17 +200,17 @@ binary, and Matlab `.mat` format).
 The `photon-tools` package provides a set of Python utilities and
 underlying libraries for manipulating and analyzing photon data. The
 utilities support a variety of file formats including formats of
-several commericial instruments. This package includes an extensive
+several commercial instruments. This package includes an extensive
 [tutorial][photon-tools docs] as well as comprehensive documentation
 for the provided Python interfaces.
 
 The `fcs-corr` utility provides a convenient way to compute and plot
 correlation functions of timestamp data. The `fcs-fit` utility takes
 one or more correlation functions produced by `fcs-corr` and allows
-the user to fit these data collectively to any of a number of physical
-models. The tool supports advanced features such as parameter-tying
-over multiple datasets, and produces a variety of diagnostic
-statistics and goodness-of-fit metrics.
+the user to fit these data collectively to a variety of physical
+models. The tool supports parameter-tying over multiple datasets, and
+produces a variety of diagnostic statistics and goodness-of-fit
+metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
 tools for analysis of both FRET data and FRET with alternating laser excitation
