@@ -2,8 +2,8 @@
 \author[1]{Ben Gamari <bgamari@physics.umass.edu>}
 \author[2]{Laura Dietz <dietz@cs.umass.edu>}
 \author[1]{Lori Goldner <lgoldner@physics.umass.edu>}
-\affil[1]{Department of Physics, University of Massachussetts, Amherst}
-\affil[2]{Department of Computer Science, University of Massachussetts, Amherst}
+\affil[1]{Department of Physics, University of Massachusetts, Amherst}
+\affil[2]{Department of Computer Science, University of Massachusetts, Amherst}
 
 \maketitle
 
@@ -78,7 +78,7 @@ for storage and later analysis.
 
 A variety of experimental artifacts are present in a typical
 fluorescence spectroscopy experiment. Even high-quality photon
-counting detectors sporatically report events even with no
+counting detectors sporadically report events even with no
 fluorescence signal. These background events add noise to the
 fluorescence signal. Furthermore, optical filters do not perfectly 
 separate wavelengths, giving rise to an artifact known as spectral
@@ -121,7 +121,7 @@ consideration of a number of confounding factors: detector background,
 imperfect spectral separation, and differences in dye fluorescence
 efficiency all require characterization and correction for accurate
 quantitative interpretation. Additionally, studies of molecules in
-free solution---a very commmon class of experiment---poses even
+free solution---a very common class of experiment---poses even
 greater challenges as we'll see in the example below.
 
 ### Fluorescence Correlation Spectroscopy
@@ -269,7 +269,7 @@ observed.  Due to presence detector background, one challenge of FRET
 in solution is distinguishing the short bursts from background noise.
 
 Typically, background is distinguished from signal by a bin-threshold
-method wherein photon arrivals are partitioned into homogenous
+method wherein photon arrivals are partitioned into homogeneous
 temporal bins. One can then choose a threshold appreciably
 higher than the expected photon count due to detector background. We
 consider those bins with fewer counts than the threshold to contain no
@@ -334,7 +334,7 @@ excitation modulation. Our toolchain both lowers the barrier to entry
 for these important experimental tools and enables more sophisticated
 methods for higher fidelity fluorescence measurements.
 
-## Acknowledgements
+## Acknowledgments
 
 This work was supported by NSF-MCB grant \#0920139.
 
