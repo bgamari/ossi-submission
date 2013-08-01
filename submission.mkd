@@ -321,9 +321,9 @@ accompanying this submission.
 
 ## Conclusion
 
-We present a package for fluorescence spectroscopy data
-acquisition, processing, and analysis. Built on off-the-shelf hardware
-and open-source software, the tools provide a uniquely flexible platform
+We present a package for fluorescence spectroscopic data acquisition,
+processing, and analysis. Built on off-the-shelf hardware and
+open-source software, the tools provide a uniquely flexible platform
 for experimental data acquisition and analysis. By combining
 high-resolution photon time-stamping with active experimental control,
 our solution enables many-channel fluorescence experiments with active
