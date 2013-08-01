@@ -43,9 +43,11 @@ acquisition utilities, including data aggregation and correction, up
 to high-level probabilistic inference methods.  The off-the-shelf
 board around which the hardware is built is available for less than
 \$200 and can be assembled into a working instrument with little
-knowledge of hardware or software.  The entire toolchain is
+knowledge of hardware or software. The entire toolchain is
 open-source and well-documented, enabling customization and
-extension.
+extension. This extensibility allows the instrument to be integrated
+in applications ranging from fluorescence imaging to fixed confocal
+studies.
 
 TODO: Particular care has been taken to interoperate with
 pre-existing tools in Matlab, Python, and OpenBUGS.
@@ -143,14 +145,6 @@ of fluorescence spectroscopy data. Our package includes hardware and
 software for experimental data collection, as well as a diverse set of
 tools for manipulating the resulting dataset. Finally, we introduce a
 set of tools for robust analysis of FCS and FRET data.
-
- * FCS correlation computation
- * FCS fitting and modelling
- * FRET analysis
- * ALEX analysis with large numbers of colors
- * co-localization
- * can be integrated into a scanning system for FRET or co-localization imaging
- * burst detection
 
 ### Hardware
 
@@ -311,6 +305,9 @@ to be isolated and examined.
 
 ## Conclusion
 
+We present an end-to-end solution for fluorescence spectroscopy data
+acquisition, processing, and analysis. Built on off-the-shelf hardware
+and open-source software, the tools provide a unique TODO.
 
 ## Acknowledgements
 
