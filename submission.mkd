@@ -49,9 +49,6 @@ extension. This extensibility allows the instrument to be integrated
 in applications ranging from fluorescence imaging to fixed confocal
 studies.
 
-TODO: Particular care has been taken to interoperate with
-pre-existing tools in Matlab, Python, and OpenBUGS.
-
 ## Background: Fluorescence spectroscopy
 
 ![A schematic representation of a typical fluorescence spectroscopy experiment. The bubble on the left shows a diffusing singly-labelled molecule as might be used in an FCS experiment. The right bubble shows a pair of dyes undergoing energy transfer, as would be used in a FRET experiment.\label{fig:fret-setup}](fret-setup.pdf)
@@ -236,7 +233,7 @@ individual utilities into more sophisticated pipelines.
 
 Furthermore, the libraries on which the tools are built are well
 documented and can easily be used on their own. The modules provided
-by `photon-tools` expose user-friendly interfaces which are amenable
+by `photon-tools` expose easy-to-use interfaces which are amenable
 to use in an interactive environment such as [ipython notebook][].
 
 [ipython notebook]: http://ipython.org/notebook.html
