@@ -153,8 +153,8 @@ around a readily available FPGA [development board][xylo-board].
 [Assembly instructions][timetag-tutorial], pre-compiled
 [firmware][timetag-firmware] and extensively
 [documented][timetag-docs] [sources][timetag-fpga] are provided.
-Further, several introductory experiments using the hardware are
-described in our 2013 paper [@Gamari2013].
+Further, several introductory experiments using the hardware and tools
+are described in our 2013 paper [@Gamari2013].
 
 The hardware is capable of recording event times for up to eight
 input channels with 8ns accuracy. Furthermore, the hardware includes
@@ -174,8 +174,8 @@ The instrument is complemented with a set of software
 along with a user-friendly graphical interface for setting up and
 monitoring an experiment. These include real-time monitors of useful
 experimental quantities including a running FRET efficiency histogram,
-the correlation function, the photon counting histogram, and bin
-counts. This is in stark contrast to existing commercial software
+correlation function, photon counting histogram, and bin count
+timeseries. This is in stark contrast to existing commercial software
 which provides little---if any---support to the experimentalist during
 data collection.
 
@@ -197,23 +197,23 @@ binary, and Matlab `.mat` format).
 ### Tools for data analysis
 
 The `photon-tools` package provides a set of Python utilities and
-libraries for manipulating and analyzing photon data. The utilities
-support a variety of file formats including formats of several
-commericial instruments. These utilities include an extensive
-[tutorial][photon-tools docs] as well as comprehensive Python
-docstrings.
+underlying libraries for manipulating and analyzing photon data. The
+utilities support a variety of file formats including formats of
+several commericial instruments. This package includes an extensive
+[tutorial][photon-tools docs] as well as comprehensive documentation
+for the provided Python interfaces.
 
 The `fcs-corr` utility provides a convenient way to compute and plot
 correlation functions of timestamp data. The `fcs-fit` utility takes
 one or more correlation functions produced by `fcs-corr` and allows
-the user to fit the data collectively to any of a number of physical
-models. The tool supports parameter-tying over multiple datasets and
-produces a variety of diagnostic statistics and goodness-of-fit
-metrics.
+the user to fit these data collectively to any of a number of physical
+models. The tool supports advanced features such as parameter-tying
+over multiple datasets, and produces a variety of diagnostic
+statistics and goodness-of-fit metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
-tools for analysis of FRET and FRET with alternating laser excitation
-(ALEX) data. These programs support both automatic and manual
+tools for analysis of both FRET data and FRET with alternating laser excitation
+(ALEX) [@Kapanidis2005]. These programs support both automatic and manual
 correction for detector background, cross-talk, and the detection
 efficiency factor which is necessary for inferring quantitatively
 accurate FRET efficiencies. Moreover, the tools produce both
@@ -231,28 +231,33 @@ TODO.
 In the submission package we have provided two
 datasets\footnote{experimental data taken by Peker Milas of the
 Goldner group} from a single-molecule fluorescence experiment taken
-with our time-stamping hardware, taken for our recent
-publication [@Milas2013].
+with our time-stamping hardware, for our recent publication
+[@Milas2013].
 
-The "RNA 16-mer" dataset was taken from an RNA system labelled
+The "RNA 16-mer" dataset was taken on an RNA system labelled
 terminally with Cy3 and Cy5 dyes (Figure \ref{fig:rna}). The goal of
 this experiment was an experimental validation of findings from a
 molecular dynamics simulation.
 
-RNA is a difficult species to measure, as it requires an aqueous
-environment in which it freely diffuses.  Occassionally, a molecule
-will diffuse through the observation volume, giving rise to a short
-burst of emissions for the duration of tens of microseconds during
-which between ten and several hundred photons are observed.  Due to
-the detection of false positives by the detectors, one challenge of
-FRET in solution is distinguishing the short bursts from background
-noise.
+A common difficulty in fluorescence spectroscopy is measuring the
+species of interest for sufficiently long durations. While chemical
+linkers allow many molecules to be immobilized on a surface, the
+interaction between the molecule, the linker, and the nearby surface
+will often perturb the dynamics under study. For this reason, many
+biological experiments are conducted with the molecule of interest in
+dilute aqueous solution.  In this style of experiment, one waits as
+single molecules occasionally diffuse through the observation volume,
+giving rise to a short burst of emissions of tens of microseconds in
+length during which between ten and several hundred photons are
+observed.  Due to presence detector background, one challenge of FRET
+in solution is distinguishing the short bursts from background noise.
 
 Typically, background is distinguished from signal by a bin-threshold
 method wherein photon arrivals are partitioned into homogenous
 temporal bins. One can then choose a threshold appreciably
-higher than the expected photon count due to background. We consider
-those bins with fewer counts than the threshold to be background.
+higher than the expected photon count due to detector background. We
+consider those bins with fewer counts than the threshold to contain no
+fluorescence.
 
 After the background bins have been identified, we examine their count
 statistics to determine the background count rates of the
