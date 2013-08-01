@@ -2,7 +2,7 @@ PANDOC_OPTS=--bibliography=library.bib -V links-as-notes -V geometry:margin=1in 
 
 all : library.bib submission.pdf
 
-submission.pdf : fret-setup.pdf fret_processes.pdf ecosystem.pdf rna-fret-hist.pdf
+submission.pdf : fret-setup.pdf ecosystem.pdf rna-fret-hist.pdf
 
 %.tex : %.mkd
 	pandoc -o $@ $< --standalone $(PANDOC_OPTS)
