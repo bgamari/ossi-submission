@@ -60,10 +60,11 @@ While dyes have a long history of use to probe chemical systems
 electronics over the last decades have enabled the use of fluorescence
 spectroscopy for probing a wide variety of biological systems.
 These techniques have been used to watch single-molecule protein
-folding within cells [@Choi2008; @Chung2009], enzyme interactions
-[@Liu2002], and TODO. By using dyes with distinct emission spectra
-multiple probes can be placed on the a single molecule or assembly,
-enabling access to rich conformational details.
+folding within cells [@Choi2008; @Chung2009], characterize enzyme interactions
+[@Liu2002], and measure *in vivo* protein expression
+[@Goedhart2011]. By using dyes with distinct emission spectra multiple
+probes can be placed on a single molecule or assembly, enabling
+access to rich conformational details.
 
 Figure \ref{fig:fret-setup} shows a typical fluorescence spectroscopy
 apparatus built around a confocal microscope.  A laser illuminates an
