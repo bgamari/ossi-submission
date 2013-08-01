@@ -15,5 +15,5 @@ walkthrough.pdf :
 	inkscape --export-pdf=$@ $<
 
 library.bib : /home/ben/lori/papers/library.bib
-	cp $< $@
+	grep -v "url =" $< > $@
 	git commit -m "Update library.bib" $@
