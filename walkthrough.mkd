@@ -20,9 +20,30 @@ simulations.
 
 ![The RNA 16-mer under study](rna.png)
 
-In the interest of space, we will pass over the data acquisition
-process, which is treated in the [usage manual][timetag-tutorial].
+## Installation
 
+The tools used are provided by four packages, each of which have
+associated documentation including installation instructions. The
+firmware for the timestamping hardware is provided by the
+[`timetag-fx2`][timetag-fx2] and [`timetag-fpga`][timetag-fpga]
+packages. The tools for interacting with the hardware are provided in
+the [`timetag-tools`][timetag-tools] package. Installation and usage
+of these tools is described in the [tutorial][timetag-tutorial].
+
+The [`photon-tools`][photon-tools] package provides a variety of
+utilities for working with fluorescence timestamp data and computing
+and analyzing fluorescence correlation functions.
+
+Finnally, the [`hphoton`][hphoton] package provides an end-to-end FRET
+analysis package.
+
+We will be focusing on the tools provided by these last two packages.
+
+[timetag-tools]: http://github.com/bgamari/timetag-tools
+[timetag-fx2]: http://github.com/bgamari/timetag-fx2
+[timetag-fpga]: http://github.com/bgamari/timetag-fpga
+[photon-tools]: http://github.com/bgamari/photon-tools
+[hphoton]: http://github.com/bgamari/hphoton
 [timetag-tutorial]: http://goldnerlab.physics.umass.edu/wiki/FpgaTimeTagger?action=AttachFile&do=view&target=construction.pdf
 
 ## First steps
