@@ -1,0 +1,23 @@
+# Hardware and software for single-molecule fluorescence analysis
+
+The static conformations and structural dynamics of biological
+macromolecules are of great interest to biological researchers.
+Fluorescence spectroscopy techniques such as fluorescence correlation
+spectroscopy and Förster resonance energy transfer provide access to
+intramolecular distances, molecular sizes, conformational dynamics,
+and reaction kinetics on single-molecule scales over a wide range of
+timescales.
+
+The lack of a common high-quality data acquisition and analysis
+toolkit for fluorescence techniques has hindered reproducibility and
+substantially raised the barrier to realizing a fluorescence
+spectroscopic experiment. This is especially in the analysis of
+fluorescence results, which can required sophisticated statistical
+inference to account for a variety of experimental artifacts and
+corrections.
+
+We introduce an end-to-end open-source toolkit for fluorescence
+spectroscopy experiments including inexpensive yet flexible data
+acquisition hardware, software for processing resulting experimental
+data, and a variety of tools for sophisticated statistical analysis of
+results from a variety of common fluorescence experiments.
