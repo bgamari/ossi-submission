@@ -228,28 +228,80 @@ efficiencies. Moreover, the tools produce both human-readable HTML
 providing a suscint summary of each data set, as well as
 machine-readable results.
 
-![The output of the `fret-analysis` tool showing a FRET dataset with two populations](fret-analysis.png)
+[photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
 
-The programs use approximate inference (Markov chain Monte Carlo
-sampling) to infer a Beta mixture model over the resulting FRET
-efficiency histogram, allowing accurate separation of multiple species
-within a dataset.
+### Interoperability
 
-One common class of FRET experiment is the solution experiment. In
-this experiment, one examines a dilute solution of the molecule under
-study. Occassionally, a molecule will diffuse through the observation
-volume, giving rise to a burst of emissions, often only lasting for
-tens of microseconds and consisting of tens of photons. The challenge
-posed by these experiments is that of distinguishing burst events from
-background noise.
+## Example application: FRET in solution
+
+In the submission package we have provided two datasets from a
+single-molecule fluorescence experiment taken with our time-stamping
+hardware. The datasets\footnote{experimental data due to Peker Milas of
+the Goldner group}, taken for our recent publication[@Milas2013],
+examines FRET in an RNA 16-mer (Figure \ref{fig:rna}) labelled
+terminally with Cy3 and Cy5 dyes for comparison against predictions
+derived from molecular dynamics simulations. 
+
+This experiment uses a technique known as solution FRET wherein the
+species of interest is studied while freely diffusing in dilute
+solution. Occassionally, a molecule will diffuse through the
+observation volume, giving rise to a burst of emissions often only
+lasting for tens of microseconds and consisting of tens to hundreds of
+photons. A major challenge posed by these experiments is that of
+distinguishing burst events from background noise.
 
 One often used technique for accomplishing this is the bin-threshold
-method where the photon arrivals are partitioned into homogenous
-temporal bins. One can then choose an acceptance threshold appreciably
-higher than the expected photon count due to background. While
-sometimes effective, this technique imposes an arbitrary timescale on
-the data and is unable to effectively isolate very short bursts from
-the surrounding background counts.
+method wherein photon arrivals are partitioned into homogenous
+temporal bins. One can then choose a threshold appreciably
+higher than the expected photon count due to background. We consider
+those bins with fewer counts than the threshold to be background.
+
+After the background bins have been identified, we examine their count
+statistics to determine the background count rates of the
+detectors. These rates can then be used to correct for the background
+contribution to those bins containing signal.
+
+Another complication is the presence of unwanted donor-only
+signal. Due to imperfect chemistry (in our case, the process used to
+anneal the double-stranded RNA), many FRET experiments will have a
+measurable population of molecules lacking an acceptor dye. Moreover,
+the ability to reliably isolate the donor-only population allows one
+to use this information for further correction. Namely, knowledge of
+donor-only count statistics enables better correction for spectral
+crosstalk and differences in dye quantum yields.
+
+To accomplish this, the present tools use approximate inference
+(Markov chain Monte Carlo sampling) to infer a mixture model of Beta
+distributions over the empirical FRET efficiency distribution,
+allowing accurate separation of multiple species within a dataset. In
+this two-stage inference, a component assignment is first sampled for
+each bin. After assignments have been drawn for each bin, the
+parameters of each mixture component are reestimated from their
+assigned samples in a maximum likelihood manner.
+
+The FRET analysis tool provided by the `hphoton` package can carry out
+these corrections in an automated manner. For instance, to estimate a
+FRET efficiency distribution from the supplied `fret.timetag` dataset,
+one might run,
+
+    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20 --crosstalk=auto
+         --gamma=auto --bin-width=5e-3 fret.timetag
+
+Figure \ref{fig:rna-fret} shows the FRET histogram and fits resulting
+from this tool. On the left of the histogram we see the remnants of
+the donor-only peak, most of which has been shifted past
+$E=0$. Centered around $E=0.6$ we see the FRET peak from the
+16-mer. The blue line shows a Beta fit to this component while the
+purple line shows the fit that would be expected in the case of a
+Poisson-limited FRET process.
+
+![The FRET efficiency histogram inferred from the given RNA 16-mer dataset.\label{fig:rna-fret}](rna-fret-hist.pdf)
+
+# Bayesian burst detection
+
+While sometimes effective, this technique imposes an arbitrary
+timescale on the data and is unable to effectively isolate short
+bursts from the surrounding background counts.
 
 We provide a novel Bayesian burst detection scheme for
 extracting fluorescence bursts from solution FRET experiments. In
@@ -259,37 +311,19 @@ conjunction with an assumption of time continuity. This allows bursts
 with duration less than one bin width (typically measured in milliseconds) 
 to be isolated and examined.
 
-[photon-tools docs]: https://github.com/bgamari/photon-tools/blob/master/readme.mkd
-
-### Interoperability
+# adsfaf
 
 
-### A framework for approximate Bayesian inference
-
-Along with the hardware and various software tools described above, we
-provide `bayes-stack`, a general-purpose framework for
-high-performance approximate inference on probabilistic models. This
-framework
-
-
-## An example exercise
-
-In the submission package we have provided two datasets from a
-single-molecule fluorescence experiment taken with our time-stamping
-hardware. The datasets\footnote{experimental data due to Peker Milas of
-the Goldner group}, taken for our recent publication[@Milas2013],
-examines FRET in an RNA 16-mer (Figure \ref{fig:rna}) labelled
-terminally with Cy3 and Cy5 dyes for comparison against predictions
-derived from molecular dynamics simulations. In the interest of space,
+In the interest of space,
 we will pass over the data acquisition process, which is treated in
 the [usage manual][timetag-tutorial].
 
 ### First steps
 We will begin by examining the first dataset, `donor-only.timetag`,
 which is a measurement of the 16-mer labelled with only the donor dye
-for calibration purposes. To get a feel for the data, we'll begin by
-examining the binned intensity timeseries of this dataset using the
-`plot-bins` utility provided by `photon-tools`,
+for calibration purposes. We will begin by examining the binned
+intensity timeseries of this dataset using the `plot-bins` utility
+provided by `photon-tools`,
 
     $ plot-bins donor.timetag
     donor.timetag
