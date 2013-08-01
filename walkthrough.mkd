@@ -7,18 +7,18 @@
 
 \maketitle
 
-In this document we will briefly describe how one would carry out a
-small experimental data analysis task using the tools provided in our
+In this document describe how to carry out a
+small experimental data analysis using the tools provided in our
 submission.  In the submission package we have provided two datasets
 from a single-molecule fluorescence experiment taken with our
 time-stamping hardware. The datasets\footnote{experimental data due to
 Peker Milas of the Goldner group}, taken for our recent
-publication [@Milas2013], examines FRET in an RNA 16-mer (Figure
+publication [@Milas2013], examine FRET in an RNA 16-mer (Figure
 \ref{fig:rna}) labelled terminally with Cy3 and Cy5 dyes for
 comparison against predictions derived from molecular dynamics
 simulations.
 
-![The RNA 16-mer under study](rna.png)
+![The RNA 16-mer under study\label{fig:rna}](rna.png)
 
 ## Installation
 
@@ -71,11 +71,11 @@ sample, we see that nearly all of the fluorescence is in the donor
 
 Here we see more sparse bursts (due to lower sample concentration) but
 find that a substantial amount of fluorescence is being detected in
-the acceptor (red) channel. Conveniently, neither of the samples show
-any indication of long, intense bursts, a common sign of
+the acceptor (red) channel. We see that neither of the samples show
+any indication of long, intense bursts, which are a common sign of
 contamination.
 
-As expected, passing the `-­help` option to `plot-bins` gives a
+For reference, passing the `-­help` option to `plot-bins` gives a
 help message describing the various flags supported by the tool.
 
 ![Bin timeseries showing roughly two minutes of the donor-only dataset\label{fig:plot-bins}.](example/plot-bins.pdf)
@@ -92,7 +92,7 @@ beneath 5 µs to avoid seeing photophysical effects,
 This will produce six files in the current directory: three
 correlation functions (donor and acceptor autocorrelation, and the
 donor-acceptor cross-correlation, in tab-separated format) along with
-a plot of each. We then can fit a three-dimensional diffusion model
+a plot of each. Nex, we fit a three-dimensional diffusion model
 to, for instance, the donor (channel 0) auto-correlation function to
 extract a characteristic diffusion time from which we can infer the
 molecule's hydrodynamic radius,
@@ -108,15 +108,15 @@ parameter uncertainty of one another. Furthermore, looking at the $α$
 parameter, we can validate that the alignment of the instrument's
 optics has not changed as the day progressed.
 
-Further uses of the `photon-tools` are described in the package's
+Further uses of the `photon-tools` are described in the package
 [documentation][photon-tools docs].
 
 [photon-tools docs]: http://www.github.com/bgamari/photon-tools/blob/master/readme.mkd
 
 ## FRET analysis
 
-Have verified that the sample is clear and contains the expected
-sample, we can now extract a FRET efficiency. We begin by examining
+Have verified that the sample is clear of contamination and contains the expected
+species, we can now extract a FRET efficiency. We begin by examining
 the donor-only sample, fitting the resulting FRET distribution to a
 single Beta distribution with 5 ms bin width, and a burst acceptance
 threshold of 10 photons,
@@ -127,7 +127,7 @@ This produces a few tab-separated files describing the
 above-threshold bins, a variety of plots, as well as an HTML file
 summarizing the analysis. We see in the summary that the donor-only
 sample contains a single population exhibiting low FRET
-efficiency. Despite there being nominally no acceptor emissions (as
+efficiency. Althouhg there are no true acceptor emissions (as
 there is no acceptor dye), the peak is shifted away from $E=0$ due to
 spectral crosstalk. The magnitude of this shift can be later used to
 correct the histogram FRET dataset.
@@ -139,11 +139,12 @@ second dye. Further, we can indicate that the software should correct
 for crosstalk and gamma, inferring the correction parameters from the
 donor-only dataset,
 
-    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20 --donly-file=donor.timetag --crosstalk=auto --gamma=auto --bin-width=5e-3 fret.timetag
+    $ fret-analysis --fit-comps=2 --burst-size=20 --nbins=20 --donly-file=donor.timetag
+	--crosstalk=auto --gamma=auto --bin-width=5e-3 fret.timetag
 
-We see in the FRET histogram that not only has the tool inferred a fit
-for the FRET distribution, it has also plotted a variant of the fit
-showing the distribution that would be expected in the case of a
+We see, the FRET histogram,  the inferred fit
+for the FRET distribution, and a variant of the fit which shows
+ the distribution that would be expected in the case of a
 shot-noise limited FRET population exhibiting no slow dynamics.
 
 ## Bayesian burst detection
