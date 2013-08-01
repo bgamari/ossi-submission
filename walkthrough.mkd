@@ -108,6 +108,11 @@ parameter uncertainty of one another. Furthermore, looking at the $α$
 parameter, we can validate that the alignment of the instrument's
 optics has not changed as the day progressed.
 
+Further uses of the `photon-tools` are described in the package's
+[documentation][photon-tools docs].
+
+[photon-tools docs]: http://www.github.com/bgamari/photon-tools/blob/master/readme.mkd
+
 ## FRET analysis
 
 Have verified that the sample is clear and contains the expected
