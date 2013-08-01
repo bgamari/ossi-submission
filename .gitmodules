@@ -1,0 +1,9 @@
+[submodule "photon-tools"]
+	path = photon-tools
+	url = https://github.com/bgamari/photon-tools.git
+[submodule "timetag-tools"]
+	path = timetag-tools
+	url = https://github.com/bgamari/timetag-tools.git
+[submodule "hphoton"]
+	path = hphoton
+	url = https://github.com/bgamari/hphoton
