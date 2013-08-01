@@ -16,8 +16,8 @@ fluorescence results, which can required sophisticated statistical
 inference to account for a variety of experimental artifacts and
 corrections.
 
-We introduce an end-to-end open-source toolkit for fluorescence
-spectroscopy experiments including inexpensive yet flexible data
-acquisition hardware, software for processing resulting experimental
-data, and a variety of tools for sophisticated statistical analysis of
-results from a variety of common fluorescence experiments.
+We present an end-to-end open-source toolkit for fluorescence
+spectroscopy experimental data acquisition, processing, and
+analysis. This includes acquisition hardware, tools for manipulating
+collected data, and tools for statistical data analysis for a variety
+of common fluorescence experiments.
