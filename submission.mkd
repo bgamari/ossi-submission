@@ -236,7 +236,7 @@ hold to the UNIX philosophy, making it easy to chain together
 individual utilities into more sophisticated pipelines.
 
 Furthermore, the libraries on which the tools are built are well
-documented and can easily be used on their own. The modules provided
+documented and can be easily used on their own. The modules provided
 by `photon-tools` expose easy-to-use interfaces which are amenable
 to use in an interactive environment such as [ipython notebook][].
 
@@ -244,10 +244,10 @@ to use in an interactive environment such as [ipython notebook][].
 
 ## Example application: FRET in solution
 
-In the submission package we have provided two
+In the submission package we provide two
 datasets\footnote{experimental data taken by Peker Milas of the
 Goldner group} from a single-molecule fluorescence experiment taken
-with our time-stamping hardware, for our recent publication
+with our time-stamping hardware, from our recent publication
 [@Milas2013].
 
 The "RNA 16-mer" dataset was taken on an RNA system labelled
@@ -261,19 +261,17 @@ linkers allow many molecules to be immobilized on a surface, the
 interaction between the molecule, the linker, and the nearby surface
 will often perturb the dynamics under study. For this reason, many
 biological experiments are conducted with the molecule of interest in
-dilute aqueous solution.  In this style of experiment, one waits as
-single molecules occasionally diffuse through the observation volume,
-giving rise to a short burst of emissions of tens of microseconds in
-length during which between ten and several hundred photons are
-observed.  Due to presence detector background, one challenge of FRET
-in solution is distinguishing the short bursts from background noise.
+dilute aqueous solution.  In this class of experiment, single
+molecules occasionally diffuse through the observation volume, giving
+rise to short bursts of emissions of tens of microseconds in length
+during which between ten and several hundred photons are observed.
+Due to presence detector background, one challenge of FRET in solution
+is distinguishing the short bursts from background noise.
 
 Typically, background is distinguished from signal by a bin-threshold
 method wherein photon arrivals are partitioned into homogeneous
-temporal bins. One can then choose a threshold appreciably
-higher than the expected photon count due to detector background. We
-consider those bins with fewer counts than the threshold to contain no
-fluorescence.
+temporal bins. We consider those bins with counts below some
+threshold to contain no fluorescence signal.
 
 After the background bins have been identified, we examine their count
 statistics to determine the background count rates of the
@@ -281,13 +279,13 @@ detectors. These rates can then be used to correct for the background
 contribution to those bins containing signal.
 
 Another complication is the presence of unwanted donor-only
-signal. Due to imperfection in sample preparation and the fragility of
+signals. Due to imperfection in sample preparation and the fragility of
 the dyes, many FRET experiments will have a measurable population of
-molecules lacking a functional acceptor dye. Being able to distinguish
+molecules without a functional acceptor dye. Being able to distinguish
 this donor-only population from the molecule of interest is crucial
 for quantitatively accurate FRET measurements. Moreover, the ability
-to reliably isolate the donor-only population allows one to use this
-information for correction of spectral crosstalk and differences in
+to reliably isolate the donor-only population provides statistics
+for correcting spectral crosstalk and differences in
 dye quantum yields.
 
 To accomplish this, the present tools use approximate probabilistic
@@ -308,8 +306,8 @@ corrected FRET efficiency distribution from the supplied
     --crosstalk=auto --gamma=auto --bin-width=5e-3 fret.timetag
 
 Figure \ref{fig:rna-fret} shows the FRET histogram and fits estimated
-by this tool. On the left of the histogram we see the remnants of the
-donor-only peak, most of which has been shifted past $E=0$. Centered
+by this tool. On the left of the histogram we see the remnants of the corrected
+donor-only peak, most of which has been shifted below $E=0$. Centered
 around $E=0.6$ we see the FRET peak from the 16-mer. The blue line
 shows a Beta fit to this component while the purple line shows the fit
 that would be expected in the case of a Poisson-limited FRET process
@@ -319,8 +317,8 @@ that would be expected in the case of a Poisson-limited FRET process
 
 FRET in solution is only one scenario which shows how our tools
 integrate with each other and benefit from probabilistic inference.
-Further applications can be found in the Walkthough document
-accompanying this submission.
+Further applications can be found in the [Walkthough](file://./walkthrough.pdf)
+document accompanying this submission.
 
 ## Conclusion
 
@@ -329,9 +327,9 @@ processing, and analysis. Built on off-the-shelf hardware and
 open-source software, the tools provide a uniquely flexible platform
 for experimental data acquisition and analysis. By combining
 high-resolution photon time-stamping with active experimental control,
-our solution enables many-channel fluorescence experiments with active
+our solution enables multi-channel fluorescence experiments with active
 excitation modulation. Our toolchain both lowers the barrier to entry
-for these important experimental tools and enables more sophisticated
+for these important experimental tools and enables even more sophisticated
 methods for higher fidelity fluorescence measurements.
 
 ## Acknowledgments
