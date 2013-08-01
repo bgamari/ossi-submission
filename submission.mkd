@@ -324,10 +324,12 @@ accompanying this submission.
 We present a package for fluorescence spectroscopy data
 acquisition, processing, and analysis. Built on off-the-shelf hardware
 and open-source software, the tools provide a uniquely flexible platform
-for experimental data acquisition. By combining high-resolution photon
-time-stamping with active experimental control, our solution enables
-many-channel fluorescence experiments with active excitation
-modulation.
+for experimental data acquisition and analysis. By combining
+high-resolution photon time-stamping with active experimental control,
+our solution enables many-channel fluorescence experiments with active
+excitation modulation. Our toolchain both lowers the barrier to entry
+for these important experimental tools and enables more sophisticated
+methods for higher fidelity fluorescence measurements.
 
 ## Acknowledgements
 
