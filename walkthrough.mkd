@@ -162,3 +162,5 @@ duration shorter than one bin width to be isolated and examined. We
 include an implementation of this technique in the `hphoton` package
 which can be easily used to support a simple FRET analysis as seen in
 \ref{fig:burstfind}.
+
+![An IPython notebook session showing the easy integration between tools provided in the submission.\label{fig:burstfind}](burstfind.png)
