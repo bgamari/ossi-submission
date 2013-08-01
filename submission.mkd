@@ -16,10 +16,10 @@ assemblies [@Pitschke1998]. Likewise, single molecule Förster
 resonance energy transfer (smFRET) has proved to be useful for a
 variety of biologically relevant measurements ranging from DNA/RNA
 mechanics [@iqbal2008orientation; @Vafabakhsh2012; @Laurence2005; @Wozniak2008]
-to protein conformation [@Wozniak2005] and protein function[@todo].  When used
-in tandem these two techniques can provide unique perspective into
-dynamics on molecular length-scales and over a wide range of
-time-scales [@Nettels2008].
+to protein conformation [@Wozniak2005] and protein
+function[@Gopich2009; @Sevenich1998].  When used in tandem these two
+techniques can provide unique perspective into dynamics on molecular
+length-scales and over a wide range of time-scales [@Nettels2008].
 
 These techniques share a need for hardware and software for photon
 timing and associated analysis tools. A typical experiment may require
@@ -159,7 +159,7 @@ are described in our 2013 paper [@Gamari2013].
 The hardware is capable of recording event times for up to eight
 input channels with 8ns accuracy. Furthermore, the hardware includes
 support for driving output channels with programmable binary waveforms, 
-for use in experimental techniques [@Kapanidis2005] which require fast
+for use in experimental techniques [@Lee2005] which require fast
 modulation of experimental parameters.
 
 [xylo-board]: http://www.knjn.com/FPGA-FX2.html
@@ -213,7 +213,7 @@ statistics and goodness-of-fit metrics.
 
 The `hphoton` package provides the `fret-analysis` and `alex-analysis`
 tools for analysis of both FRET data and FRET with alternating laser excitation
-(ALEX) [@Kapanidis2005]. These programs support both automatic and manual
+(ALEX) [@Lee2005]. These programs support both automatic and manual
 correction for detector background, cross-talk, and the detection
 efficiency factor which is necessary for inferring quantitatively
 accurate FRET efficiencies. Moreover, the tools produce both
@@ -296,7 +296,8 @@ by this tool. On the left of the histogram we see the remnants of the
 donor-only peak, most of which has been shifted past $E=0$. Centered
 around $E=0.6$ we see the FRET peak from the 16-mer. The blue line
 shows a Beta fit to this component while the purple line shows the fit
-that would be expected in the case of a Poisson-limited FRET process.
+that would be expected in the case of a Poisson-limited FRET process
+[@Nir2006].
 
 ![The FRET efficiency histogram inferred from the given RNA 16-mer dataset.\label{fig:rna-fret}](rna-fret-hist.pdf)
 
