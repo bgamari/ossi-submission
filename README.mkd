@@ -1,0 +1,6 @@
+# Hardware and software for single-molecule fluorescence analysis
+
+This is the source for the submission Open-Source Software Innovation
+competition (OSSI) 2013 competition held by the ICB3 institute at the
+University of Massachusetts. The sources can be built with LuaTeX and
+Pandoc using the included Makefile.
