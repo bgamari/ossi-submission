@@ -27,4 +27,5 @@ package : submission.pdf walkthrough.pdf
 	tar -cjf package/gamar-soft1-photon-tools.tar.bz2 photon-tools
 	tar -cjf package/gamar-soft2-timetag-tools.tar.bz2 timetag-tools
 	tar -cjf package/gamar-soft3-hphoton.tar.bz2 hphoton
+	tar -cjf package/gamar-data.tar.bz2 example/*.timetag example/*.timetag.meta
 
