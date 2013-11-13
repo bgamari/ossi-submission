@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1214.7734"
+   height="342.02347"
+   id="svg4258"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="fret.svg">
+  <defs
+     id="defs4260">
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path3798"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3786"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="605.46658"
+     inkscape:cy="79.210939"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer6"
+     showgrid="false"
+     inkscape:window-width="958"
+     inkscape:window-height="1173"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata4263">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="molecule"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(185.625,-155.3231)">
+    <path
+       style="fill:none;stroke:#665838;stroke-width:18.20000076;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 62.087044,221.28802 c 0,0 0.766994,0.46345 81.344466,12.80999 80.57747,12.34654 90.00093,-20.76008 128.28937,-50.50763 38.28844,-29.74755 120.22527,67.6296 97.9848,89.90358 -22.24047,22.27398 -56.3883,-12.235 -88.89342,19.1929 -32.50511,31.4279 -34.34519,106.06602 15.15228,91.92388 49.49748,-14.14214 69.70054,-70.71068 112.12694,-71.72083 42.42641,-1.01015 119.27204,-58.93036 64.64976,-77.78175 -54.62228,-18.85139 -86.58016,-90.02856 -5.05076,-65.65991 81.5294,24.36866 188.89852,-11.11169 192.93913,30.30457 4.04061,41.41626 -46.73883,41.66545 -90.91373,87.88328 -44.1749,46.21783 -25.21941,90.079 136.84339,92.07978"
+       id="path4266"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="czzzzzzzzzzc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="acceptor-label"
+     transform="translate(185.625,-155.3231)">
+    <text
+       sodipodi:linespacing="125%"
+       id="text4789"
+       y="204.36218"
+       x="-186"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:48px;fill:#000000;fill-opacity:1"
+         y="204.36218"
+         x="-186"
+         id="tspan4791"
+         sodipodi:role="line">Acceptor</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="molecule-label">
+    <text
+       transform="translate(185.625,-155.3231)"
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="-112.46089"
+       y="450.43533"
+       id="text4828"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4830"
+         x="-112.46089"
+         y="450.43533"
+         style="font-size:48px;fill:#000000;fill-opacity:1">Molecule of interest</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)"
+       d="m 562.857,282.6265 c 108.45079,-4.1127 170.22034,-64.71068 170.22034,-64.71068"
+       id="path4832"
+       inkscape:connector-curvature="0"
+       transform="translate(0,3.40023e-6)"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="acceptor"
+     transform="translate(185.625,-155.3231)">
+    <path
+       sodipodi:type="arc"
+       style="color:#000000;fill:#c00101;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:18.20000076;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path4776"
+       sodipodi:cx="70"
+       sodipodi:cy="285.21933"
+       sodipodi:rx="29.285715"
+       sodipodi:ry="62.857143"
+       d="m 99.285715,285.21933 c 0,34.71504 -13.111661,62.85714 -29.285715,62.85714 -16.174054,0 -29.285715,-28.1421 -29.285715,-62.85714 0,-34.71504 13.111661,-62.85714 29.285715,-62.85714 16.174054,0 29.285715,28.1421 29.285715,62.85714 z"
+       transform="matrix(0.5,0.8660254,-0.8660254,0.5,230.00719,41.702172)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="donor-label"
+     style="display:inline"
+     transform="translate(185.625,-155.3231)">
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="755"
+       y="427.36218"
+       id="text4785"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4787"
+         x="755"
+         y="427.36218"
+         style="font-size:48px;fill:#000000;fill-opacity:1">Donor</tspan><tspan
+         sodipodi:role="line"
+         x="755"
+         y="487.36218"
+         style="font-size:48px;fill:#000000;fill-opacity:1"
+         id="tspan4826">fluorophore</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="donor"
+     transform="translate(185.625,-155.3231)">
+    <path
+       transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,576.565,171.97881)"
+       d="m 99.285715,285.21933 c 0,34.71504 -13.111661,62.85714 -29.285715,62.85714 -16.174054,0 -29.285715,-28.1421 -29.285715,-62.85714 0,-34.71504 13.111661,-62.85714 29.285715,-62.85714 16.174054,0 29.285715,28.1421 29.285715,62.85714 z"
+       sodipodi:ry="62.857143"
+       sodipodi:rx="29.285715"
+       sodipodi:cy="285.21933"
+       sodipodi:cx="70"
+       id="path4778"
+       style="color:#000000;fill:#45cf00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:18.20000076;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
+  </g>
+</svg>

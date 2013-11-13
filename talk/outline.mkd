@@ -1,0 +1,11 @@
+ * Need for single molecule resolution
+   * dynamics
+   * rare events
+   * 
+
+ * Typical fluorescence spectroscopic experiment
+   * Attach dyes to molecule of interest, place under a microscope
+   * Excite dyes, collect resulting fluorescence
+   * Record photon arrival events
+
+ * 

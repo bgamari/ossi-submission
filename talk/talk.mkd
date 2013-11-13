@@ -1,0 +1,17 @@
+# An open-source toolchain for fluorescence spectroscopy
+
+## 
+
+![FRET1](fret1.pdf)
+
+## Fӧrster Resonance Energy Transfer
+
+![FRET](fret_processes.pdf)
+
+## Fluorescence spectroscopy
+
+![Typical fluorescence experiments](../fret-setup.pdf)
+
+## 
+
+![f]
