@@ -118,8 +118,10 @@ slides = execWriter $ do
        $ showOnlyLayers ["background", "fret-inset", "fret-artifacts"]
 
      -- We need to correct for these effects
+     -- We can start by collecting more data
      fslide "Corrections" "fret-setup.svg"
        $ highlightLayers ["hardware"]
+       . showOnlyLayers ["background", "hardware", "fret-inset"]
 
 
 type LayerLabel = Text
@@ -160,15 +162,14 @@ showOnlyLayers showLayers doc =
     in showAllGroups doc
        & traverseGroups
        . filtered match
-       . attrs . at "style" ?~ "display:none"
+       . style "display" ?~ "none"
 
 highlightLayers :: [LayerLabel] -> Document -> Document
 highlightLayers showLayers doc =             
     let match el = (el ^. attrs . at (inkscape "label")) `notElem` map Just showLayers
-    in doc
-       & traverseGroups
-       . filtered match
-       . style "opacity" ?~ "0.3"
+    in doc & traverseGroups
+           . filtered match
+           . style "opacity" ?~ "0.3"
 
 type StyleAttr = Text
 
@@ -178,6 +179,9 @@ style s = attribute "style" . non T.empty . style' . at s
 style' :: Iso' Text (M.Map StyleAttr Text)
 style' = iso to from
   where
-    to = M.fromList . map (T.partition (== ':')) . T.splitOn ";" 
+    splitKeyValue x = case T.splitOn ":" x of
+                        [k,v]     -> M.singleton k v
+                        otherwise -> M.empty
+    to = M.unions . map splitKeyValue . T.splitOn ";" 
     from = T.intercalate ";" . map (\(k,v)->k<>":"<>v) . M.toList
         
