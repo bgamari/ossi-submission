@@ -164,6 +164,7 @@ slides = execWriter $ do
      
      note "fluorescence spectroscopic tools unique view on geometry of single molecule systems"
      note "but quantitative analysis of the experimental results is challenging"
+     note "lack of common open-source analysis toolkit means a great deal of duplicated work, many practitioners lack access to sophisticated tools"
      note "My submission consists of a set of open-source tools built on open platforms for the collection, manipulation, analysis of fluorescence spectroscopy data."
 
      note "We offer an open-source photon timestamping instrument built on off-the-shelf hardware."
@@ -184,8 +185,9 @@ slides = execWriter $ do
      note "Thorough documentation"
      tslide "Contribution: Low-level data manipulation tools" "![](photon-tools-docs.pdf)"
      
-     note ""
-     --tslide "Contribution: End-to-end FRET analysis tools" "![](fret-analysis.png)"
+     note "End-to-end analysis package"
+     note "Provides burst isolation, estimation of correction parameters, statistical analysis of resulting histogram"
+     tslide "Contribution: End-to-end FRET analysis pipeline" "![](fret-analysis.png)"
      
      -- 
      -- burst detection
@@ -209,12 +211,7 @@ process inFile outFile transform = do
     lift $ Xml.writeFile def outFile (transform doc)
 
 allLayers :: Document -> [LayerLabel]
-allLayers doc = 
-       catMaybes $
-       doc ^.. root
-             . entire . filtered (views name (== svg "g"))
-             . attributeIs (inkscape "groupmode") "layer"
-             . attrs . at (inkscape "label")
+allLayers doc = catMaybes $ doc ^.. traverseGroups . attrs . at (inkscape "label")
 
 traverseGroups :: Traversal' Document Element
 traverseGroups =
