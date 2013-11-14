@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="780.0946"
+   width="900.20416"
    height="601.25488"
    id="svg7957"
    version="1.1"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="872.55185"
-     inkscape:cy="374.14788"
+     inkscape:cx="384.67011"
+     inkscape:cy="99.075365"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -35,9 +35,9 @@
      inkscape:snap-object-midpoints="true"
      inkscape:snap-bbox="false"
      inkscape:object-paths="true"
-     inkscape:window-width="1016"
-     inkscape:window-height="585"
-     inkscape:window-x="902"
+     inkscape:window-width="900"
+     inkscape:window-height="1173"
+     inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      fit-margin-top="0"
@@ -47,32 +47,36 @@
      inkscape:snap-nodes="false">
     <sodipodi:guide
        orientation="0,1"
-       position="477.01139,538.2816"
+       position="597.1209,538.28157"
        id="guide8511" />
     <sodipodi:guide
        orientation="0,1"
-       position="437.72568,566.13875"
+       position="557.83519,566.13872"
        id="guide8513" />
     <sodipodi:guide
        orientation="1,0"
-       position="480.55999,346.83019"
+       position="600.6695,346.83016"
        id="guide8637" />
     <sodipodi:guide
        orientation="0,1"
-       position="518.35765,329.76306"
+       position="638.46716,329.76303"
        id="guide8639" />
     <sodipodi:guide
        orientation="0,1"
-       position="505.93996,301.90591"
+       position="626.04947,301.90588"
        id="guide8641" />
     <sodipodi:guide
        orientation="0,1"
-       position="680,98.438123"
+       position="800.10951,98.438091"
        id="guide8643" />
     <sodipodi:guide
        orientation="0,1"
-       position="632.01138,70.580973"
+       position="752.12089,70.580941"
        id="guide8645" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="51.538077,465.71426"
+       id="guide16703" />
   </sodipodi:namedview>
   <metadata
      id="metadata7962">
@@ -90,10 +94,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(34.511384,-279.03182)">
+     transform="translate(154.6209,-279.03182)">
     <g
        id="g8490"
-       transform="matrix(0.47855931,0,0,0.47855931,-27.566827,219.33341)">
+       transform="matrix(0.47855931,0,0,0.47855931,14.433173,219.33341)">
       <path
          style="fill:none;stroke:#665838;stroke-width:18.20000076;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
          d="m 85.960586,190.71103 c 0,0 0.76699,0.46345 81.344464,12.80999 80.57747,12.34654 90.00093,-20.76008 128.28937,-50.50763 38.28844,-29.74755 120.22527,67.6296 97.9848,89.90357 -22.24047,22.27398 -56.3883,-12.235 -88.89342,19.1929 -32.50511,31.4279 25.65481,62.06602 75.15228,47.92388 49.49748,-14.14214 9.70054,-26.71068 52.12694,-27.72083 42.42641,-1.01015 119.27204,-58.93035 64.64976,-77.78174 -54.62228,-18.85139 -86.58016,-90.02857 -5.05076,-65.65991 81.5294,24.36866 188.89852,-11.11169 192.93913,30.30457 4.04061,41.41626 -46.73883,41.66545 -90.91373,87.88327 -44.1749,46.21783 -25.21941,90.079 136.84339,92.07978"
@@ -179,7 +183,7 @@
        sodipodi:type="arc" />
     <g
        id="g9660"
-       transform="translate(-57.142857,0)">
+       transform="translate(-37.142857,0)">
       <path
          sodipodi:nodetypes="czzzzzzzzzzc"
          inkscape:connector-curvature="0"
@@ -272,7 +276,7 @@
        sodipodi:rx="7.1428571"
        sodipodi:ry="7.1428571"
        d="m 474.28571,320.93362 a 7.1428571,7.1428571 0 1 1 -14.28571,0 7.1428571,7.1428571 0 1 1 14.28571,0 z"
-       transform="translate(103.35786,257.44711)" />
+       transform="translate(150.50072,257.44711)" />
     <path
        transform="translate(183.92857,257.44711)"
        d="m 474.28571,320.93362 c 0,3.9449 -3.19797,7.14286 -7.14286,7.14286 -3.94489,0 -7.14285,-3.19796 -7.14285,-7.14286 0,-3.94489 3.19796,-7.14285 7.14285,-7.14285 3.94489,0 7.14286,3.19796 7.14286,7.14285 z"
@@ -561,5 +565,51 @@
        id="path13628"
        style="color:#000000;fill:#c00101;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        sodipodi:type="arc" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="-103.08281"
+       y="298.14386"
+       id="text16683"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan16685"
+         x="-103.08281"
+         y="298.14386">Low</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="323.14386"
+         id="tspan16687">probability</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="348.14386"
+         id="tspan16689">of energy</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="373.14386"
+         id="tspan16691">transfer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="-103.08281"
+       y="760.28668"
+       id="text16693"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan16695"
+         x="-103.08281"
+         y="760.28668">High</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="785.28668"
+         id="tspan16697">probability</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="810.28668"
+         id="tspan16699">of energy</tspan><tspan
+         sodipodi:role="line"
+         x="-103.08281"
+         y="835.28668"
+         id="tspan16701">transfer</tspan></text>
   </g>
 </svg>

@@ -106,6 +106,7 @@ slides = execWriter $ do
      -- or barring that, something related to distance
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons", "arrow", "distribution", "fret-eff-label"]
+     -- but once we have this arrow, we've solved our problem
 
      -- Great, so we can measure distances, right?
      fslide "A fluorescence experiment" "fret-setup.svg"
@@ -114,15 +115,32 @@ slides = execWriter $ do
      fslide "Errors abound" "fret-setup.svg"
        $ showOnlyLayers ["background", "fret-inset", "fret-artifacts"]
 
-     fslide "Errors abound" "fret-setup.svg"
-       $ showOnlyLayers ["background", "fret-inset", "fret-artifacts"]
-
      -- We need to correct for these effects
      -- We can start by collecting more data
      fslide "Corrections" "fret-setup.svg"
-       $ highlightLayers ["hardware"]
+       $ highlightLayers 0.2 ["hardware"]
        . showOnlyLayers ["background", "hardware", "fret-inset"]
+     
+     -- While fluorescence spectroscopic tools such as FRET provide a 
+     -- unique view on geometry of single molecule systems,
+     -- quantitative analysis of the experimental results is challenging. My
+     -- submission consists of a set of open-source tools built on open
+     -- platforms for the collection, manipulation, analysis of
+     -- fluorescence spectroscopy data.
+     
+     -- Photon timestamping instrument built on off-the-shelf hardware enables
+     -- novel experimental designs
+     fslide "Data collection" "" id
+     
+     -- Acquisition software can be easily integrated into existing
+     -- systems, enabling scanning and other applications
+     fslide "" "" id
 
+     -- Data analysis tools provide both easy-to-use command line interfaces 
+     -- as well as libraries for incorporation into existing analysis pipelines
+     
+     -- Statistical inference tools enable novel analyses
+     
 
 type LayerLabel = Text
 
@@ -164,12 +182,12 @@ showOnlyLayers showLayers doc =
        . filtered match
        . style "display" ?~ "none"
 
-highlightLayers :: [LayerLabel] -> Document -> Document
-highlightLayers showLayers doc =             
+highlightLayers :: Double -> [LayerLabel] -> Document -> Document
+highlightLayers opacity showLayers doc =             
     let match el = (el ^. attrs . at (inkscape "label")) `notElem` map Just showLayers
     in doc & traverseGroups
            . filtered match
-           . style "opacity" ?~ "0.3"
+           . style "opacity" ?~ T.pack (show opacity)
 
 type StyleAttr = Text
 
