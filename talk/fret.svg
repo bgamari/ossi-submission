@@ -22,11 +22,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="631.03603"
-     inkscape:cy="153.84457"
+     inkscape:zoom="0.5"
+     inkscape:cx="956.36712"
+     inkscape:cy="387.87868"
      inkscape:document-units="px"
-     inkscape:current-layer="layer15"
+     inkscape:current-layer="layer6"
      showgrid="false"
      inkscape:window-width="1016"
      inkscape:window-height="1173"
@@ -170,7 +170,7 @@
          id="tspan5803">Fluorophore</tspan></text>
   </g>
   <g
-     style="display:none"
+     style="display:inline"
      inkscape:label="molecule-label"
      id="layer6"
      inkscape:groupmode="layer"
@@ -193,7 +193,7 @@
        transform="translate(0,3.40023e-6)"
        inkscape:connector-curvature="0"
        id="path4832"
-       d="m 562.857,282.6265 c 108.45079,-4.1127 170.22034,-64.71068 170.22034,-64.71068"
+       d="m 562.857,282.6265 c 35.20014,-15.72882 75.89926,11.64633 168.45257,-62.23581"
        style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Send)" />
   </g>
   <g
@@ -247,7 +247,7 @@
      inkscape:groupmode="layer">
     <path
        transform="matrix(0.5,0.8660254,-0.8660254,0.5,230.00719,41.702172)"
-       d="m 99.285715,285.21933 a 29.285715,62.857143 0 1 1 -58.57143,0 29.285715,62.857143 0 1 1 58.57143,0 z"
+       d="m 99.285715,285.21933 c 0,34.71504 -13.111661,62.85714 -29.285715,62.85714 -16.174054,0 -29.285715,-28.1421 -29.285715,-62.85714 0,-34.71504 13.111661,-62.85714 29.285715,-62.85714 16.174054,0 29.285715,28.1421 29.285715,62.85714 z"
        sodipodi:ry="62.857143"
        sodipodi:rx="29.285715"
        sodipodi:cy="285.21933"
@@ -345,7 +345,7 @@
        sodipodi:cy="285.21933"
        sodipodi:rx="29.285715"
        sodipodi:ry="62.857143"
-       d="m 99.285715,285.21933 a 29.285715,62.857143 0 1 1 -58.57143,0 29.285715,62.857143 0 1 1 58.57143,0 z"
+       d="m 99.285715,285.21933 c 0,34.71504 -13.111661,62.85714 -29.285715,62.85714 -16.174054,0 -29.285715,-28.1421 -29.285715,-62.85714 0,-34.71504 13.111661,-62.85714 29.285715,-62.85714 16.174054,0 29.285715,28.1421 29.285715,62.85714 z"
        transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,576.565,171.97881)" />
   </g>
   <g

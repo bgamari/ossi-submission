@@ -8,7 +8,7 @@ figs = $(wildcard *.svg)
 figures : $(figs:.svg=.pdf)
 
 %.pdf : %.svg
-	inkscape --export-pdf=$@ $<
+	rsvg-convert -f pdf -o $@ $<
 
 clean :
 	rm -f $(addsuffix .pdf, $(fret_figures))
