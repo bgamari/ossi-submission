@@ -1,31 +1,38 @@
 {-# LANGUAGE OverloadedStrings, RankNTypes #-}
 
 import Prelude hiding (FilePath)
+
 import qualified Filesystem.Path as Path
-import Filesystem.Path.CurrentOS (FilePath, decodeString, encodeString)
+import Filesystem.Path.CurrentOS (FilePath, decodeString, encodeString, toText)
+
 import qualified Text.XML as Xml
 import Text.XML.Lens
+
 import Data.Default
 import Data.Monoid ((<>))
+import Data.Maybe (catMaybes)
+
 import Control.Error hiding (note)
 import Control.Monad.Trans
 import Control.Monad.Trans.Writer
 import Control.Monad (when, forM)
-import Data.Text (Text)
-import Data.Maybe (catMaybes)
+
 import qualified Data.Map as M
+import           Data.Text (Text)
 import qualified Data.Text as T
+import qualified Data.Text.IO as T
 
-data Slide = FigureSlide String FilePath (Document -> Document)
-           | TextSlide String String
+data Slide = FigureSlide Text FilePath (Document -> Document)
+           | TextSlide Text Text
+           | Note Text
 
-fslide :: String -> FilePath -> (Document -> Document) -> Writer [Slide] ()
+fslide :: Text -> FilePath -> (Document -> Document) -> Writer [Slide] ()
 fslide title figure transform = tell [FigureSlide title figure transform]
 
-slide :: String -> FilePath -> Writer [Slide] ()
+slide :: Text -> FilePath -> Writer [Slide] ()
 slide title figure = tell [FigureSlide title figure id]
 
-tslide :: String -> String -> Writer [Slide] ()
+tslide :: Text -> Text -> Writer [Slide] ()
 tslide title text = tell [TextSlide title text]
 
 note :: Text -> Writer [Slide] ()
@@ -34,16 +41,44 @@ note _ = return ()
 title = "An open-source toolchain for fluorescence spectroscopy"
 
 main = runEitherT $ do
-    figures <- forM (zip [0..] slides) $ \(n, FigureSlide title figure transform)->do
-        let figName = decodeString $ "slide-"++show n
-            outName = Path.addExtension figName "pdf"
-        process figure (Path.addExtension figName "svg") transform
-        return $ unlines [ ""
-                         , "## "++title
-                         , ""
-                         , "![]("++encodeString outName++")"
-                         ]
-    liftIO $ writeFile "slides.mkd" (concat $ ["# "++title]++figures)
+    writeSlides slides "slides.mkd"
+    liftIO $ T.writeFile "notes.mkd" $ formatNotes slides
+    
+formatNotes :: [Slide] -> Text
+formatNotes = T.unlines . concatMap formatSlide . zip [1..]
+  where
+    slidePlaceholder n title = 
+      [ "# slide "<>T.pack (show n)<>": "<>title
+      , ""
+      ]
+    formatSlide (n, FigureSlide title _ _) = slidePlaceholder n title
+    formatSlide (n, TextSlide title _) = slidePlaceholder n title
+    formatSlide (n, Note text) =
+      [ " * "<>text
+      ]
+
+writeSlides :: [Slide] -> FilePath -> EitherT String IO ()
+writeSlides slides outName = do 
+    figures <- forM (zip [1..] slides) $ \(n, slide)->
+      case slide of
+        FigureSlide title figure transform -> do
+          let figName = decodeString $ "slide-"<>show n
+          process figure (Path.addExtension figName "svg") transform
+          figOutName <- fmapLT (const "Invalid file name") $ hoistEither
+                        $ toText $ Path.addExtension figName "pdf"
+          return $ T.unlines [ ""
+                             , "## "<>title
+                             , ""
+                             , "![]("<>figOutName<>")"
+                             ]
+        TextSlide title text ->
+          return $ T.unlines [ ""
+                             , "## "<>title
+                             , ""
+                             , text
+                             ]
+        otherwise -> return ""
+    liftIO $ T.writeFile (encodeString outName) (T.concat $ ["# "<>title]++figures)
 
 
 slides :: [Slide] 
@@ -140,11 +175,17 @@ slides = execWriter $ do
      
      note "Also provide easy-to-use acquisition software."
      note "Can be easily integrated into existing systems, enabling scanning and other applications"
-     --fslide "" "" id
+     tslide "Contribution: Acquisition software" "![](../timetag-ui.png)"
 
      note "Data analysis tools provide both easy-to-use command line interfaces as well as libraries for incorporation into existing analysis pipelines"
      note "Analysis tools work not only with data from our own instrument, but also with commercial formats"
-     --slide "" "" id
+     note "Integrates fluidly with Python toolchain"
+     tslide "Contribution: Low-level data manipulation tools" "![](../burstfind.png)"
+     note "Thorough documentation"
+     tslide "Contribution: Low-level data manipulation tools" "![](photon-tools-docs.pdf)"
+     
+     note ""
+     --tslide "Contribution: End-to-end FRET analysis tools" "![](fret-analysis.png)"
      
      -- 
      -- burst detection

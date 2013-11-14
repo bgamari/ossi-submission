@@ -1,11 +1,12 @@
  * Need for single molecule resolution
    * dynamics
    * rare events
-   * 
+   * heterogeneity
 
- * Typical fluorescence spectroscopic experiment
+ * Typical fluorescence spectroscopic experiment: FRET
    * Attach dyes to molecule of interest, place under a microscope
    * Excite dyes, collect resulting fluorescence
    * Record photon arrival events
 
  * 
+   * 
