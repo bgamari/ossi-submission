@@ -1,10 +1,16 @@
-figures = fret1.pdf fret_processes.pdf fret-setup.pdf
+slides.pdf : slides.mkd figures
+	pandoc -o $@ $< --latex-engine=lualatex -t beamer
 
-talk.pdf : talk.mkd $(figures)
-	pandoc -o $@ $< --latex-engine=xelatex
-
-fret1.svg : fret.svg ExportLayers.hs
+slides.mkd : ExportLayers.hs $(figs)
 	runghc -hide-package=monads-tf ExportLayers.hs
+
+figs = $(wildcard *.svg)
+figures : $(figs:.svg=.pdf)
 
 %.pdf : %.svg
 	inkscape --export-pdf=$@ $<
+
+clean :
+	rm -f $(addsuffix .pdf, $(fret_figures))
+	rm -f $(addsuffix .svg, $(fret_figures))
+	rm -f talk.pdf
