@@ -11,6 +11,7 @@ import Text.XML.Lens
 import Data.Default
 import Data.Monoid ((<>))
 import Data.Maybe (catMaybes)
+import Data.Traversable (mapAccumL)
 
 import Control.Error hiding (note)
 import Control.Monad.Trans
@@ -38,6 +39,12 @@ tslide title text = tell [TextSlide title text]
 note :: Text -> Writer [Slide] ()
 note text = tell [Note text]
 
+numberSlides :: [Slide] -> [(Int, Slide)]
+numberSlides = snd . mapAccumL f 1
+  where
+    f n s@(Note _) = (n, (n, s))
+    f n s          = (n+1, (n, s))
+
 title = "An open-source toolchain for fluorescence spectroscopy"
 
 main = runEitherT $ do
@@ -45,7 +52,7 @@ main = runEitherT $ do
     liftIO $ T.writeFile "notes.mkd" $ formatNotes slides
     
 formatNotes :: [Slide] -> Text
-formatNotes = T.unlines . concatMap formatSlide . zip [1..]
+formatNotes = T.unlines . concatMap formatSlide . numberSlides
   where
     slidePlaceholder n title = 
       [ ""
@@ -60,7 +67,7 @@ formatNotes = T.unlines . concatMap formatSlide . zip [1..]
 
 writeSlides :: [Slide] -> FilePath -> EitherT String IO ()
 writeSlides slides outName = do 
-    figures <- forM (zip [1..] slides) $ \(n, slide)->
+    figures <- forM (numberSlides slides) $ \(n, slide)->
       case slide of
         FigureSlide title figure transform -> do
           let figName = decodeString $ "slide-"<>show n
@@ -206,7 +213,7 @@ slides = execWriter $ do
      note "Provides burst isolation, estimation of correction parameters, statistical analysis of resulting histogram"
      tslide "Contribution: End-to-end FRET analysis pipeline" "![](fret-analysis.png)"
      
-     tslide "Contribution: Probabilistic inference framework" ""
+     --tslide "Contribution: Probabilistic inference framework" ""
 
      -- 
      -- burst detection
@@ -214,23 +221,14 @@ slides = execWriter $ do
      note "Statistical inference tools enable novel analyses"
      
      tslide "Summary" $ T.unlines
-       [ " * Fluorescence provides unique view into single-molecule systems"
-       , " * Lack of common, open toolchain hinders reproducibility and slows progress"
-       , " * We provide,"
-       , "   * hardware for data analysis"
-       , "   * software for data acquisition"
-       , "   * tools for low-level data examination and manipulation"
-       , "   * tools for analysis of FRET experiments and others"
+       [ " * We provide,"
+       , "     * an open data acquisition instrument"
+       , "     * software for data acquisition"
+       , "     * tools for analysis of FRET and other fluorescence experiments"
+       , " * <http://goldnerlab.physics.umass.edu/wiki/HardwareAndSoftware>"
+       , " * <http://github.com/bgamari>"
        ]
       
-     tslide "The code" $ T.unlines
-       [ " * Analysis tools:"
-       , "     * <http://github.com/bgamari/hphoton>"
-       , "     * <http://github.com/bgamari/photon-tools>"
-       , " * Timetagging instrument: <http://github.com/bgamari/timetag-tools>"
-       , " * Gibbs sampling framework: <http://github.com/bgamari/bayes-stack>"
-       ]
-
 type LayerLabel = Text
 
 inkscape :: Name -> Name
