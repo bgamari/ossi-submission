@@ -1,5 +1,5 @@
 slides.pdf : slides.mkd figures
-	pandoc -o $@ $< --latex-engine=xelatex -t beamer
+	pandoc -o $@ $< --latex-engine=xelatex -t beamer --template=./template
 
 slides.mkd : ExportLayers.hs $(figs)
 	runghc -hide-package=monads-tf ExportLayers.hs

@@ -89,7 +89,10 @@ writeSlides slides outName = do
     liftIO $ T.writeFile (encodeString outName) 
       $ T.unlines [ "---"
                   , "title: "<>title
-                  , "author: Ben Gamari, Laura Dietz, Lori Goldner"
+                  , "author:"
+                  , "- Ben Gamari\\inst{1}"
+                  , "- Laura Dietz\\inst{2}"
+                  , "- Lori Goldner \\inst{1}"
                   , "---"
                   ]
         <> T.concat figures
@@ -132,6 +135,8 @@ slides = execWriter $ do
 
      note "we can do this by adding a second probe of a different color to our molecule"
      fslide "Measuring an intramolecular distance" "fret.svg"
+       $ showOnlyLayers ["molecule", "donor", "acceptor"]
+     fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "donor-exc-photon", "acceptor"]
 
      note "now we can excite one of our dyes"
@@ -139,7 +144,8 @@ slides = execWriter $ do
        $ showOnlyLayers ["molecule", "excited-donor", "acceptor"]
 
      note "Sometimes the dye will transfer (donate) its energy to the other by a process known as Fӧrster transfer"
-     note "After this a photon will be emitted by the acceptor dye."
+     fslide "Measuring an intramolecular distance" "fret.svg"
+       $ showOnlyLayers ["molecule", "excited-donor", "donor-label", "acceptor", "acceptor-label", "energy-transfer"]
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "donor-label", "acceptor", "acceptor-label", "energy-transfer"]
      
@@ -147,6 +153,7 @@ slides = execWriter $ do
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "excited-acceptor"]
 
+     note "After this a photon will be emitted by the acceptor dye."
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "acceptor-em-photon", "acceptor"]
 
@@ -159,23 +166,26 @@ slides = execWriter $ do
      note "to distance"
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons", "arrow", "distribution", "distance-label"]
-     note "or barring that, something related to distance"
-     fslide "An inverse problem" "photons-to.svg"
-       $ showOnlyLayers ["photons", "arrow", "distribution", "fret-eff-label"]
+     --note "or barring that, something related to distance"
+     --fslide "An inverse problem" "photons-to.svg"
+     --  $ showOnlyLayers ["photons", "arrow", "distribution", "fret-eff-label"]
 
      note "but once we have this arrow, we've solved our problem"
      note "Typically these experiments are done with an apparatus like this"
      note "Labelled molecule diffusing in solution"
      note "We get short bursts of fluorescence"
      fslide "A fluorescence experiment" "fret-setup.svg"
-       $ showOnlyLayers ["background", "labels", "hardware", "fret-inset", "fret-labels", "detector-label", "legend"]
+       $ showOnlyLayers ["background", "labels", "hardware", "fret-inset", "fret-labels", "detector-label", "legend", "acceptor"]
 
      note "Great, so we can measure distances, right?"
      fslide "A fluorescence experiment" "fret-setup.svg"
-       $ showOnlyLayers ["background", "hardware", "fret-inset"]
-     note "The devil is in the details: our data is flawed"
+       $ showOnlyLayers ["background", "hardware", "fret-inset", "acceptor"]
+     note "The devil is in the details: our instrument introduces numerous errors"
      fslide "Errors abound" "fret-setup.svg"
-       $ showOnlyLayers ["background", "fret-inset", "fret-artifacts"]
+       $ showOnlyLayers ["background", "fret-inset", "acceptor", "energy-transfer", "acceptor-em-photon", "fret-artifacts"]
+     note "In addition, "
+     fslide "Errors abound" "fret-setup.svg"
+       $ showOnlyLayers ["background", "fret-inset", "dead-acceptor"]
 
      note "We need to correct for these effects"
      
@@ -189,7 +199,7 @@ slides = execWriter $ do
      note "Additionally, the hardware is orders of magnitude cheaper than equally capable commercial options."
      fslide "Contribution: Acquisition hardware" "fret-setup.svg"
        $ highlightLayers 0.2 ["hardware"]
-       . showOnlyLayers ["background", "hardware", "fret-inset"]
+       . showOnlyLayers ["background", "hardware", "fret-inset", "acceptor"]
      
      note "Also provide easy-to-use acquisition software."
      note "Can be easily integrated into existing systems, enabling scanning and other applications"

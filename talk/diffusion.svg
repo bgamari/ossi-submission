@@ -13,9 +13,9 @@
    inkscape:version="0.48.4 r9939"
    version="1.1"
    id="svg3713"
-   height="223.25"
-   width="329.28125"
-   sodipodi:docname="New document 3">
+   height="141.92644"
+   width="409.81845"
+   sodipodi:docname="diffusion.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,10 +24,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="261.98805"
-     inkscape:cy="154.8331"
+     inkscape:cx="46.522068"
+     inkscape:cy="90.292833"
      inkscape:document-units="px"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer4"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -45,7 +45,7 @@
      inkscape:window-maximized="0">
     <sodipodi:guide
        id="guide4682"
-       position="157.41378,33.495607"
+       position="1.5467977,-31.04466"
        orientation="1,0" />
   </sodipodi:namedview>
   <defs
@@ -115,19 +115,19 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      style="display:inline"
-     transform="translate(-170.71875,-429.09375)"
+     transform="translate(-326.58573,-445.87705)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="background">
     <path
        transform="matrix(1.4120603,0,0,1.4120603,163.1817,398.4405)"
-       d="m 228.29447,83.848946 a 50.255089,50.255089 0 1 1 -100.51018,0 50.255089,50.255089 0 1 1 100.51018,0 z"
+       d="m 228.29447,83.848946 c 0,27.755114 -22.49997,50.255084 -50.25509,50.255084 -27.75512,0 -50.25509,-22.49997 -50.25509,-50.255084 0,-27.75512 22.49997,-50.255089 50.25509,-50.255089 27.75512,0 50.25509,22.499969 50.25509,50.255089 z"
        sodipodi:ry="50.255089"
        sodipodi:rx="50.255089"
        sodipodi:cy="83.848946"
@@ -179,7 +179,8 @@
      style="display:inline"
      inkscape:label="frame1"
      id="layer2"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     transform="translate(-155.86698,-16.783302)">
     <g
        transform="translate(-51.09099,-450.30695)"
        id="g4783">
@@ -198,11 +199,11 @@
          sodipodi:cy="46.220764"
          sodipodi:rx="1.5467961"
          sodipodi:ry="2.1465743"
-         d="m 39.332814,46.220764 a 1.5467961,2.1465743 0 1 1 -3.093592,0 1.5467961,2.1465743 0 1 1 3.093592,0 z"
+         d="m 39.332814,46.220764 c 0,1.18552 -0.692524,2.146574 -1.546796,2.146574 -0.854272,0 -1.546796,-0.961054 -1.546796,-2.146574 0,-1.18552 0.692524,-2.146574 1.546796,-2.146574 0.854272,0 1.546796,0.961054 1.546796,2.146574 z"
          transform="translate(170.71875,429.09375)" />
       <path
          transform="translate(184.73462,437.30124)"
-         d="m 39.332814,46.220764 a 1.5467961,2.1465743 0 1 1 -3.093592,0 1.5467961,2.1465743 0 1 1 3.093592,0 z"
+         d="m 39.332814,46.220764 c 0,1.18552 -0.692524,2.146574 -1.546796,2.146574 -0.854272,0 -1.546796,-0.961054 -1.546796,-2.146574 0,-1.18552 0.692524,-2.146574 1.546796,-2.146574 0.854272,0 1.546796,0.961054 1.546796,2.146574 z"
          sodipodi:ry="2.1465743"
          sodipodi:rx="1.5467961"
          sodipodi:cy="46.220764"
@@ -227,10 +228,11 @@
        y="30.5634" />
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="frame2"
      id="layer3"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     transform="translate(-155.86698,-16.783302)">
     <g
        id="g4788"
        transform="translate(9.26893,-420.00238)"
@@ -304,10 +306,11 @@
        y="32.836243" />
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="frame3"
      id="layer4"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     transform="translate(-155.86698,-16.783302)">
     <g
        id="g4804"
        transform="matrix(0.36487915,-0.9310549,0.9310549,0.36487915,-289.41111,119.28934)"
@@ -349,10 +352,11 @@
        y="30.815939" />
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="frame4"
      id="layer5"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     transform="translate(-155.86698,-16.783302)">
     <g
        transform="matrix(-0.14325259,-0.98968616,0.98968616,-0.14325259,-142.0808,419.84963)"
        id="g4796"
@@ -372,11 +376,11 @@
          sodipodi:cy="46.220764"
          sodipodi:rx="1.5467961"
          sodipodi:ry="2.1465743"
-         d="m 39.332814,46.220764 c 0,1.18552 -0.692524,2.146574 -1.546796,2.146574 -0.854272,0 -1.546796,-0.961054 -1.546796,-2.146574 0,-1.18552 0.692524,-2.146574 1.546796,-2.146574 0.854272,0 1.546796,0.961054 1.546796,2.146574 z"
+         d="m 39.332814,46.220764 a 1.5467961,2.1465743 0 1 1 -3.093592,0 1.5467961,2.1465743 0 1 1 3.093592,0 z"
          transform="translate(170.71875,429.09375)" />
       <path
          transform="translate(184.73462,437.30124)"
-         d="m 39.332814,46.220764 c 0,1.18552 -0.692524,2.146574 -1.546796,2.146574 -0.854272,0 -1.546796,-0.961054 -1.546796,-2.146574 0,-1.18552 0.692524,-2.146574 1.546796,-2.146574 0.854272,0 1.546796,0.961054 1.546796,2.146574 z"
+         d="m 39.332814,46.220764 a 1.5467961,2.1465743 0 1 1 -3.093592,0 1.5467961,2.1465743 0 1 1 3.093592,0 z"
          sodipodi:ry="2.1465743"
          sodipodi:rx="1.5467961"
          sodipodi:cy="46.220764"
