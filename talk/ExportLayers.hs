@@ -36,7 +36,7 @@ tslide :: Text -> Text -> Writer [Slide] ()
 tslide title text = tell [TextSlide title text]
 
 note :: Text -> Writer [Slide] ()
-note _ = return ()
+note text = tell [Note text]
 
 title = "An open-source toolchain for fluorescence spectroscopy"
 
@@ -48,7 +48,8 @@ formatNotes :: [Slide] -> Text
 formatNotes = T.unlines . concatMap formatSlide . zip [1..]
   where
     slidePlaceholder n title = 
-      [ "# slide "<>T.pack (show n)<>": "<>title
+      [ ""
+      , "# slide "<>T.pack (show n)<>": "<>title
       , ""
       ]
     formatSlide (n, FigureSlide title _ _) = slidePlaceholder n title
@@ -78,7 +79,13 @@ writeSlides slides outName = do
                              , text
                              ]
         otherwise -> return ""
-    liftIO $ T.writeFile (encodeString outName) (T.concat $ ["# "<>title]++figures)
+    liftIO $ T.writeFile (encodeString outName) 
+      $ T.unlines [ "---"
+                  , "title: "<>title
+                  , "author: Ben Gamari, Laura Dietz, Lori Goldner"
+                  , "---"
+                  ]
+        <> T.concat figures
 
 
 slides :: [Slide] 
@@ -110,6 +117,8 @@ slides = execWriter $ do
      note "Even a single fluorescent probe is sufficient to measure molecular size, characterize reaction kinetics, and more"
 
      note "but let's say, though, that we want to do something a bit more sophisticated:"
+     note "say our molecule has multiple conformational states"
+     note "for a given set of environmental conditions, in which conformation is the molecule"
      note "measure the distance between two points on our molecule"
      fslide "Measuring a single molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "molecule-distance"]
@@ -130,18 +139,13 @@ slides = execWriter $ do
      note "The probability of energy transfer is higher when the dyes are close together giving us a measurement of distance"
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "excited-acceptor"]
+
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "acceptor-em-photon", "acceptor"]
 
      note "FRET efficiency depends upon distance, stoichastic"
      slide "Measuring an intramolecular distance" "conformations.svg"
 
-     note "Typically these experiments are done with an apparatus like this"
-     note "Labelled molecule diffusing in solution"
-     note "We get short bursts of fluorescence"
-     fslide "A fluorescence experiment" "fret-setup.svg"
-       $ showOnlyLayers ["background", "labels", "hardware", "fret-inset", "fret-labels", "detector-label", "legend"]
-     
      note "we want to go from photons"
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons"]
@@ -151,7 +155,13 @@ slides = execWriter $ do
      note "or barring that, something related to distance"
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons", "arrow", "distribution", "fret-eff-label"]
+
      note "but once we have this arrow, we've solved our problem"
+     note "Typically these experiments are done with an apparatus like this"
+     note "Labelled molecule diffusing in solution"
+     note "We get short bursts of fluorescence"
+     fslide "A fluorescence experiment" "fret-setup.svg"
+       $ showOnlyLayers ["background", "labels", "hardware", "fret-inset", "fret-labels", "detector-label", "legend"]
 
      note "Great, so we can measure distances, right?"
      fslide "A fluorescence experiment" "fret-setup.svg"
@@ -170,7 +180,7 @@ slides = execWriter $ do
      note "We offer an open-source photon timestamping instrument built on off-the-shelf hardware."
      note "As opposed to most commercial, instruments, the device is flexible enough to enable FRET variants such as alternating excitation which enables more sophisticated correction for the artifacts discussed above"
      note "Additionally, the hardware is orders of magnitude cheaper than equally capable commercial options."
-     fslide "Contribution: acquisition hardware" "fret-setup.svg"
+     fslide "Contribution: Acquisition hardware" "fret-setup.svg"
        $ highlightLayers 0.2 ["hardware"]
        . showOnlyLayers ["background", "hardware", "fret-inset"]
      
@@ -184,16 +194,42 @@ slides = execWriter $ do
      tslide "Contribution: Low-level data manipulation tools" "![](../burstfind.png)"
      note "Thorough documentation"
      tslide "Contribution: Low-level data manipulation tools" "![](photon-tools-docs.pdf)"
-     
+   
+     {-
+     fslide "FRET in solution" "diffusion.svg" ["background", "frame1"] 
+     fslide "FRET in solution" "diffusion.svg" ["background", "frame2"] 
+     fslide "FRET in solution" "diffusion.svg" ["background", "frame3"] 
+     fslide "FRET in solution" "diffusion.svg" ["background", "frame4"] 
+     -}
+
      note "End-to-end analysis package"
      note "Provides burst isolation, estimation of correction parameters, statistical analysis of resulting histogram"
      tslide "Contribution: End-to-end FRET analysis pipeline" "![](fret-analysis.png)"
      
+     tslide "Contribution: Probabilistic inference framework" ""
+
      -- 
      -- burst detection
      
      note "Statistical inference tools enable novel analyses"
      
+     tslide "Summary" $ T.unlines
+       [ " * Fluorescence provides unique view into single-molecule systems"
+       , " * Lack of common, open toolchain hinders reproducibility and slows progress"
+       , " * We provide,"
+       , "   * hardware for data analysis"
+       , "   * software for data acquisition"
+       , "   * tools for low-level data examination and manipulation"
+       , "   * tools for analysis of FRET experiments and others"
+       ]
+      
+     tslide "The code" $ T.unlines
+       [ " * Analysis tools:"
+       , "     * <http://github.com/bgamari/hphoton>"
+       , "     * <http://github.com/bgamari/photon-tools>"
+       , " * Timetagging instrument: <http://github.com/bgamari/timetag-tools>"
+       , " * Gibbs sampling framework: <http://github.com/bgamari/bayes-stack>"
+       ]
 
 type LayerLabel = Text
 

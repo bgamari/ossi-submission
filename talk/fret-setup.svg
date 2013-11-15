@@ -24,14 +24,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="218.07755"
+     inkscape:cx="159.07755"
      inkscape:cy="130.24896"
      inkscape:document-units="px"
-     inkscape:current-layer="layer22"
+     inkscape:current-layer="layer21"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="900"
+     inkscape:window-width="1918"
      inkscape:window-height="1173"
      inkscape:window-x="0"
      inkscape:window-y="25"
@@ -1551,7 +1551,7 @@
      inkscape:groupmode="layer"
      id="layer21"
      inkscape:label="fret-artifacts"
-     style="display:none;opacity:1">
+     style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-8)"
        d="m 218.14244,26.453765 c 47.46454,-0.176776 62.57895,7.424622 62.57895,7.424622"
@@ -1638,15 +1638,15 @@
     <text
        sodipodi:linespacing="125%"
        id="text12168"
-       y="52.865463"
-       x="71.854866"
+       y="62.865463"
+       x="75.354866"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#8d0615;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"><tspan
          id="tspan12172"
          style="font-size:10px;text-align:center;text-anchor:middle;fill:#8d0615;fill-opacity:1"
-         y="52.865463"
-         x="71.854866"
-         sodipodi:role="line">Poisson noise</tspan></text>
+         y="62.865463"
+         x="75.354866"
+         sodipodi:role="line">paucity of photons</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
