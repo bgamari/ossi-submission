@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1420.5691"
-   height="95.419975"
+   width="1638.6368"
+   height="178.42645"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
@@ -219,9 +219,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="912.97561"
-     inkscape:cy="-67.368283"
+     inkscape:zoom="2.8"
+     inkscape:cx="1339.3422"
+     inkscape:cy="144.74816"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -233,17 +233,17 @@
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      fit-margin-top="0"
-     fit-margin-left="0"
+     fit-margin-left="14"
      fit-margin-right="0"
      fit-margin-bottom="0"
      units="in">
     <sodipodi:guide
        orientation="1,0"
-       position="1153.4179,-53.596724"
+       position="1371.4856,-69.585176"
        id="guide3292" />
     <sodipodi:guide
        orientation="1,0"
-       position="1181.1897,-51.160994"
+       position="1399.2574,-67.149446"
        id="guide3294" />
   </sodipodi:namedview>
   <metadata
@@ -262,10 +262,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(825.11831,-562.9229)">
+     transform="translate(1043.186,-463.92795)">
     <g
        id="g3266"
-       transform="matrix(0.69243498,0,0,0.69243498,-828.98997,560.66443)">
+       transform="matrix(0.69243498,0,0,0.69243498,247.89356,461.66948)">
       <path
          d="m 184.61344,61.929363 c 0,-14.56215 -4.15226,-22.03817 -12.45678,-22.44755 -3.30427,-0.15595 -6.53055,0.37039 -9.66912,1.58878 -2.505,0.89673 -4.19124,1.78372 -5.07823,2.68045 l 0,34.75812 c 5.31216,3.33351 10.02976,4.88329 14.14303,4.63962 8.70415,-0.57508 13.0611,-7.64172 13.0611,-21.21942 z m 10.24419,0.60432 c 0,7.39804 -1.73498,13.53871 -5.22444,18.422 -3.88909,5.5266 -9.27923,8.37275 -16.17042,8.52871 -5.1952,0.1657 -10.54635,-1.46207 -16.05346,-4.87355 l 0,31.590317 -8.90884,-3.17755 0,-70.120567 c 1.46206,-1.79346 3.34325,-3.3335 5.62407,-4.63961 5.30242,-3.08983 11.74524,-4.67861 19.32848,-4.75658 l 0.12671,0.12671 c 6.93018,-0.08773 12.27159,2.75843 16.02422,8.5287 3.4992,5.29267 5.25368,12.07665 5.25368,20.37142 z"
          style="fill:#646464;fill-opacity:1"
