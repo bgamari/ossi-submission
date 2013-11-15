@@ -221,12 +221,18 @@ slides = execWriter $ do
      note "Statistical inference tools enable novel analyses"
      
      tslide "Summary" $ T.unlines
-       [ " * We provide,"
-       , "     * an open data acquisition instrument"
+       [ "![](summary.pdf)"
+       , ""
+       , " * We provide,"
+       , "     * an open photon timetagging instrument"
        , "     * software for data acquisition"
        , "     * tools for analysis of FRET and other fluorescence experiments"
+       , " "
        , " * <http://goldnerlab.physics.umass.edu/wiki/HardwareAndSoftware>"
        , " * <http://github.com/bgamari>"
+       , " * <bgamari@physics.umass.edu>"
+       , ""
+       , "![](languages.pdf)"
        ]
       
 type LayerLabel = Text
