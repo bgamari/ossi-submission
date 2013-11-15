@@ -101,11 +101,15 @@ writeSlides slides outName = do
 slides :: [Slide] 
 slides = execWriter $ do
      -- introduce single molecule measurement
-     note "We want to be able to see individual molecules, like this one here"
+     note "Work for Lori Goldner"
+     note "Will discuss open source tools I developed for analysis of single-molecule fluorescence data"
+     note "We want to be able to study structure of individual molecules"
+     note "Want to learn about shape, reactions with other molecules"
      fslide "A single-molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "molecule-label"]
      
      note "however molecules are quite small. How do we see them?"
+     note "too small for brightfield microscopy"
      fslide "A single-molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "molecule-label", "scale-bar"]
 
@@ -113,21 +117,21 @@ slides = execWriter $ do
      fslide "Seeing a single molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "fluorophore-label"]
 
-     note "this is a molecule which we can shine light on to excite"
+     note "this is a molecule which we can shine light"
      fslide "Seeing a single molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "fluorophore-label", "donor-exc-photon"]
+     note "to excite"
      fslide "Seeing a single molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "excited-donor"]
      
-     
-     note "later the molecule will decay, resulting in light which we can detect"
+     note "later the molecule will decay, resulting in a photon which we can detect"
      fslide "Seeing a single molecule" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "donor-em-photon"]
 
-     note "Even a single fluorescent probe is sufficient to measure molecular size, characterize reaction kinetics, and more"
+     note "Even this single labelling is sufficient to learn many things about our system: molecular size, learn reaction kinetics"
 
-     note "but let's say, though, that we want to do something a bit more sophisticated:"
-     note "say our molecule has multiple conformational states"
+     note "but there are some details singly labelled approach isn't very sensitive to"
+     note "let's say our molecule has multiple conformational states"
      note "for a given set of environmental conditions, in which conformation is the molecule"
      note "measure the distance between two points on our molecule"
      fslide "Measuring a single molecule" "fret.svg"
@@ -147,56 +151,61 @@ slides = execWriter $ do
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "excited-donor", "donor-label", "acceptor", "acceptor-label", "energy-transfer"]
      fslide "Measuring an intramolecular distance" "fret.svg"
-       $ showOnlyLayers ["molecule", "donor", "donor-label", "acceptor", "acceptor-label", "energy-transfer"]
+       $ showOnlyLayers ["molecule", "donor", "donor-label", "excited-acceptor", "acceptor-label", "energy-transfer"]
      
      note "The probability of energy transfer is higher when the dyes are close together giving us a measurement of distance"
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "excited-acceptor"]
 
      note "After this a photon will be emitted by the acceptor dye."
+     note "For each detected photon, we can distinguish which fluorophore produced it"
      fslide "Measuring an intramolecular distance" "fret.svg"
        $ showOnlyLayers ["molecule", "donor", "acceptor-em-photon", "acceptor"]
 
-     note "FRET efficiency depends upon distance, stoichastic"
+     note "as FRET efficiency depends upon distance, we have a stoichastic method for probing intramolecular geometry"
+     note "in the case of the extended molecule, we find a low probability of energy transfer, and therefore observe more donor photons"
      slide "Measuring an intramolecular distance" "conformations.svg"
 
+     note "but this is a stoichastic measurement"
+     note "often information starved; while we may collect millions of photons, each only encodes a small amount of information"
      note "we want to go from photons"
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons"]
      note "to distance"
+     note "we want this arrow"
      fslide "An inverse problem" "photons-to.svg"
        $ showOnlyLayers ["photons", "arrow", "distribution", "distance-label"]
      --note "or barring that, something related to distance"
      --fslide "An inverse problem" "photons-to.svg"
      --  $ showOnlyLayers ["photons", "arrow", "distribution", "fret-eff-label"]
-
      note "but once we have this arrow, we've solved our problem"
-     note "Typically these experiments are done with an apparatus like this"
-     note "Labelled molecule diffusing in solution"
-     note "We get short bursts of fluorescence"
+     note "let's consider how these observations are collected"
+
+     note "Typically these experiments are conducted with an apparatus like this"
+     note "Labelled molecule under microscope"
+     note "Excited with laser"
+     note "Detect fluorescence photons with photon counting detectors"
+     note "Record each arrival time with timing hardware"
      fslide "A fluorescence experiment" "fret-setup.svg"
        $ showOnlyLayers ["background", "labels", "hardware", "fret-inset", "fret-labels", "detector-label", "legend", "acceptor"]
 
-     note "Great, so we can measure distances, right?"
-     fslide "A fluorescence experiment" "fret-setup.svg"
-       $ showOnlyLayers ["background", "hardware", "fret-inset", "acceptor"]
      note "The devil is in the details: our instrument introduces numerous errors"
+     note "detectors lose photons"
+     note "optics are imperfect at distinguishing donor and acceptor photons"
      fslide "Errors abound" "fret-setup.svg"
        $ showOnlyLayers ["background", "fret-inset", "acceptor", "energy-transfer", "acceptor-em-photon", "fret-artifacts"]
-     note "In addition, "
+     note "In addition, we have the challenge of photophysics"
+     note "fluorophores will eventually die, changing the observed FRET efficiency"
+     note "These are just some of the effects for which we must correct for quantitatively accurate measurement"
+     note "lack of common open-source analysis toolkit means a great deal of duplicated work, many practitioners lack access to sophisticated tools, hinders reproducibility"
      fslide "Errors abound" "fret-setup.svg"
        $ showOnlyLayers ["background", "fret-inset", "dead-acceptor"]
-
-     note "We need to correct for these effects"
      
-     note "fluorescence spectroscopic tools unique view on geometry of single molecule systems"
-     note "but quantitative analysis of the experimental results is challenging"
-     note "lack of common open-source analysis toolkit means a great deal of duplicated work, many practitioners lack access to sophisticated tools"
      note "My submission consists of a set of open-source tools built on open platforms for the collection, manipulation, analysis of fluorescence spectroscopy data."
 
      note "We offer an open-source photon timestamping instrument built on off-the-shelf hardware."
-     note "As opposed to most commercial, instruments, the device is flexible enough to enable FRET variants such as alternating excitation which enables more sophisticated correction for the artifacts discussed above"
-     note "Additionally, the hardware is orders of magnitude cheaper than equally capable commercial options."
+     note "As opposed to most commercial instruments, the device is flexible enough to enable FRET variants such as alternating excitation which enables more sophisticated correction for the artifacts discussed above"
+     note "Additionally, the hardware is much cheaper than equally capable commercial options."
      fslide "Contribution: Acquisition hardware" "fret-setup.svg"
        $ highlightLayers 0.2 ["hardware"]
        . showOnlyLayers ["background", "hardware", "fret-inset", "acceptor"]
@@ -209,6 +218,7 @@ slides = execWriter $ do
      note "Analysis tools work not only with data from our own instrument, but also with commercial formats"
      note "Integrates fluidly with Python toolchain"
      tslide "Contribution: Low-level data manipulation tools" "![](../burstfind.png)"
+     tslide "Contribution: Low-level data manipulation tools" "![](plot-bins.pdf)"
      note "Thorough documentation"
      tslide "Contribution: Low-level data manipulation tools" "![](photon-tools-docs.pdf)"
    
@@ -219,17 +229,15 @@ slides = execWriter $ do
      fslide "FRET in solution" "diffusion.svg" ["background", "frame4"] 
      -}
 
-     note "End-to-end analysis package"
-     note "Provides burst isolation, estimation of correction parameters, statistical analysis of resulting histogram"
+     note "End-to-end analysis tools for several common fluorescence techniques"
+     note "Provides estimation of correction parameters"
+     note "Provides a variety of statistical diagnostics to evaluate result significance"
      tslide "Contribution: End-to-end FRET analysis pipeline" "![](fret-analysis.png)"
      
      --tslide "Contribution: Probabilistic inference framework" ""
-
-     -- 
-     -- burst detection
      
+     note "fluorescence spectroscopic tools unique view on geometry of single molecule systems"
      note "Statistical inference tools enable novel analyses"
-     
      tslide "Summary" $ T.unlines
        [ "![](summary.pdf)"
        , ""
@@ -271,6 +279,14 @@ traverseGroups =
 
 showAllGroups :: Document -> Document
 showAllGroups = traverseGroups . attrs . at "style" .~ Nothing
+
+hideLayers :: [LayerLabel] -> Document -> Document
+hideLayers layers doc =             
+    let match el = (el ^. attrs . at (inkscape "label")) `elem` map Just layers
+    in showAllGroups doc
+       & traverseGroups
+       . filtered match
+       . style "display" ?~ "none"
 
 showOnlyLayers :: [LayerLabel] -> Document -> Document
 showOnlyLayers showLayers doc =             

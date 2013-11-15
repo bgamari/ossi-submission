@@ -14,3 +14,6 @@ clean :
 	rm -f $(addsuffix .pdf, $(fret_figures))
 	rm -f $(addsuffix .svg, $(fret_figures))
 	rm -f talk.pdf
+
+present : slides.pdf
+	hpdfp slides.pdf

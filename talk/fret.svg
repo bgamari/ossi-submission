@@ -23,14 +23,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
-     inkscape:cx="956.36712"
+     inkscape:cx="720.36712"
      inkscape:cy="387.87868"
      inkscape:document-units="px"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer5"
      showgrid="false"
-     inkscape:window-width="1016"
+     inkscape:window-width="1918"
      inkscape:window-height="1173"
-     inkscape:window-x="902"
+     inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
      fit-margin-top="0"
@@ -314,21 +314,21 @@
   </g>
   <g
      transform="translate(185.625,-155.3231)"
-     style="display:none"
+     style="display:inline"
      inkscape:label="donor-label"
      id="layer5"
      inkscape:groupmode="layer">
     <text
        sodipodi:linespacing="125%"
        id="text4785"
-       y="427.36218"
-       x="755"
+       y="357.36218"
+       x="743"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
        xml:space="preserve"><tspan
          id="tspan4826"
          style="font-size:48px;fill:#000000;fill-opacity:1"
-         y="427.36218"
-         x="755"
+         y="357.36218"
+         x="743"
          sodipodi:role="line">Donor</tspan></text>
   </g>
   <g
@@ -345,14 +345,14 @@
        sodipodi:cy="285.21933"
        sodipodi:rx="29.285715"
        sodipodi:ry="62.857143"
-       d="m 99.285715,285.21933 c 0,34.71504 -13.111661,62.85714 -29.285715,62.85714 -16.174054,0 -29.285715,-28.1421 -29.285715,-62.85714 0,-34.71504 13.111661,-62.85714 29.285715,-62.85714 16.174054,0 29.285715,28.1421 29.285715,62.85714 z"
+       d="m 99.285715,285.21933 a 29.285715,62.857143 0 1 1 -58.57143,0 29.285715,62.857143 0 1 1 58.57143,0 z"
        transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,576.565,171.97881)" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="excited-donor"
-     style="display:none"
+     style="display:inline"
      transform="translate(0,6.8004599e-6)">
     <path
        sodipodi:type="star"
@@ -371,7 +371,7 @@
        d="m 853.6,229.86603 -10.32934,-2.20767 8.32441,-6.50179 -7.05898,-7.85746 10.55624,-0.3671 L 854,202.42602 l 8.75595,5.90782 5.29155,-9.14158 3.61119,9.92614 9.65424,-4.28539 -2.91293,10.15302 10.32934,2.20766 -8.32441,6.50179 7.05898,7.85746 -10.55624,0.3671 1.09233,10.50599 -8.75595,-5.90782 -5.29155,9.14158 -3.61119,-9.92614 -9.65424,4.28539 z"
        inkscape:transform-center-x="-8.0147544"
        inkscape:transform-center-y="3.224509"
-       transform="matrix(4.271073,0,0,4.271073,-2789.4537,-671.70595)" />
+       transform="matrix(4.271073,0,0,4.271073,-2811.4537,-665.70595)" />
   </g>
   <g
      inkscape:groupmode="layer"
