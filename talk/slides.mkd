@@ -1,0 +1,127 @@
+---
+title: An open-source toolchain for fluorescence spectroscopy
+author:
+- Ben Gamari\inst{1}
+- Laura Dietz\inst{2}
+- Lori Goldner \inst{1}
+---
+
+## A single-molecule
+
+![](slide-1.pdf)
+
+## A single-molecule
+
+![](slide-2.pdf)
+
+## Seeing a single molecule
+
+![](slide-3.pdf)
+
+## Seeing a single molecule
+
+![](slide-4.pdf)
+
+## Seeing a single molecule
+
+![](slide-5.pdf)
+
+## Seeing a single molecule
+
+![](slide-6.pdf)
+
+## Measuring a single molecule
+
+![](slide-7.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-8.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-9.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-10.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-11.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-12.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-13.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-14.pdf)
+
+## Measuring an intramolecular distance
+
+![](slide-15.pdf)
+
+## An inverse problem
+
+![](slide-16.pdf)
+
+## An inverse problem
+
+![](slide-17.pdf)
+
+## A fluorescence experiment
+
+![](slide-18.pdf)
+
+## Errors abound
+
+![](slide-19.pdf)
+
+## Errors abound
+
+![](slide-20.pdf)
+
+## Contribution: Acquisition hardware
+
+![](slide-21.pdf)
+
+## Contribution: Acquisition software
+
+![](../timetag-ui.png)
+
+## Contribution: Low-level data manipulation tools
+
+![](../burstfind.png)
+
+## Contribution: Low-level data manipulation tools
+
+![](plot-bins.pdf)
+
+## Contribution: Low-level data manipulation tools
+
+![](photon-tools-docs.pdf)
+
+## Contribution: End-to-end FRET analysis pipeline
+
+![](fret-analysis.png)
+
+## Summary
+
+![](summary.pdf)
+
+ * We provide,
+     * an open photon timetagging instrument
+     * software for data acquisition
+     * tools for analysis of FRET and other fluorescence experiments
+ 
+ * <http://goldnerlab.physics.umass.edu/wiki/HardwareAndSoftware>
+ * <http://github.com/bgamari>
+ * <bgamari@physics.umass.edu>
+
+![](languages.pdf)
+
